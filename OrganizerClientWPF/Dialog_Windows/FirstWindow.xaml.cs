@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using MahApps.Metro.Controls;
 
-namespace OrganaizerClientWPF
+namespace OrganizerClientWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
