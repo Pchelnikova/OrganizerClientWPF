@@ -10,16 +10,12 @@ namespace OrganizerClientWPF
     public partial class MainWindow : MetroWindow
     {
 
+    
+
         public MainWindow()
         {
             InitializeComponent();
         }
-        //глобальная змінна для ІД
-        public static class Global
-        {
-            public static int userID { get; set; }
-        }
-
         //Старт. Авторизація
         private void Button_Click(object sender, RoutedEventArgs e)
         {

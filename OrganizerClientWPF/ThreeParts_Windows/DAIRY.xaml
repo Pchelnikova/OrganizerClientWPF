@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="title" Text="DAIRY" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"  Margin="0, 10, 0, 0"  
                         FontSize="36" FontWeight="Bold"  Background="#FFEAD96E"/>
-            <Button Grid.Column="3" Grid.Row="1" Background="#FFE2891D" Margin="10,10,10,10"  Content="SEE ALL NOTES" FontSize="18" Click="Button_Click_1" />
+            <Button Grid.Column="3" Grid.Row="1" Background="#FFE2891D" Margin="10,10,10,10"  Content="SEE ALL NOTES" FontSize="18" Click="See_All_Notes_Click" />
             <Button Grid.Column="0" Grid.Row="1" Background="#FFE28918" Margin="10,10,10,10"  Content="ADD NEW NOTE" FontSize="18" Click="Button_Click" />
             <Button x:Name="add" Grid.Column="3" Grid.Row="2" Background="#FFEAD96E" Margin="30,190,50,30"  Content="ADD NOTE" FontSize="16" Click="Button_Click_2" Visibility="Visible" />
             <DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="START DATE" />

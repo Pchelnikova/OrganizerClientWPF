@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using MahApps.Metro.Controls;
+using DALOrganizerClientWPF;
 
 
 namespace OrganizerClientWPF
@@ -12,6 +13,7 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class DAIRY : MetroWindow
     {
+        private readonly DataDAL _dalCl = new DataDAL();
         public DAIRY()
         {
             InitializeComponent();
@@ -28,36 +30,33 @@ namespace OrganizerClientWPF
         ///all notes by dates
         private void select_date(object sender, RoutedEventArgs e)
         {
-            //using (var ctx = new DAL.Model())
-            //{
+           
             //    var dairies = ctx.Dayries.Where(note => note.User.Id == MainWindow.Global.userID).ToList();
             //    dairies = dairies.Where(day => (day.Date_ >= Calendar.SelectedDate.Value) && (day.Date_ <= Calendar2.SelectedDate.Value)).ToList();
             //    Binding binding = new Binding();
             //    binding.Source = dairies;
             //    dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-            //}
+            
 
         }
 
         /////see all dairy by id
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void See_All_Notes_Click(object sender, RoutedEventArgs e)
         {
 
-            //    add.Visibility = Visibility.Hidden;
-            //    period.Visibility = Visibility.Visible;
-            //    Calendar.Visibility = Visibility.Visible;
-            //    Calendar2.Visibility = Visibility.Visible;
+            add.Visibility = Visibility.Hidden;
+            period.Visibility = Visibility.Visible;
+            Calendar.Visibility = Visibility.Visible;
+            Calendar2.Visibility = Visibility.Visible;
 
-            //    using (var ctx = new DAL.Model())
-            //    {
-            //        var dairies = ctx.Dayries.Where(note => note.User.Id == MainWindow.Global.userID).ToList();
-            //        var dairy_list = dairies.Select(item => new { item.Date_, item.Text });
-            //        Dairy_Text.Visibility = Visibility.Hidden;
-            //        dairy_Grid.Visibility = Visibility.Visible;
-            //        Binding binding = new Binding();
-            //        binding.Source = dairy_list;
-            //        dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-            //    }
+            //       
+            var dairy_list = _dalCl.Show_All_Notes(DTO.User.Login);
+            Dairy_Text.Visibility = Visibility.Hidden;
+            dairy_Grid.Visibility = Visibility.Visible;
+            Binding binding = new Binding();
+            binding.Source = dairy_list;
+            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+           
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using OrganizerClientWPF.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,10 @@ namespace OrganizerClientWPF
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
+   
     public partial class Login_Window : MetroWindow
     {
+       
         public Login_Window()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace OrganizerClientWPF
             {
                 FirstChoice_Window firstChoice_Window = new FirstChoice_Window();
                 firstChoice_Window.Show();
+                DTO.User.Login = loginBox.Text;
 
             }
             //using (var ctx = new Model())

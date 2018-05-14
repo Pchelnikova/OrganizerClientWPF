@@ -75,6 +75,8 @@
     <Compile Include="Dialog_Windows\User_Account_Info.xaml.cs">
       <DependentUpon>User_Account_Info.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DTO\DairyWPF_DTO.cs" />
+    <Compile Include="DTO\User.cs" />
     <Compile Include="ThreeParts_Windows\BUDGET.xaml.cs">
       <DependentUpon>BUDGET.xaml</DependentUpon>
     </Compile>
@@ -177,8 +179,12 @@
   <ItemGroup>
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DataModels\" />
+    <ProjectReference Include="..\DALOrganizerClientWPF\DALOrganizerClientWPF.csproj">
+      <Project>{6bc7a438-4d3d-45f8-9dc9-a362546d67f1}</Project>
+      <Name>DALOrganizerClientWPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DALOrganizerClientWPF
+namespace OrganizerClientWPF.DTO
 {
-    public class Class1
+   public static class User
     {
+        public static string Login { get; set; }
     }
 }
