@@ -7,10 +7,10 @@ namespace OrganizerClientWPF
     /// Interaction logic for MainWindow.xaml
     /// </summary>
 
-    public partial class FirstWindow : MetroWindow
+    public partial class MainWindow : MetroWindow
     {
 
-        public FirstWindow()
+        public MainWindow()
         {
             InitializeComponent();
         }

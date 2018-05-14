@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-         Title="NEW ACCOUNT"  Width="300" Height="300" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+         Title="NEW ACCOUNT"  Width="300" Height="300" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Foreground="{x:Null}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

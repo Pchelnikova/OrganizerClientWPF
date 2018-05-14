@@ -26,34 +26,34 @@ namespace OrganizerClientWPF
         }
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            string new_login = loginBox.Text;
-            string new_password = passwordBox.Text;
+            //string new_login = loginBox.Text;
+            //string new_password = passwordBox.Text;
 
-            using (var ctx = new Model())
-            {
-                var users = ctx.Users.ToList();
-                var rang = ctx.Rangs_of_User.ToList();
-                var user_ = users.FirstOrDefault(item => item.Login == new_login);
-                if (user_ == null)
-                {
-                    User user = new User() { Login = new_login, Password_ = new_password, Rang_of_User = rang.FirstOrDefault(item => item.Rang == "Junior") };
-                    ctx.Users.Add(user);
-                    MainWindow.Global.userID = user == null ? 0 : user.Id;
-                    ctx.SaveChanges();
+            //using (var ctx = new Model())
+            //{
+            //    var users = ctx.Users.ToList();
+            //    var rang = ctx.Rangs_of_User.ToList();
+            //    var user_ = users.FirstOrDefault(item => item.Login == new_login);
+            //    if (user_ == null)
+            //    {
+            //        User user = new User() { Login = new_login, Password_ = new_password, Rang_of_User = rang.FirstOrDefault(item => item.Rang == "Junior") };
+            //        ctx.Users.Add(user);
+            //        MainWindow.Global.userID = user == null ? 0 : user.Id;
+            //        ctx.SaveChanges();
 
-                    Login_Window login = new Login_Window();
-                    login.Show();
-                    this.Close();
-                }
-                else
-                {
-                    Login_Is_Busy login_Is_Busy = new Login_Is_Busy();
-                    login_Is_Busy.Show();
-                    this.Close();
-                    loginBox.Text = null;
-                    passwordBox.Text = null;
-                }
-            }
+            //        Login_Window login = new Login_Window();
+            //        login.Show();
+            //        this.Close();
+            //    }
+            //    else
+            //    {
+            //        Login_Is_Busy login_Is_Busy = new Login_Is_Busy();
+            //        login_Is_Busy.Show();
+            //        this.Close();
+            //        loginBox.Text = null;
+            //        passwordBox.Text = null;
+            //    }
+            //}
 
         }
         //exit

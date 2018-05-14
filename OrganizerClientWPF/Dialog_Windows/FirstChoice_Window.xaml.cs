@@ -35,7 +35,7 @@ namespace OrganizerClientWPF
         //Budjet begin
         private void Budjet_Click(object sender, RoutedEventArgs e)
         {
-            BUDJET budjet_Window = new BUDJET();
+            BUDGET budjet_Window = new BUDGET();
             budjet_Window.Show();
             this.Close();
         }

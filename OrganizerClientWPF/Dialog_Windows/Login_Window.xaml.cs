@@ -27,25 +27,31 @@ namespace OrganizerClientWPF
         //перевірка логіна/пароля
         private void Go_Click(object sender, RoutedEventArgs e)
         {
-            using (var ctx = new Model())
+            if (loginBox.Text == "1" && passwordBox.Password == "1")
             {
-                List<Model_Classes.User> users = ctx.Users.ToList();
-                var log = users.FirstOrDefault(item => item.Login == loginBox.Text && item.Password_ == passwordBox.Password);
-                if (log != null)
-                {
-                    Begin_Window begin = new Begin_Window();
-                    begin.Show();
-                    //глобальна змінна для id
-                    MainWindow.Global.userID = log == null ? 0 : log.Id;
-                    this.Close();
-                }
-                else
-                {
-                    Login_Not_Exist login_Not_Exist = new Login_Not_Exist();
-                    login_Not_Exist.Show();
-                    this.Close();
-                }
+                FirstChoice_Window firstChoice_Window = new FirstChoice_Window();
+                firstChoice_Window.Show();
+
             }
+            //using (var ctx = new Model())
+            //{
+            //    List<Model_Classes.User> users = ctx.Users.ToList();
+            //    var log = users.FirstOrDefault(item => item.Login == loginBox.Text && item.Password_ == passwordBox.Password);
+            //    if (log != null)
+            //    {
+            //        Begin_Window begin = new Begin_Window();
+            //        begin.Show();
+            //        //глобальна змінна для id
+            //        MainWindow.Global.userID = log == null ? 0 : log.Id;
+            //        this.Close();
+            //    }
+            //    else
+            //    {
+            //        Login_Not_Exist login_Not_Exist = new Login_Not_Exist();
+            //        login_Not_Exist.Show();
+            //        this.Close();
+            //    }
+            //}
         }
         //for create new account
         private void Button_Click_2(object sender, RoutedEventArgs e)

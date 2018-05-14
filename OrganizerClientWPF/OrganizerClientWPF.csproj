@@ -66,6 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dialog_Windows\Login_Is_Busy.xaml.cs">
+      <DependentUpon>Login_Is_Busy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog_Windows\Login_Not_Exist.xaml.cs">
+      <DependentUpon>Login_Not_Exist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog_Windows\User_Account_Info.xaml.cs">
+      <DependentUpon>User_Account_Info.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThreeParts_Windows\BUDGET.xaml.cs">
       <DependentUpon>BUDGET.xaml</DependentUpon>
     </Compile>
@@ -76,7 +85,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialog_Windows\FirstWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -87,15 +96,27 @@
     <Compile Include="Dialog_Windows\Create_Account.xaml.cs">
       <DependentUpon>Create_Account.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog_Windows\FirstWindow.xaml.cs">
-      <DependentUpon>FirstWindow.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Dialog_Windows\Login_Is_Busy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog_Windows\Login_Not_Exist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialog_Windows\Login_Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog_Windows\FirstChoice_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog_Windows\User_Account_Info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
