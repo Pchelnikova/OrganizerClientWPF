@@ -47,7 +47,7 @@
             <DockPanel Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" >
                 <TextBlock Margin="10" DockPanel.Dock="Top" FontSize="16" FontWeight="Bold" >DESCRIPTION:</TextBlock>
                 <TextBox  x:Name="description" DockPanel.Dock="Top" MinLines="8"></TextBox>
-                <Button x:Name="save_add" DockPanel.Dock="Left" Margin="200,20,20,20" Background="#FFD86868" FontSize="24" Click="Save_New_Profit_Click">ADD</Button>
+                <Button x:Name="save_add" DockPanel.Dock="Left" Margin="200,20,20,20" Background="#FFD86868" FontSize="24" Click="Save_New_Profit_Click">SAVE</Button>
             </DockPanel>
             <!-- форма ADD-->
             <!--закриває ADD-->

@@ -56,7 +56,7 @@
     </Compile>
     <Compile Include="DataDAL.cs" />
     <Compile Include="DTO\DiaryDAL.cs" />
-    <Compile Include="DTO\ProfitDAL.cs" />
+    <Compile Include="DTO\Profit_ExpanceDAL.cs" />
     <Compile Include="DTO\UserDAL_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,7 +71,7 @@
     <None Include="Connected Services\ServiceReference1\DALOrganizerClientWPF.ServiceReference1.Diary_WCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReference1\DALOrganizerClientWPF.ServiceReference1.Profit_WCF.datasource">
+    <None Include="Connected Services\ServiceReference1\DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />

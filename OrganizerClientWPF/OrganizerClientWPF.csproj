@@ -83,7 +83,7 @@
       <DependentUpon>User_Account_Info.xaml</DependentUpon>
     </Compile>
     <Compile Include="DTO\DairyWPF_DTO.cs" />
-    <Compile Include="DTO\ProfitWPF_DTO.cs" />
+    <Compile Include="DTO\Profit_ExpanceWPF_DTO.cs" />
     <Compile Include="DTO\User.cs" />
     <Compile Include="ThreeParts_Windows\BUDGET.xaml.cs">
       <DependentUpon>BUDGET.xaml</DependentUpon>
@@ -190,6 +190,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DALOrganizerClientWPF.ServiceReference1.CompositeType.datasource" />
     <None Include="Properties\DataSources\DALOrganizerClientWPF.ServiceReference1.Diary_WCF.datasource" />
+    <None Include="Properties\DataSources\DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF.datasource" />
     <None Include="Properties\DataSources\DALOrganizerClientWPF.ServiceReference1.Profit_WCF.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

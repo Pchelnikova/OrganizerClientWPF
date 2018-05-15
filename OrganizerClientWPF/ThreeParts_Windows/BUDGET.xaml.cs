@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using OrganizerClientWPF.DTO;
+using System.Globalization;
 
 namespace OrganizerClientWPF
 {
@@ -60,26 +61,65 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetProfitsTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            save_add.Click += Save_New_Profit_Click;
+            save_add.Content = "SAVE";
 
         }
 
         private void Save_New_Profit_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
+            {
+                DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO new_profit = new DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO()
+                {
+                    Date_ = date.SelectedDate.Value,
+                    Sum = number,
+                    Profit_Expance_Type = type.SelectedValue.ToString(),
+                    Description = description.Text
+                };
+                _dalCl.Save_New_Profit(new_profit, User.Login);
+            }            
+        }
 
-            //    var prof_type = _ctx.Profit_Types.Select(item => item.Name).ToList();
-            //    Binding binding = new Binding
-            //    {
-            //        Source = prof_type
-            //    };
-            //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+        private void Save_New_Expance_Click(object sender, RoutedEventArgs e)
+        {
+            if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
+            {
+               DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO new_expance = new DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO()
+                {
+                    Date_ = date.SelectedDate.Value,
+                    Sum = number,
+                    Profit_Expance_Type = type.SelectedValue.ToString(),
+                    Description = description.Text
+                };
+                _dalCl.Save_New_Expance(new_expance, User.Login);
+            }
         }
         ///open Expances
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
             Change_Window();
-            add.Click += ExpanceAdd;
+            add.Click += Add_Click_Expance;
+            save_add.Click += Save_New_Expance_Click;
+            show_all.Click += Show_All_Expance_Click;
         }
+
+        private void Add_Click_Expance(object sender, RoutedEventArgs e)
+        {
+            border_add.Visibility = Visibility.Hidden;
+            edit.Visibility = Visibility.Hidden;
+            delete.Visibility = Visibility.Hidden;
+            budget_Grid.Visibility = Visibility.Hidden;
+
+            Binding binding = new Binding
+            {
+                Source = _dalCl.GetExpanceTypes()
+            };
+            type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+
+        }
+
+     
         //Open Plans
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
@@ -97,29 +137,26 @@ namespace OrganizerClientWPF
             show_all.Content = "EXPANCE";
 
 
-        }
-       
-
-        ////button ADD (Expance)
-        private void ExpanceAdd(object sender, RoutedEventArgs e)
-        {
-            //    var expance_type = _ctx.Expances_Types.Select(item => item.Name).ToList();
-            //    Binding binding = new Binding
-            //    {
-            //        Source = expance_type
-            //    };
-            //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-        }
-
-       
+        }   
         
        
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
             edit.Visibility = Visibility.Visible;
-           // Bind_To_DataGrid_Expance();
+            var profits_list = _dalCl.Show_All_Expance(DTO.User.Login);
+            Binding binding = new Binding();
+            binding.Source = profits_list;
+            budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+            budget_Grid.Visibility = Visibility.Visible;
+           save_add.Content = "DELETE";
+            save_add.Click += Delete_Expance;
+
         }
+
+        private void Delete_Expance (object sender, RoutedEventArgs e)
+        { }
+
         //ADD  new budget or expance or plan
         private void add_profit(object sender, RoutedEventArgs e)
         {

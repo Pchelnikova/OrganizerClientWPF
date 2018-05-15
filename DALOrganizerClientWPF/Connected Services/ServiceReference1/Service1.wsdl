@@ -33,11 +33,35 @@
   <wsdl:message name="IService1_Show_All_Profits_OutputMessage">
     <wsdl:part name="parameters" element="tns:Show_All_ProfitsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Show_All_Expance_InputMessage">
+    <wsdl:part name="parameters" element="tns:Show_All_Expance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Show_All_Expance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Show_All_ExpanceResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetProfitsTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProfitsTypes" />
   </wsdl:message>
   <wsdl:message name="IService1_GetProfitsTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProfitsTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExpanceTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpanceTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExpanceTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExpanceTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Save_New_Expance_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save_New_Expance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Save_New_Expance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Save_New_ExpanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Save_New_Profit_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save_New_Profit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Save_New_Profit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Save_New_ProfitResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
@@ -62,9 +86,25 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Profits" message="tns:IService1_Show_All_Profits_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_ProfitsResponse" message="tns:IService1_Show_All_Profits_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Show_All_Expance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Expance" message="tns:IService1_Show_All_Expance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_ExpanceResponse" message="tns:IService1_Show_All_Expance_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetProfitsTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProfitsTypes" message="tns:IService1_GetProfitsTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProfitsTypesResponse" message="tns:IService1_GetProfitsTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExpanceTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExpanceTypes" message="tns:IService1_GetExpanceTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExpanceTypesResponse" message="tns:IService1_GetExpanceTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save_New_Expance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Save_New_Expance" message="tns:IService1_Save_New_Expance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Save_New_ExpanceResponse" message="tns:IService1_Save_New_Expance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save_New_Profit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Save_New_Profit" message="tns:IService1_Save_New_Profit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Save_New_ProfitResponse" message="tns:IService1_Save_New_Profit_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
@@ -109,8 +149,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Show_All_Expance">
+      <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Expance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetProfitsTypes">
       <soap:operation soapAction="http://tempuri.org/IService1/GetProfitsTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpanceTypes">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetExpanceTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save_New_Expance">
+      <soap:operation soapAction="http://tempuri.org/IService1/Save_New_Expance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save_New_Profit">
+      <soap:operation soapAction="http://tempuri.org/IService1/Save_New_Profit" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
