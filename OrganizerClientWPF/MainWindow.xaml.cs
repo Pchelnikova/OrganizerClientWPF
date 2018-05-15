@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
+using System.Windows;
+
 
 namespace OrganizerClientWPF
 {
@@ -9,14 +10,11 @@ namespace OrganizerClientWPF
 
     public partial class MainWindow : MetroWindow
     {
-
-    
-
         public MainWindow()
         {
             InitializeComponent();
         }
-        //Старт. Авторизація
+        //START 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Login_Window window2 = new Login_Window();

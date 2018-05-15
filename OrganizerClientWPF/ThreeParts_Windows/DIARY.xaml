@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
       
-        Title="DAIRY" WindowStartupLocation="CenterScreen" Height="500" Width="800">
+        Title="DIARY" WindowStartupLocation="CenterScreen" Height="500" Width="800">
     <Grid>
         <Grid x:Name="first_grid">
             <Grid.RowDefinitions>
@@ -30,8 +30,8 @@
             <Button x:Name="delete" Grid.Column="3" Grid.Row="2" Background="#FFCF514B" Margin="30,190,50,30"  Content="DELETE NOTE" FontSize="16" Click="Delete_Note_Click" Visibility="Collapsed" />
             <DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="START DATE" />
             <DatePicker x:Name="Calendar2" SelectedDateChanged="select_date"  IsDropDownOpen="False" Grid.Column="3" Grid.Row="2" Margin="0,80,0,160" Visibility="Hidden" Text="END DATE" />
-            <DataGrid x:Name="dairy_Grid"   ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
-                      Visibility="Collapsed"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible"  >
+            <DataGrid x:Name="dairy_Grid"  IsReadOnly="True"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
+                      Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="50"  >
             </DataGrid>
             <TextBox x:Name ="Diary_Text"  Visibility="Visible" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
                      BorderBrush="AliceBlue"  BorderThickness="3" />

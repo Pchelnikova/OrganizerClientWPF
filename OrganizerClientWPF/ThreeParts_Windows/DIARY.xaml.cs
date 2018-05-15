@@ -17,14 +17,9 @@ namespace OrganizerClientWPF
         public DIARY()
         {
             InitializeComponent();
-            //Title by login
-            //using (var ctx = new DAL.Model())
-            //{
-            //    var users = ctx.Users.ToList();
-            //    var user = users.FirstOrDefault(item => item.Id == MainWindow.Global.userID);
-            //    string user_ = user.Login.ToUpper();
-            //    title.Text = user_ + "'s Dairy";
-            //}
+
+            //Title by login           
+            title.Text = DTO.User.Login.ToString().ToUpper() + "'s Dairy";
         }
 
         ///all notes by dates
@@ -48,7 +43,7 @@ namespace OrganizerClientWPF
             period.Visibility = Visibility.Visible;
             Calendar.Visibility = Visibility.Visible;
             Calendar2.Visibility = Visibility.Visible;
-            add.Visibility = Visibility.Collapsed;
+            add.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Visible;
 
             //       
@@ -69,6 +64,8 @@ namespace OrganizerClientWPF
             Calendar.Visibility = Visibility.Hidden;
             Calendar2.Visibility = Visibility.Hidden;
             period.Visibility = Visibility.Hidden;
+            delete.Visibility = Visibility.Collapsed;
+            add.Visibility = Visibility.Visible;
         }
 
         ///add to base new note
@@ -80,7 +77,12 @@ namespace OrganizerClientWPF
 
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
+            //if (dairy_Grid.SelectedIndex > -1)
+            //{
+            //    string note_for_delete = (dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString();
 
+            //    _dalCl.Delete_Note(note_for_delete);
+            //}           
         }
 
 

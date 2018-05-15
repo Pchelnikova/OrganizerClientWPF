@@ -23,6 +23,7 @@ namespace OrganizerClientWPF
         public User_Account_Info()
         {
             InitializeComponent();
+            title.Text = DTO.User.Login.ToString().ToUpper() + "'s INFO";
         }
 
         //change login

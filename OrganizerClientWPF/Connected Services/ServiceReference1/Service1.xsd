@@ -29,6 +29,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Delete_Note">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_NoteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>

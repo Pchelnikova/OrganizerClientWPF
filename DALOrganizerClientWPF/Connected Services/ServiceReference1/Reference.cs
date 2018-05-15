@@ -151,6 +151,12 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add_Note", ReplyAction="http://tempuri.org/IService1/Add_NoteResponse")]
         System.Threading.Tasks.Task Add_NoteAsync(string note, string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Note", ReplyAction="http://tempuri.org/IService1/Delete_NoteResponse")]
+        void Delete_Note(string note);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Note", ReplyAction="http://tempuri.org/IService1/Delete_NoteResponse")]
+        System.Threading.Tasks.Task Delete_NoteAsync(string note);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
         
@@ -199,6 +205,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task Add_NoteAsync(string note, string login) {
             return base.Channel.Add_NoteAsync(note, login);
+        }
+        
+        public void Delete_Note(string note) {
+            base.Channel.Delete_Note(note);
+        }
+        
+        public System.Threading.Tasks.Task Delete_NoteAsync(string note) {
+            return base.Channel.Delete_NoteAsync(note);
         }
         
         public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {

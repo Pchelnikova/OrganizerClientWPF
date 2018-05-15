@@ -27,5 +27,10 @@ namespace DALOrganizerClientWPF
         {
             _service.Add_Note(note, login);
         }
+
+       public void Delete_Note(string note)
+        {
+            _service.Delete_Note(note);
+        }
     }
 }

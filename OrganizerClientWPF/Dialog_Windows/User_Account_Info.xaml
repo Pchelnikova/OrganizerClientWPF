@@ -30,8 +30,8 @@
         <Label Content="STATUS" Grid.Column="0" Grid.Row="3" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Foreground="#FF704B09"/>
         <Label Content="STATUS of" Grid.Column="0" Grid.Row="4" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" FontWeight="Bold" Foreground="#FF704B09"/>
 
-        <TextBlock x:Name="title" Text="INFO" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"  Margin="0, 0, 0, 0"  
-                        FontSize="36" FontWeight="Bold"  Background="#FFBEADE0"/>
+        <TextBlock x:Name="title" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"  Margin="10,30,-10,56"  
+                        FontSize="36" FontWeight="Bold"  Background="#FFBEADE0" Grid.RowSpan="2"/>
         <TextBox Grid.Column="1"  Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" Text="Login" FontSize="24" FontWeight="Bold" Margin="30,10,20,10"/>
         <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center" Text="Parol" FontSize="24" FontWeight="Bold" Margin="30,10,20,10"/>
         <TextBox Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" TextAlignment="Center" Text="Status" FontSize="24" FontWeight="Bold" Margin="30,10,20,10"/>

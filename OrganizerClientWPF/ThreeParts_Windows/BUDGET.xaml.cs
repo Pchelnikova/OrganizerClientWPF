@@ -22,12 +22,8 @@ namespace OrganizerClientWPF
     {
         public BUDGET()
         {
-            InitializeComponent();
-
-            //var users = _ctx.Users.ToList();
-            //var user = users.FirstOrDefault(item => item.Id == MainWindow.Global.userID);
-            //string user_ = user.Login.ToUpper();
-            //title.Text = user_ + "'s Budjet";
+            InitializeComponent();            
+            title.Text = DTO.User.Login.ToString().ToUpper() + "'s Budjet";
 
         }
         ////open Profits
