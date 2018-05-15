@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DALOrganizerClientWPF.DTO;
 using DALOrganizerClientWPF.ServiceReference1;
 
+
 namespace DALOrganizerClientWPF
 {
     public class DataDAL
