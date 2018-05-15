@@ -33,6 +33,18 @@ namespace OrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Note", ReplyAction="http://tempuri.org/IService1/Delete_NoteResponse")]
         System.Threading.Tasks.Task Delete_NoteAsync(string note);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
+        DALOrganizerClientWPF.ServiceReference1.Profit_WCF[] Show_All_Profits(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_WCF[]> Show_All_ProfitsAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
+        string[] GetProfitsTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
+        System.Threading.Tasks.Task<string[]> GetProfitsTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
         
@@ -89,6 +101,22 @@ namespace OrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task Delete_NoteAsync(string note) {
             return base.Channel.Delete_NoteAsync(note);
+        }
+        
+        public DALOrganizerClientWPF.ServiceReference1.Profit_WCF[] Show_All_Profits(string login) {
+            return base.Channel.Show_All_Profits(login);
+        }
+        
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_WCF[]> Show_All_ProfitsAsync(string login) {
+            return base.Channel.Show_All_ProfitsAsync(login);
+        }
+        
+        public string[] GetProfitsTypes() {
+            return base.Channel.GetProfitsTypes();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetProfitsTypesAsync() {
+            return base.Channel.GetProfitsTypesAsync();
         }
         
         public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {

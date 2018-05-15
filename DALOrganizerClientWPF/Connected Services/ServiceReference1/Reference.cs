@@ -76,6 +76,83 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profit_WCF", Namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class Profit_WCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SumField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date_ {
+            get {
+                return this.Date_Field;
+            }
+            set {
+                if ((this.Date_Field.Equals(value) != true)) {
+                    this.Date_Field = value;
+                    this.RaisePropertyChanged("Date_");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Sum {
+            get {
+                return this.SumField;
+            }
+            set {
+                if ((this.SumField.Equals(value) != true)) {
+                    this.SumField = value;
+                    this.RaisePropertyChanged("Sum");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer")]
     [System.SerializableAttribute()]
     public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -157,6 +234,18 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Note", ReplyAction="http://tempuri.org/IService1/Delete_NoteResponse")]
         System.Threading.Tasks.Task Delete_NoteAsync(string note);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
+        DALOrganizerClientWPF.ServiceReference1.Profit_WCF[] Show_All_Profits(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_WCF[]> Show_All_ProfitsAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
+        string[] GetProfitsTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
+        System.Threading.Tasks.Task<string[]> GetProfitsTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
         
@@ -213,6 +302,22 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task Delete_NoteAsync(string note) {
             return base.Channel.Delete_NoteAsync(note);
+        }
+        
+        public DALOrganizerClientWPF.ServiceReference1.Profit_WCF[] Show_All_Profits(string login) {
+            return base.Channel.Show_All_Profits(login);
+        }
+        
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_WCF[]> Show_All_ProfitsAsync(string login) {
+            return base.Channel.Show_All_ProfitsAsync(login);
+        }
+        
+        public string[] GetProfitsTypes() {
+            return base.Channel.GetProfitsTypes();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetProfitsTypesAsync() {
+            return base.Channel.GetProfitsTypesAsync();
         }
         
         public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {

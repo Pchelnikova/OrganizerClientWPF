@@ -13,4 +13,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Diary_WCF" nillable="true" type="tns:Diary_WCF" />
+  <xs:complexType name="ArrayOfProfit_WCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Profit_WCF" nillable="true" type="tns:Profit_WCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfit_WCF" nillable="true" type="tns:ArrayOfProfit_WCF" />
+  <xs:complexType name="Profit_WCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date_" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sum" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profit_WCF" nillable="true" type="tns:Profit_WCF" />
 </xs:schema>

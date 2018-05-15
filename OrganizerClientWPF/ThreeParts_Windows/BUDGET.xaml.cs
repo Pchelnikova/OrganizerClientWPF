@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using DALOrganizerClientWPF;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OrganizerClientWPF.DTO;
 
 namespace OrganizerClientWPF
 {
@@ -20,30 +22,69 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class BUDGET : MetroWindow
     {
+        private readonly DataDAL _dalCl = new DataDAL();
         public BUDGET()
         {
             InitializeComponent();            
             title.Text = DTO.User.Login.ToString().ToUpper() + "'s Budjet";
 
         }
-        ////open Profits
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //open Profits CRUD
+        private void Profits_Click(object sender, RoutedEventArgs e)
         {
-            //    Change_Window();
-            //    add.Click += ProfitAdd;
-            //    show_all.Click += Show_All_Expance_Click;
-            //}
-            ////open Expances
-            //private void Button_Click_1(object sender, RoutedEventArgs e)
-            //{
-            //    Change_Window();
-            //    add.Click += ExpanceAdd;
+                Change_Window();
+                add.Click += Add_Click_Profits;
+                save_add.Click += Save_New_Profit_Click;
+                show_all.Click += Show_All_Profits_Click;
         }
-        //Open Plans
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
+        {
+            delete.Visibility = Visibility.Visible;
+            edit.Visibility = Visibility.Visible;
+            var profits_list = _dalCl.Show_All_Profits(DTO.User.Login);
+            Binding binding = new Binding();
+            binding.Source = profits_list;
+            budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+            budget_Grid.Visibility = Visibility.Visible;
+
+        }
+        private void Add_Click_Profits(object sender, RoutedEventArgs e)
+        {
+            border_add.Visibility = Visibility.Hidden;
+            edit.Visibility = Visibility.Hidden;
+            delete.Visibility = Visibility.Hidden;
+            budget_Grid.Visibility = Visibility.Hidden;
+
+            Binding binding = new Binding
+            {
+                Source = _dalCl.GetProfitsTypes()
+            };
+            type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+
+        }
+
+        private void Save_New_Profit_Click(object sender, RoutedEventArgs e)
+        {
+           
+
+            //    var prof_type = _ctx.Profit_Types.Select(item => item.Name).ToList();
+            //    Binding binding = new Binding
+            //    {
+            //        Source = prof_type
+            //    };
+            //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+        }
+        ///open Expances
+        private void Expances_Click(object sender, RoutedEventArgs e)
         {
             Change_Window();
-
+            add.Click += ExpanceAdd;
+        }
+        //Open Plans
+        private void Plans_Click(object sender, RoutedEventArgs e)
+        {
+            Change_Window();
+           // add.Click += Plans_Click;
         }
         //Open Reports
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -57,16 +98,7 @@ namespace OrganizerClientWPF
 
 
         }
-        //button ADD (Profits)
-        private void ProfitAdd(object sender, RoutedEventArgs e)
-        {
-            //    var prof_type = _ctx.Profit_Types.Select(item => item.Name).ToList();
-            //    Binding binding = new Binding
-            //    {
-            //        Source = prof_type
-            //    };
-            //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-        }
+       
 
         ////button ADD (Expance)
         private void ExpanceAdd(object sender, RoutedEventArgs e)
@@ -79,21 +111,9 @@ namespace OrganizerClientWPF
             //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
-            delete.Visibility = Visibility.Hidden;
-            budjet_Grid.Visibility = Visibility.Hidden;
-
-        }
-        ////SHOW ALL
-        private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
-        {
-            delete.Visibility = Visibility.Visible;
-            edit.Visibility = Visibility.Visible;
-            //Bind_To_DataGrid_Profits();
-        }
+       
+        
+       
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
@@ -233,7 +253,7 @@ namespace OrganizerClientWPF
             show_all.Visibility = Visibility.Visible;
             label.Visibility = Visibility.Hidden;
             border_add.Visibility = Visibility.Visible;
-            budjet_Grid.Visibility = Visibility.Hidden;
+            budget_Grid.Visibility = Visibility.Hidden;
         }
 
         ////Profits to Grid

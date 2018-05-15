@@ -5,7 +5,8 @@
       <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" />
-      <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer" />
+      <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_Show_All_Notes_InputMessage">
@@ -26,6 +27,18 @@
   <wsdl:message name="IService1_Delete_Note_OutputMessage">
     <wsdl:part name="parameters" element="tns:Delete_NoteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Show_All_Profits_InputMessage">
+    <wsdl:part name="parameters" element="tns:Show_All_Profits" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Show_All_Profits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Show_All_ProfitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProfitsTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfitsTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProfitsTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProfitsTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
   </wsdl:message>
@@ -44,6 +57,14 @@
     <wsdl:operation name="Delete_Note">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Note" message="tns:IService1_Delete_Note_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_NoteResponse" message="tns:IService1_Delete_Note_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Show_All_Profits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Profits" message="tns:IService1_Show_All_Profits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_ProfitsResponse" message="tns:IService1_Show_All_Profits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfitsTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProfitsTypes" message="tns:IService1_GetProfitsTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProfitsTypesResponse" message="tns:IService1_GetProfitsTypes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
@@ -72,6 +93,24 @@
     </wsdl:operation>
     <wsdl:operation name="Delete_Note">
       <soap:operation soapAction="http://tempuri.org/IService1/Delete_Note" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Show_All_Profits">
+      <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Profits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfitsTypes">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProfitsTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -32,5 +32,21 @@ namespace DALOrganizerClientWPF
         {
             _service.Delete_Note(note);
         }
+
+        //Budget CRUD
+        public ICollection<ProfitDAL> Show_All_Profits (string login)
+        {
+            var profit_list = _service.Show_All_Profits(login);
+            List<ProfitDAL> profits = new List<ProfitDAL>();
+            foreach (Profit_WCF item in profit_list)
+                profits.Add(new ProfitDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+            return profits;            
+        }
+
+        public List<string> GetProfitsTypes ()
+        {
+            return _service.GetProfitsTypes().ToList();
+          
+        }
     }
 }
