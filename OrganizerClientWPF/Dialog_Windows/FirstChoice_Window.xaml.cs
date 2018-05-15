@@ -25,14 +25,14 @@ namespace OrganizerClientWPF
             InitializeComponent();
         }
 
-        //DAIRY begin
+        //DIARY begin
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DAIRY dairy_Window = new DAIRY();
+            DIARY dairy_Window = new DIARY();
             dairy_Window.Show();
             this.Close();
         }
-        //Budjet begin
+        //Budget begin
         private void Budjet_Click(object sender, RoutedEventArgs e)
         {
             BUDGET budjet_Window = new BUDGET();

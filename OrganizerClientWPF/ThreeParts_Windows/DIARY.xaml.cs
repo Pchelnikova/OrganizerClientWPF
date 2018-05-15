@@ -4,17 +4,17 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using MahApps.Metro.Controls;
 using DALOrganizerClientWPF;
-
+using OrganizerClientWPF.DTO;
 
 namespace OrganizerClientWPF
 {
     /// <summary>
     /// Interaction logic for Window3.xaml
     /// </summary>
-    public partial class DAIRY : MetroWindow
+    public partial class DIARY : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-        public DAIRY()
+        public DIARY()
         {
             InitializeComponent();
             //Title by login
@@ -40,7 +40,7 @@ namespace OrganizerClientWPF
 
         }
 
-        /////see all dairy by id
+        ///see all notes
         private void See_All_Notes_Click(object sender, RoutedEventArgs e)
         {
 
@@ -48,10 +48,12 @@ namespace OrganizerClientWPF
             period.Visibility = Visibility.Visible;
             Calendar.Visibility = Visibility.Visible;
             Calendar2.Visibility = Visibility.Visible;
+            add.Visibility = Visibility.Collapsed;
+            delete.Visibility = Visibility.Visible;
 
             //       
             var dairy_list = _dalCl.Show_All_Notes(DTO.User.Login);
-            Dairy_Text.Visibility = Visibility.Hidden;
+            Diary_Text.Visibility = Visibility.Hidden;
             dairy_Grid.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             binding.Source = dairy_list;
@@ -59,39 +61,29 @@ namespace OrganizerClientWPF
            
 
         }
-
-    /////add to base new note
-    private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-            //    using (var ctx = new DAL.Model())
-            //    {
-            //        var dairies = ctx.Dayries.ToList();
-            //        var users = ctx.Users.ToList();
-            //        var dairy = dairies.Where(item => item.Id == MainWindow.Global.userID);
-            //        if (dairy != null)
-            //        {
-            //            DAL.Model_Classes.Dairy new_note = new DAL.Model_Classes.Dairy
-            //            {
-            //                Date_ = System.DateTime.Now,
-            //                Text = Dairy_Text.Text,
-            //                User = users.FirstOrDefault(item => item.Id == MainWindow.Global.userID)
-            //            };
-            //            ctx.Dayries.Add(new_note);
-            //            ctx.SaveChanges();
-            //        }
-            //    }
-            //    Dairy_Text.Text = null;
-        }
         ///open form to add new note
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Write_New_Note_Click(object sender, RoutedEventArgs e)
         {
-            Dairy_Text.Visibility = Visibility.Visible;
+            Diary_Text.Visibility = Visibility.Visible;
             add.Visibility = Visibility.Visible;
             Calendar.Visibility = Visibility.Hidden;
             Calendar2.Visibility = Visibility.Hidden;
             period.Visibility = Visibility.Hidden;
         }
+
+        ///add to base new note
+        private void Add_Note_Click(object sender, RoutedEventArgs e)
+        {
+            _dalCl.Add_Note(Diary_Text.Text, User.Login);           
+             Diary_Text.Text = null;
+        }
+
+        private void Delete_Note_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
 
 
         //go to budjet
@@ -115,5 +107,6 @@ namespace OrganizerClientWPF
             user_Account.Show();
             this.Close();
         }
+      
     }
 }

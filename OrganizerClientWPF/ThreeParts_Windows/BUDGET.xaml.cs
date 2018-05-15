@@ -217,8 +217,8 @@ namespace OrganizerClientWPF
         //Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            DAIRY dairy = new DAIRY();
-            dairy.Show();
+             DIARY diary = new DIARY();
+            diary.Show();
             this.Close();
 
         }

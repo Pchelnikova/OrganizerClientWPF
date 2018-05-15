@@ -22,5 +22,10 @@ namespace DALOrganizerClientWPF
                 diaries.Add(new DiaryDAL() { Date_ = item.Date_, Text = item.Text });
             return diaries;
         }
+
+        public void Add_Note(string note, string login)
+        {
+            _service.Add_Note(note, login);
+        }
     }
 }

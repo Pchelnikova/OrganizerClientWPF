@@ -145,6 +145,12 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Notes", ReplyAction="http://tempuri.org/IService1/Show_All_NotesResponse")]
         System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add_Note", ReplyAction="http://tempuri.org/IService1/Add_NoteResponse")]
+        void Add_Note(string note, string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add_Note", ReplyAction="http://tempuri.org/IService1/Add_NoteResponse")]
+        System.Threading.Tasks.Task Add_NoteAsync(string note, string login);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
         
@@ -185,6 +191,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login) {
             return base.Channel.Show_All_NotesAsync(login);
+        }
+        
+        public void Add_Note(string note, string login) {
+            base.Channel.Add_Note(note, login);
+        }
+        
+        public System.Threading.Tasks.Task Add_NoteAsync(string note, string login) {
+            return base.Channel.Add_NoteAsync(note, login);
         }
         
         public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {

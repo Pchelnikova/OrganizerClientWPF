@@ -87,8 +87,8 @@
     <Compile Include="ThreeParts_Windows\BUDGET.xaml.cs">
       <DependentUpon>BUDGET.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ThreeParts_Windows\DAIRY.xaml.cs">
-      <DependentUpon>DAIRY.xaml</DependentUpon>
+    <Compile Include="ThreeParts_Windows\DIARY.xaml.cs">
+      <DependentUpon>DIARY.xaml</DependentUpon>
     </Compile>
     <Page Include="Dialog_Windows\Create_Account.xaml">
       <SubType>Designer</SubType>
@@ -141,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ThreeParts_Windows\DAIRY.xaml">
+    <Page Include="ThreeParts_Windows\DIARY.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -14,6 +14,12 @@
   <wsdl:message name="IService1_Show_All_Notes_OutputMessage">
     <wsdl:part name="parameters" element="tns:Show_All_NotesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Add_Note_InputMessage">
+    <wsdl:part name="parameters" element="tns:Add_Note" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Add_Note_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Add_NoteResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
   </wsdl:message>
@@ -25,6 +31,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Notes" message="tns:IService1_Show_All_Notes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_NotesResponse" message="tns:IService1_Show_All_Notes_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Add_Note">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Add_Note" message="tns:IService1_Add_Note_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Add_NoteResponse" message="tns:IService1_Add_Note_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
@@ -34,6 +44,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Show_All_Notes">
       <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Notes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Note">
+      <soap:operation soapAction="http://tempuri.org/IService1/Add_Note" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

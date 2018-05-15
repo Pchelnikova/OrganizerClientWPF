@@ -35,6 +35,7 @@ namespace OrganizerClientWPF
                 FirstChoice_Window firstChoice_Window = new FirstChoice_Window();
                 firstChoice_Window.Show();
                 DTO.User.Login = loginBox.Text;
+                this.Close();
 
             }
             //using (var ctx = new Model())
