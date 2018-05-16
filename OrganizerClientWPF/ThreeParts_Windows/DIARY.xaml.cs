@@ -35,8 +35,7 @@ namespace OrganizerClientWPF
             //    dairies = dairies.Where(day => (day.Date_ >= Calendar.SelectedDate.Value) && (day.Date_ <= Calendar2.SelectedDate.Value)).ToList();
             //    Binding binding = new Binding();
             //    binding.Source = dairies;
-            //    dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-            
+            //    dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);         
 
         }
 
@@ -62,7 +61,6 @@ namespace OrganizerClientWPF
                 {
                     Date_ = item.Date_,
                     Text = item.Text
-
                 };
                 dairy_list_wpf.Add(diaryWPF_DTO);
             }
@@ -100,10 +98,6 @@ namespace OrganizerClientWPF
                 _dalCl.Delete_Note(note_for_delete);
             }
         }
-
-
-
-
         //go to budjet
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DALOrganizerClientWPF.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace OrganizerClientWPF.DTO
         public decimal Sum { get; set; }
         public string Description { get; set; }
         public string Profit_Expance_Type { get; set; }
+
+      
     }
 }
 

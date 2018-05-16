@@ -90,7 +90,7 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Profit_Expanc_TypeField;
+        private string Profit_Expance_TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal SumField;
@@ -132,14 +132,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Profit_Expanc_Type {
+        public string Profit_Expance_Type {
             get {
-                return this.Profit_Expanc_TypeField;
+                return this.Profit_Expance_TypeField;
             }
             set {
-                if ((object.ReferenceEquals(this.Profit_Expanc_TypeField, value) != true)) {
-                    this.Profit_Expanc_TypeField = value;
-                    this.RaisePropertyChanged("Profit_Expanc_Type");
+                if ((object.ReferenceEquals(this.Profit_Expance_TypeField, value) != true)) {
+                    this.Profit_Expance_TypeField = value;
+                    this.RaisePropertyChanged("Profit_Expance_Type");
                 }
             }
         }

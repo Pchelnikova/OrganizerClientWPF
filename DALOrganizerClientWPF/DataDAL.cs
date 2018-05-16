@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DALOrganizerClientWPF.Converters;
 using DALOrganizerClientWPF.DTO;
 using DALOrganizerClientWPF.ServiceReference1;
 
@@ -34,45 +35,31 @@ namespace DALOrganizerClientWPF
         }
 
         //Budget CRUD
-        public ICollection<Profit_ExpanceDAL> Show_All_Profits (string login)
+        public ICollection<Profit_ExpenceDAL> Show_All_Profits (string login)
         {
             var profit_list = _service.Show_All_Profits(login);
-            List<Profit_ExpanceDAL> profits = new List<Profit_ExpanceDAL>();
+            List<Profit_ExpenceDAL> profits = new List<Profit_ExpenceDAL>();
             foreach (Profit_ExpanceWCF item in profit_list)
-                profits.Add(new Profit_ExpanceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+                profits.Add(new Profit_ExpenceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
             return profits;            
         }
         
-        public ICollection<Profit_ExpanceDAL> Show_All_Expance(string login)
+        public ICollection<Profit_ExpenceDAL> Show_All_Expance(string login)
         {
             var expance_list = _service.Show_All_Expance(login);
-            List<Profit_ExpanceDAL> expance = new List<Profit_ExpanceDAL>();
-            foreach (Profit_ExpanceWCF item in expance_list)
-                expance.Add(new Profit_ExpanceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+            List<Profit_ExpenceDAL> expance = Converter.WCF_to_DAL_List(expance_list);         
             return expance;
         }
 
-        public void Save_New_Profit(Profit_ExpanceDAL new_profit, string login)
+        public void Save_New_Profit(Profit_ExpenceDAL new_profit, string login)
         {
-           Profit_ExpanceWCF profit = new Profit_ExpanceWCF()
-            {
-                Date_ = new_profit.Date_,
-                Sum = new_profit.Sum,
-                Description = new_profit.Description,
-                Profit_Expanc_Type = new_profit.Profit_Expance_Type               
-            };
+            var profit = Converter.DAL_to_WCF(new_profit);
             _service.Save_New_Profit(profit, login);
         }
 
-        public void Save_New_Expance(Profit_ExpanceDAL new_expance, string login)
+        public void Save_New_Expance(Profit_ExpenceDAL new_expance, string login)
         {
-            Profit_ExpanceWCF expance = new Profit_ExpanceWCF()
-            {
-                Date_ = new_expance.Date_,
-                Sum = new_expance.Sum,
-                Description = new_expance.Description,
-                Profit_Expanc_Type = new_expance.Profit_Expance_Type
-            };
+            var expance = Converter.DAL_to_WCF(new_expance);
             _service.Save_New_Expance(expance, login);
         }
 

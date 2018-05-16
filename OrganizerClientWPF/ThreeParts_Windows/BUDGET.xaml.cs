@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using OrganizerClientWPF.DTO;
 using System.Globalization;
 using DALOrganizerClientWPF.DTO;
+using OrganizerClientWPF.Converters;
 
 namespace OrganizerClientWPF
 {
@@ -79,15 +80,7 @@ namespace OrganizerClientWPF
                     Profit_Expance_Type = type.SelectedValue.ToString(),
                     Description = description.Text
                 };
-                Profit_ExpanceDAL profitDAL = new Profit_ExpanceDAL()
-                {
-                    Date_ = new_profit.Date_,
-                    Sum = new_profit.Sum,
-                    Profit_Expance_Type = new_profit.Profit_Expance_Type,
-                    Description = new_profit.Description
-                };
-              
-
+                var profitDAL = Converter.WPF_to_DAL (new_profit); 
                 _dalCl.Save_New_Profit(profitDAL, CurrentUser.Login);
             }            
         }
@@ -102,14 +95,7 @@ namespace OrganizerClientWPF
                     Profit_Expance_Type = type.SelectedValue.ToString(),
                     Description = description.Text
                 };
-                Profit_ExpanceDAL expanceDAL = new Profit_ExpanceDAL()
-                {
-                    Date_ = new_expance.Date_,
-                    Sum = new_expance.Sum,
-                    Profit_Expance_Type = new_expance.Profit_Expance_Type,
-                    Description = new_expance.Description
-                };
-
+                var expanceDAL = Converter.WPF_to_DAL(new_expance);
                 _dalCl.Save_New_Expance(expanceDAL, CurrentUser.Login);
             }
         }       
@@ -120,6 +106,7 @@ namespace OrganizerClientWPF
             add.Click += Add_Click_Expance;
             save_add.Click += Save_New_Expance_Click;
             show_all.Click += Show_All_Expance_Click;
+            delete.Click += Delete_Expence;
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -127,13 +114,13 @@ namespace OrganizerClientWPF
             edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
-
             Binding binding = new Binding
             {
                 Source = _dalCl.GetExpanceTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-
+            save_add.Click += Save_New_Expance_Click;
+            save_add.Content = "SAVE";
         }
 
      
@@ -152,10 +139,7 @@ namespace OrganizerClientWPF
             //change button "add" and "show_all"
             add.Content = "PROFITS";
             show_all.Content = "EXPANCE";
-
-
-        }   
-        
+        }          
        
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
@@ -163,18 +147,19 @@ namespace OrganizerClientWPF
             edit.Visibility = Visibility.Visible;
             var expance_list = _dalCl.Show_All_Expance(CurrentUser.Login);
            List< Profit_ExpanceWPF_DTO> expances = new List <Profit_ExpanceWPF_DTO>();
-            foreach (Profit_ExpanceDAL item in expance_list)
+            foreach (Profit_ExpenceDAL item in expance_list)
                 expances.Add(new Profit_ExpanceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
             Binding binding = new Binding();
             binding.Source = expance_list;
             budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
             budget_Grid.Visibility = Visibility.Visible;
-           save_add.Content = "DELETE";
-            save_add.Click += Delete_Expance;
+            save_add.Content = "DELETE";
+            save_add.Click += Delete_Expence;
+
 
         }
 
-        private void Delete_Expance (object sender, RoutedEventArgs e)
+        private void Delete_Expence (object sender, RoutedEventArgs e)
         {
            
                 if (budget_Grid.SelectedIndex > -1)

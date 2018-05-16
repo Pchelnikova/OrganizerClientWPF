@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DALOrganizerClientWPF.DTO
 {
-   public class Profit_ExpanceDAL
+   public class Profit_ExpenceDAL
     {
         public DateTime Date_ { get; set; }
         public decimal Sum { get; set; }

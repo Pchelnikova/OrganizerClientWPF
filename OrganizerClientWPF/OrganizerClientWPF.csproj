@@ -68,6 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\Converter.cs" />
     <Compile Include="Dialog_Windows\Login_Is_Busy.xaml.cs">
       <DependentUpon>Login_Is_Busy.xaml</DependentUpon>
     </Compile>

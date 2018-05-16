@@ -23,7 +23,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Date_" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Profit_Expanc_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Profit_Expance_Type" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Sum" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>
