@@ -32,12 +32,15 @@ namespace OrganizerClientWPF
         {
             if (loginBox.Text == "1" && passwordBox.Password == "1")
             {
-                FirstChoice_Window firstChoice_Window = new FirstChoice_Window();
+                FirstChoice_Window firstChoice_Window = new FirstChoice_Window(loginBox.Text);
                 firstChoice_Window.Show();
-                DTO.User.Login = loginBox.Text;
+                //DTO.User.Login = loginBox.Text;
                 this.Close();
 
             }
+
+
+
             //using (var ctx = new Model())
             //{
             //    List<Model_Classes.User> users = ctx.Users.ToList();

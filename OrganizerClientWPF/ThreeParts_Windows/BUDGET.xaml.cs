@@ -25,10 +25,12 @@ namespace OrganizerClientWPF
     public partial class BUDGET : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-        public BUDGET()
+        public User CurrentUser { get; } = new User();
+        public BUDGET(User currentUser)
         {
+            CurrentUser = currentUser;
             InitializeComponent();            
-            title.Text = DTO.User.Login.ToString().ToUpper() + "'s Budjet";
+            title.Text = CurrentUser.Login.ToUpper() + "'s Budjet";
 
         }
         //open Profits CRUD
@@ -43,7 +45,7 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             edit.Visibility = Visibility.Visible;
-            var profits_list = _dalCl.Show_All_Profits(DTO.User.Login);
+            var profits_list = _dalCl.Show_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
             binding.Source = profits_list;
             budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
@@ -87,7 +89,7 @@ namespace OrganizerClientWPF
                 };
               
 
-                _dalCl.Save_New_Profit(profitDAL, User.Login);
+                _dalCl.Save_New_Profit(profitDAL, CurrentUser.Login);
             }            
         }
 
@@ -110,7 +112,7 @@ namespace OrganizerClientWPF
                     Description = new_expance.Description
                 };
 
-                _dalCl.Save_New_Expance(expanceDAL, User.Login);
+                _dalCl.Save_New_Expance(expanceDAL, CurrentUser.Login);
             }
         }
         ///open Expances
@@ -162,7 +164,7 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             edit.Visibility = Visibility.Visible;
-            var expance_list = _dalCl.Show_All_Expance(DTO.User.Login);
+            var expance_list = _dalCl.Show_All_Expance(CurrentUser.Login);
            List< Profit_ExpanceWPF_DTO> expances = new List <Profit_ExpanceWPF_DTO>();
             foreach (Profit_ExpanceDAL item in expance_list)
                 expances.Add(new Profit_ExpanceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
@@ -291,7 +293,7 @@ namespace OrganizerClientWPF
         //Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-             DIARY diary = new DIARY();
+             DIARY diary = new DIARY(CurrentUser);
             diary.Show();
             this.Close();
 
@@ -366,7 +368,7 @@ namespace OrganizerClientWPF
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
-            User_Account_Info user_Account = new User_Account_Info();
+            User_Account_Info user_Account = new User_Account_Info(CurrentUser);
             user_Account.Show();
             //this.Close();
         }

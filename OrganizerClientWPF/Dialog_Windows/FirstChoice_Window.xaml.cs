@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using OrganizerClientWPF.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,22 +21,25 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class FirstChoice_Window : MetroWindow
     {
-        public FirstChoice_Window()
+
+        public User CurrentUser { get; } = new User();
+        public FirstChoice_Window(string userLogin)
         {
+            CurrentUser.Login = userLogin;
             InitializeComponent();
         }
 
         //DIARY begin
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DIARY dairy_Window = new DIARY();
+            DIARY dairy_Window = new DIARY(CurrentUser);
             dairy_Window.Show();
             this.Close();
         }
         //Budget begin
         private void Budjet_Click(object sender, RoutedEventArgs e)
         {
-            BUDGET budjet_Window = new BUDGET();
+            BUDGET budjet_Window = new BUDGET(CurrentUser);
             budjet_Window.Show();
             this.Close();
         }

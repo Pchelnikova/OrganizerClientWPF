@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace OrganizerClientWPF.DTO
 {
-   public static class User
+   public class User
     {
-        public static string Login { get; set; }
+        public string Login { get; set; }
     }
 }

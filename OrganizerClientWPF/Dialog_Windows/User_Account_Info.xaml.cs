@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using OrganizerClientWPF.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,12 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class User_Account_Info : MetroWindow
     {
-        public User_Account_Info()
+        public User CurrentUser { get; } = new User();
+        public User_Account_Info(User currentUser)
         {
+            CurrentUser = currentUser;
             InitializeComponent();
-            title.Text = DTO.User.Login.ToString().ToUpper() + "'s INFO";
+            title.Text = CurrentUser.Login.ToString().ToUpper() + "'s INFO";
         }
 
         //change login

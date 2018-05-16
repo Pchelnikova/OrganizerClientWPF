@@ -5,6 +5,9 @@ using System.Windows.Data;
 using MahApps.Metro.Controls;
 using DALOrganizerClientWPF;
 using OrganizerClientWPF.DTO;
+using DALOrganizerClientWPF.DTO;
+using System;
+using System.Collections.Generic;
 
 namespace OrganizerClientWPF
 {
@@ -14,12 +17,14 @@ namespace OrganizerClientWPF
     public partial class DIARY : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-        public DIARY()
+        public User CurrentUser { get; } = new User ();
+        public DIARY(User currentUser)
         {
             InitializeComponent();
+            CurrentUser = currentUser;
 
             //Title by login           
-            title.Text = DTO.User.Login.ToString().ToUpper() + "'s Dairy";
+            title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Dairy";
         }
 
         ///all notes by dates
@@ -47,11 +52,22 @@ namespace OrganizerClientWPF
             delete.Visibility = Visibility.Visible;
 
             //       
-            var dairy_list = _dalCl.Show_All_Notes(DTO.User.Login);
+            var dairy_list = _dalCl.Show_All_Notes(CurrentUser.Login);
+            var dairy_list_wpf = new List<DiaryWPF_DTO>();
             Diary_Text.Visibility = Visibility.Hidden;
             dairy_Grid.Visibility = Visibility.Visible;
+            foreach (DiaryDAL item in dairy_list)
+            {
+                DiaryWPF_DTO diaryWPF_DTO = new DiaryWPF_DTO
+                {
+                    Date_ = item.Date_,
+                    Text = item.Text
+
+                };
+                dairy_list_wpf.Add(diaryWPF_DTO);
+            }
             Binding binding = new Binding();
-            binding.Source = dairy_list;
+            binding.Source = dairy_list_wpf;
             dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
            
 
@@ -71,18 +87,18 @@ namespace OrganizerClientWPF
         ///add to base new note
         private void Add_Note_Click(object sender, RoutedEventArgs e)
         {
-            _dalCl.Add_Note(Diary_Text.Text, User.Login);           
+            _dalCl.Add_Note(Diary_Text.Text, CurrentUser.Login);           
              Diary_Text.Text = null;
         }
 
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
-            //if (dairy_Grid.SelectedIndex > -1)
-            //{
-            //    string note_for_delete = (dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString();
+            if (dairy_Grid.SelectedIndex > -1)
+            {
+                string note_for_delete = (dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString();          
 
-            //    _dalCl.Delete_Note(note_for_delete);
-            //}           
+                _dalCl.Delete_Note(note_for_delete);
+            }
         }
 
 
@@ -91,7 +107,7 @@ namespace OrganizerClientWPF
         //go to budjet
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            BUDGET budjet = new BUDGET();
+            BUDGET budjet = new BUDGET(CurrentUser);
             budjet.Show();
             this.Close();
         }
@@ -105,7 +121,7 @@ namespace OrganizerClientWPF
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
-            User_Account_Info user_Account = new User_Account_Info();
+            User_Account_Info user_Account = new User_Account_Info(CurrentUser);
             user_Account.Show();
             this.Close();
         }
