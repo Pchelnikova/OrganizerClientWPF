@@ -44,13 +44,7 @@ namespace DALOrganizerClientWPF
             return profits;            
         }
         
-        public ICollection<Profit_ExpenceDAL> Show_All_Expance(string login)
-        {
-            var expance_list = _service.Show_All_Expance(login);
-            List<Profit_ExpenceDAL> expance = Converter.WCF_to_DAL_List(expance_list);         
-            return expance;
-        }
-
+      
         public void Save_New_Profit(Profit_ExpenceDAL new_profit, string login)
         {
             var profit = Converter.DAL_to_WCF(new_profit);
@@ -62,10 +56,22 @@ namespace DALOrganizerClientWPF
             var expance = Converter.DAL_to_WCF(new_expance);
             _service.Save_New_Expance(expance, login);
         }
-
-        public void Delete_Expence (DateTime dateTime)
+        public void Delete_Profit(Profit_ExpenceDAL profit, string login)
         {
-            _service.Delete_Expence(dateTime);
+            var profit_WCF = Converter.DAL_to_WCF(profit);
+            _service.Delete_Profit(profit_WCF, login);
+        }
+        //Budget Expence CRUD
+        public ICollection<Profit_ExpenceDAL> Show_All_Expance(string login)
+        {
+            var expance_list = _service.Show_All_Expance(login);
+            List<Profit_ExpenceDAL> expance = Converter.WCF_to_DAL_List(expance_list);
+            return expance;
+        }
+        public void Delete_Expence (Profit_ExpenceDAL expence, string login)
+        {
+            var expence_WCF = Converter.DAL_to_WCF(expence);
+            _service.Delete_Expence(expence_WCF, login);
         }
 
         public List<string> GetProfitsTypes ()

@@ -286,17 +286,17 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Profit", ReplyAction="http://tempuri.org/IService1/Save_New_ProfitResponse")]
         System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Expence", ReplyAction="http://tempuri.org/IService1/Delete_ExpenceResponse")]
-        void Delete_Expence(System.DateTime dateTime);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Expence", ReplyAction="http://tempuri.org/IService1/Delete_ExpenceResponse")]
-        System.Threading.Tasks.Task Delete_ExpenceAsync(System.DateTime dateTime);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Profit", ReplyAction="http://tempuri.org/IService1/Delete_ProfitResponse")]
+        void Delete_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Profit", ReplyAction="http://tempuri.org/IService1/Delete_ProfitResponse")]
-        void Delete_Profit(System.DateTime dateTime);
+        System.Threading.Tasks.Task Delete_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Profit", ReplyAction="http://tempuri.org/IService1/Delete_ProfitResponse")]
-        System.Threading.Tasks.Task Delete_ProfitAsync(System.DateTime dateTime);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Expence", ReplyAction="http://tempuri.org/IService1/Delete_ExpenceResponse")]
+        void Delete_Expence(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Expence", ReplyAction="http://tempuri.org/IService1/Delete_ExpenceResponse")]
+        System.Threading.Tasks.Task Delete_ExpenceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
@@ -404,20 +404,20 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
             return base.Channel.Save_New_ProfitAsync(new_profit, login);
         }
         
-        public void Delete_Expence(System.DateTime dateTime) {
-            base.Channel.Delete_Expence(dateTime);
+        public void Delete_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login) {
+            base.Channel.Delete_Profit(profit_ExpanceWCF, login);
         }
         
-        public System.Threading.Tasks.Task Delete_ExpenceAsync(System.DateTime dateTime) {
-            return base.Channel.Delete_ExpenceAsync(dateTime);
+        public System.Threading.Tasks.Task Delete_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login) {
+            return base.Channel.Delete_ProfitAsync(profit_ExpanceWCF, login);
         }
         
-        public void Delete_Profit(System.DateTime dateTime) {
-            base.Channel.Delete_Profit(dateTime);
+        public void Delete_Expence(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login) {
+            base.Channel.Delete_Expence(profit_ExpanceWCF, login);
         }
         
-        public System.Threading.Tasks.Task Delete_ProfitAsync(System.DateTime dateTime) {
-            return base.Channel.Delete_ProfitAsync(dateTime);
+        public System.Threading.Tasks.Task Delete_ExpenceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login) {
+            return base.Channel.Delete_ExpenceAsync(profit_ExpanceWCF, login);
         }
         
         public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {

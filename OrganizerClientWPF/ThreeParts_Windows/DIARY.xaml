@@ -31,7 +31,7 @@
             <DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="START DATE" />
             <DatePicker x:Name="Calendar2" SelectedDateChanged="select_date"  IsDropDownOpen="False" Grid.Column="3" Grid.Row="2" Margin="0,80,0,160" Visibility="Hidden" Text="END DATE" />
             <DataGrid x:Name="dairy_Grid"  IsReadOnly="True"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
-                      Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="50"  >
+                      Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="30"  >
             </DataGrid>
             <TextBox x:Name ="Diary_Text"  Visibility="Visible" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
                      BorderBrush="AliceBlue"  BorderThickness="3" />

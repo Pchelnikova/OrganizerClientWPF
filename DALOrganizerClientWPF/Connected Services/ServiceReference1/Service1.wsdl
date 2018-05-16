@@ -63,17 +63,17 @@
   <wsdl:message name="IService1_Save_New_Profit_OutputMessage">
     <wsdl:part name="parameters" element="tns:Save_New_ProfitResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Delete_Expence_InputMessage">
-    <wsdl:part name="parameters" element="tns:Delete_Expence" />
-  </wsdl:message>
-  <wsdl:message name="IService1_Delete_Expence_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Delete_ExpenceResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_Delete_Profit_InputMessage">
     <wsdl:part name="parameters" element="tns:Delete_Profit" />
   </wsdl:message>
   <wsdl:message name="IService1_Delete_Profit_OutputMessage">
     <wsdl:part name="parameters" element="tns:Delete_ProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_Expence_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_Expence" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_Expence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_ExpenceResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
@@ -118,13 +118,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Save_New_Profit" message="tns:IService1_Save_New_Profit_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Save_New_ProfitResponse" message="tns:IService1_Save_New_Profit_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Delete_Expence">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Expence" message="tns:IService1_Delete_Expence_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_ExpenceResponse" message="tns:IService1_Delete_Expence_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Delete_Profit">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Profit" message="tns:IService1_Delete_Profit_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_ProfitResponse" message="tns:IService1_Delete_Profit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Expence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Expence" message="tns:IService1_Delete_Expence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_ExpenceResponse" message="tns:IService1_Delete_Expence_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDataUsingDataContract">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
@@ -214,8 +214,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Delete_Expence">
-      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Expence" style="document" />
+    <wsdl:operation name="Delete_Profit">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Profit" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -223,8 +223,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Delete_Profit">
-      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Profit" style="document" />
+    <wsdl:operation name="Delete_Expence">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Expence" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

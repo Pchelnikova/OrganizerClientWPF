@@ -120,22 +120,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Delete_Expence">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Delete_ExpenceResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Delete_Profit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q8:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -144,17 +133,30 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Delete_Expence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q9:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_ExpenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfOrganizer" minOccurs="0" name="composite" nillable="true" type="q8:CompositeType" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfOrganizer" minOccurs="0" name="composite" nillable="true" type="q10:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDataUsingDataContractResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfOrganizer" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q9:CompositeType" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfOrganizer" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q11:CompositeType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
