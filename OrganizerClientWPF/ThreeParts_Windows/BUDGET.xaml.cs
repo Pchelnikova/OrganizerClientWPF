@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using OrganizerClientWPF.DTO;
 using System.Globalization;
+using DALOrganizerClientWPF.DTO;
 
 namespace OrganizerClientWPF
 {
@@ -70,14 +71,23 @@ namespace OrganizerClientWPF
         {
             if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
             {
-                DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO new_profit = new DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO()
+                Profit_ExpanceWPF_DTO new_profit = new Profit_ExpanceWPF_DTO()
                 {
                     Date_ = date.SelectedDate.Value,
                     Sum = number,
                     Profit_Expance_Type = type.SelectedValue.ToString(),
                     Description = description.Text
                 };
-                _dalCl.Save_New_Profit(new_profit, User.Login);
+                Profit_ExpanceDAL profitDAL = new Profit_ExpanceDAL()
+                {
+                    Date_ = new_profit.Date_,
+                    Sum = new_profit.Sum,
+                    Profit_Expance_Type = new_profit.Profit_Expance_Type,
+                    Description = new_profit.Description
+                };
+              
+
+                _dalCl.Save_New_Profit(profitDAL, User.Login);
             }            
         }
 
@@ -85,14 +95,22 @@ namespace OrganizerClientWPF
         {
             if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
             {
-               DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO new_expance = new DALOrganizerClientWPF.DTO.Profit_ExpanceWPF_DTO()
+            Profit_ExpanceWPF_DTO new_expance = new Profit_ExpanceWPF_DTO()
                 {
                     Date_ = date.SelectedDate.Value,
                     Sum = number,
                     Profit_Expance_Type = type.SelectedValue.ToString(),
                     Description = description.Text
                 };
-                _dalCl.Save_New_Expance(new_expance, User.Login);
+                Profit_ExpanceDAL expanceDAL = new Profit_ExpanceDAL()
+                {
+                    Date_ = new_expance.Date_,
+                    Sum = new_expance.Sum,
+                    Profit_Expance_Type = new_expance.Profit_Expance_Type,
+                    Description = new_expance.Description
+                };
+
+                _dalCl.Save_New_Expance(expanceDAL, User.Login);
             }
         }
         ///open Expances
@@ -144,9 +162,12 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             edit.Visibility = Visibility.Visible;
-            var profits_list = _dalCl.Show_All_Expance(DTO.User.Login);
+            var expance_list = _dalCl.Show_All_Expance(DTO.User.Login);
+           List< Profit_ExpanceWPF_DTO> expances = new List <Profit_ExpanceWPF_DTO>();
+            foreach (Profit_ExpanceDAL item in expance_list)
+                expances.Add(new Profit_ExpanceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
             Binding binding = new Binding();
-            binding.Source = profits_list;
+            binding.Source = expance_list;
             budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
             budget_Grid.Visibility = Visibility.Visible;
            save_add.Content = "DELETE";

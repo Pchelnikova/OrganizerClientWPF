@@ -9,17 +9,234 @@
 //------------------------------------------------------------------------------
 
 namespace OrganizerClientWPF.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Diary_WCF", Namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class Diary_WCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date_ {
+            get {
+                return this.Date_Field;
+            }
+            set {
+                if ((this.Date_Field.Equals(value) != true)) {
+                    this.Date_Field = value;
+                    this.RaisePropertyChanged("Date_");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Profit_ExpanceWCF", Namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class Profit_ExpanceWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Date_Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Profit_Expanc_TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SumField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Date_ {
+            get {
+                return this.Date_Field;
+            }
+            set {
+                if ((this.Date_Field.Equals(value) != true)) {
+                    this.Date_Field = value;
+                    this.RaisePropertyChanged("Date_");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Profit_Expanc_Type {
+            get {
+                return this.Profit_Expanc_TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Profit_Expanc_TypeField, value) != true)) {
+                    this.Profit_Expanc_TypeField = value;
+                    this.RaisePropertyChanged("Profit_Expanc_Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Sum {
+            get {
+                return this.SumField;
+            }
+            set {
+                if ((this.SumField.Equals(value) != true)) {
+                    this.SumField = value;
+                    this.RaisePropertyChanged("Sum");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer")]
+    [System.SerializableAttribute()]
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Notes", ReplyAction="http://tempuri.org/IService1/Show_All_NotesResponse")]
-        DALOrganizerClientWPF.ServiceReference1.Diary_WCF[] Show_All_Notes(string login);
+        OrganizerClientWPF.ServiceReference1.Diary_WCF[] Show_All_Notes(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Notes", ReplyAction="http://tempuri.org/IService1/Show_All_NotesResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login);
+        System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Add_Note", ReplyAction="http://tempuri.org/IService1/Add_NoteResponse")]
         void Add_Note(string note, string login);
@@ -34,16 +251,16 @@ namespace OrganizerClientWPF.ServiceReference1 {
         System.Threading.Tasks.Task Delete_NoteAsync(string note);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
-        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Profits(string login);
+        OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Profits(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ProfitsAsync(string login);
+        System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ProfitsAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Expance", ReplyAction="http://tempuri.org/IService1/Show_All_ExpanceResponse")]
-        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Expance(string login);
+        OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Expance(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Expance", ReplyAction="http://tempuri.org/IService1/Show_All_ExpanceResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ExpanceAsync(string login);
+        System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ExpanceAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
         string[] GetProfitsTypes();
@@ -58,22 +275,22 @@ namespace OrganizerClientWPF.ServiceReference1 {
         System.Threading.Tasks.Task<string[]> GetExpanceTypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Expance", ReplyAction="http://tempuri.org/IService1/Save_New_ExpanceResponse")]
-        void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login);
+        void Save_New_Expance(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Expance", ReplyAction="http://tempuri.org/IService1/Save_New_ExpanceResponse")]
-        System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login);
+        System.Threading.Tasks.Task Save_New_ExpanceAsync(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Profit", ReplyAction="http://tempuri.org/IService1/Save_New_ProfitResponse")]
-        void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login);
+        void Save_New_Profit(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Profit", ReplyAction="http://tempuri.org/IService1/Save_New_ProfitResponse")]
-        System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login);
+        System.Threading.Tasks.Task Save_New_ProfitAsync(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
+        OrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(OrganizerClientWPF.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
+        System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(OrganizerClientWPF.ServiceReference1.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -103,11 +320,11 @@ namespace OrganizerClientWPF.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.Diary_WCF[] Show_All_Notes(string login) {
+        public OrganizerClientWPF.ServiceReference1.Diary_WCF[] Show_All_Notes(string login) {
             return base.Channel.Show_All_Notes(login);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login) {
+        public System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Diary_WCF[]> Show_All_NotesAsync(string login) {
             return base.Channel.Show_All_NotesAsync(login);
         }
         
@@ -127,19 +344,19 @@ namespace OrganizerClientWPF.ServiceReference1 {
             return base.Channel.Delete_NoteAsync(note);
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Profits(string login) {
+        public OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Profits(string login) {
             return base.Channel.Show_All_Profits(login);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ProfitsAsync(string login) {
+        public System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ProfitsAsync(string login) {
             return base.Channel.Show_All_ProfitsAsync(login);
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Expance(string login) {
+        public OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Expance(string login) {
             return base.Channel.Show_All_Expance(login);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ExpanceAsync(string login) {
+        public System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ExpanceAsync(string login) {
             return base.Channel.Show_All_ExpanceAsync(login);
         }
         
@@ -159,27 +376,27 @@ namespace OrganizerClientWPF.ServiceReference1 {
             return base.Channel.GetExpanceTypesAsync();
         }
         
-        public void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login) {
+        public void Save_New_Expance(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login) {
             base.Channel.Save_New_Expance(new_expance, login);
         }
         
-        public System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login) {
+        public System.Threading.Tasks.Task Save_New_ExpanceAsync(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login) {
             return base.Channel.Save_New_ExpanceAsync(new_expance, login);
         }
         
-        public void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login) {
+        public void Save_New_Profit(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login) {
             base.Channel.Save_New_Profit(new_profit, login);
         }
         
-        public System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login) {
+        public System.Threading.Tasks.Task Save_New_ProfitAsync(OrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login) {
             return base.Channel.Save_New_ProfitAsync(new_profit, login);
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {
+        public OrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(OrganizerClientWPF.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(DALOrganizerClientWPF.ServiceReference1.CompositeType composite) {
+        public System.Threading.Tasks.Task<OrganizerClientWPF.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(OrganizerClientWPF.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }

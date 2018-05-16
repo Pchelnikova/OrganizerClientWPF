@@ -34,27 +34,27 @@ namespace DALOrganizerClientWPF
         }
 
         //Budget CRUD
-        public ICollection<Profit_ExpanceWPF_DTO> Show_All_Profits (string login)
+        public ICollection<Profit_ExpanceDAL> Show_All_Profits (string login)
         {
             var profit_list = _service.Show_All_Profits(login);
-            List<Profit_ExpanceWPF_DTO> profits = new List<Profit_ExpanceWPF_DTO>();
-            foreach (Profit_ExpanceDAL item in profit_list)
-                profits.Add(new Profit_ExpanceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+            List<Profit_ExpanceDAL> profits = new List<Profit_ExpanceDAL>();
+            foreach (Profit_ExpanceWCF item in profit_list)
+                profits.Add(new Profit_ExpanceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
             return profits;            
         }
         
-        public ICollection<Profit_ExpanceWPF_DTO> Show_All_Expance(string login)
+        public ICollection<Profit_ExpanceDAL> Show_All_Expance(string login)
         {
             var expance_list = _service.Show_All_Expance(login);
-            List<Profit_ExpanceWPF_DTO> expance = new List<Profit_ExpanceWPF_DTO>();
-            foreach (Profit_ExpanceDAL item in expance_list)
-                expance.Add(new Profit_ExpanceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+            List<Profit_ExpanceDAL> expance = new List<Profit_ExpanceDAL>();
+            foreach (Profit_ExpanceWCF item in expance_list)
+                expance.Add(new Profit_ExpanceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
             return expance;
         }
 
-        public void Save_New_Profit(Profit_ExpanceWPF_DTO new_profit, string login)
+        public void Save_New_Profit(Profit_ExpanceDAL new_profit, string login)
         {
-           Profit_ExpanceDAL profit = new Profit_ExpanceDAL()
+           Profit_ExpanceWCF profit = new Profit_ExpanceWCF()
             {
                 Date_ = new_profit.Date_,
                 Sum = new_profit.Sum,
@@ -64,9 +64,9 @@ namespace DALOrganizerClientWPF
             _service.Save_New_Profit(profit, login);
         }
 
-        public void Save_New_Expance(Profit_ExpanceWPF_DTO new_expance, string login)
+        public void Save_New_Expance(Profit_ExpanceDAL new_expance, string login)
         {
-            Profit_ExpanceDAL expance = new Profit_ExpanceDAL()
+            Profit_ExpanceWCF expance = new Profit_ExpanceWCF()
             {
                 Date_ = new_expance.Date_,
                 Sum = new_expance.Sum,

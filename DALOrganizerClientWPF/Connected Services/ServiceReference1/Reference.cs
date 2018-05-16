@@ -78,7 +78,7 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Profit_ExpanceWCF", Namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts")]
     [System.SerializableAttribute()]
-    public partial class Profit_ExpanceDAL : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Profit_ExpanceWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -251,16 +251,16 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         System.Threading.Tasks.Task Delete_NoteAsync(string note);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
-        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Profits(string login);
+        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Profits(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Profits", ReplyAction="http://tempuri.org/IService1/Show_All_ProfitsResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ProfitsAsync(string login);
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ProfitsAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Expance", ReplyAction="http://tempuri.org/IService1/Show_All_ExpanceResponse")]
-        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Expance(string login);
+        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Expance(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Show_All_Expance", ReplyAction="http://tempuri.org/IService1/Show_All_ExpanceResponse")]
-        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ExpanceAsync(string login);
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ExpanceAsync(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProfitsTypes", ReplyAction="http://tempuri.org/IService1/GetProfitsTypesResponse")]
         string[] GetProfitsTypes();
@@ -275,16 +275,16 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         System.Threading.Tasks.Task<string[]> GetExpanceTypesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Expance", ReplyAction="http://tempuri.org/IService1/Save_New_ExpanceResponse")]
-        void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login);
+        void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Expance", ReplyAction="http://tempuri.org/IService1/Save_New_ExpanceResponse")]
-        System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login);
+        System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Profit", ReplyAction="http://tempuri.org/IService1/Save_New_ProfitResponse")]
-        void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login);
+        void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Save_New_Profit", ReplyAction="http://tempuri.org/IService1/Save_New_ProfitResponse")]
-        System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login);
+        System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         DALOrganizerClientWPF.ServiceReference1.CompositeType GetDataUsingDataContract(DALOrganizerClientWPF.ServiceReference1.CompositeType composite);
@@ -344,19 +344,19 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
             return base.Channel.Delete_NoteAsync(note);
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Profits(string login) {
+        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Profits(string login) {
             return base.Channel.Show_All_Profits(login);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ProfitsAsync(string login) {
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ProfitsAsync(string login) {
             return base.Channel.Show_All_ProfitsAsync(login);
         }
         
-        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[] Show_All_Expance(string login) {
+        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Show_All_Expance(string login) {
             return base.Channel.Show_All_Expance(login);
         }
         
-        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL[]> Show_All_ExpanceAsync(string login) {
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Show_All_ExpanceAsync(string login) {
             return base.Channel.Show_All_ExpanceAsync(login);
         }
         
@@ -376,19 +376,19 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
             return base.Channel.GetExpanceTypesAsync();
         }
         
-        public void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login) {
+        public void Save_New_Expance(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login) {
             base.Channel.Save_New_Expance(new_expance, login);
         }
         
-        public System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_expance, string login) {
+        public System.Threading.Tasks.Task Save_New_ExpanceAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_expance, string login) {
             return base.Channel.Save_New_ExpanceAsync(new_expance, login);
         }
         
-        public void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login) {
+        public void Save_New_Profit(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login) {
             base.Channel.Save_New_Profit(new_profit, login);
         }
         
-        public System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceDAL new_profit, string login) {
+        public System.Threading.Tasks.Task Save_New_ProfitAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF new_profit, string login) {
             return base.Channel.Save_New_ProfitAsync(new_profit, login);
         }
         
