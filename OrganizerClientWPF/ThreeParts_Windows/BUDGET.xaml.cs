@@ -68,7 +68,6 @@ namespace OrganizerClientWPF
             save_add.Content = "SAVE";
 
         }
-
         private void Save_New_Profit_Click(object sender, RoutedEventArgs e)
         {
             if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
@@ -92,7 +91,6 @@ namespace OrganizerClientWPF
                 _dalCl.Save_New_Profit(profitDAL, CurrentUser.Login);
             }            
         }
-
         private void Save_New_Expance_Click(object sender, RoutedEventArgs e)
         {
             if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
@@ -114,7 +112,7 @@ namespace OrganizerClientWPF
 
                 _dalCl.Save_New_Expance(expanceDAL, CurrentUser.Login);
             }
-        }
+        }       
         ///open Expances
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
@@ -123,7 +121,6 @@ namespace OrganizerClientWPF
             save_add.Click += Save_New_Expance_Click;
             show_all.Click += Show_All_Expance_Click;
         }
-
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
@@ -178,7 +175,16 @@ namespace OrganizerClientWPF
         }
 
         private void Delete_Expance (object sender, RoutedEventArgs e)
-        { }
+        {
+           
+                if (budget_Grid.SelectedIndex > -1)
+                {
+                   DateTime expence_for_delete = (budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpanceWPF_DTO).Date_;
+
+                    _dalCl.Delete_Expence(expence_for_delete);
+                }
+          
+        }
 
         //ADD  new budget or expance or plan
         private void add_profit(object sender, RoutedEventArgs e)

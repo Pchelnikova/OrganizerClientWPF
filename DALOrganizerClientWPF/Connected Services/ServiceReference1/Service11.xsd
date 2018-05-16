@@ -120,6 +120,30 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Delete_Expence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_ExpenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_Profit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_ProfitResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetDataUsingDataContract">
     <xs:complexType>
       <xs:sequence>

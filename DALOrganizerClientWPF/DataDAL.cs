@@ -76,6 +76,11 @@ namespace DALOrganizerClientWPF
             _service.Save_New_Expance(expance, login);
         }
 
+        public void Delete_Expence (DateTime dateTime)
+        {
+            _service.Delete_Expence(dateTime);
+        }
+
         public List<string> GetProfitsTypes ()
         {
             return _service.GetProfitsTypes().ToList();
