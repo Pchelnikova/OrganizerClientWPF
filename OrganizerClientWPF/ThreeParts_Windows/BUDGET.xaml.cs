@@ -82,7 +82,7 @@ namespace OrganizerClientWPF
         {
             if (type.Text != null && description.Text != null)
             {
-                if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number))
+                if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number))
                 {
                     Profit_ExpenceWPF_DTO new_profit = new Profit_ExpenceWPF_DTO()
                     {
@@ -156,7 +156,7 @@ namespace OrganizerClientWPF
         {
             if (type.Text != null && description.Text != null)
             {
-                if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("ukr-UAH"), out decimal number) == true)
+                if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number) == true)
                 {
                     Profit_ExpenceWPF_DTO new_expance = new Profit_ExpenceWPF_DTO()
                     {

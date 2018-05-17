@@ -61,9 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\ServiceReference1\DALOrganizerClientWPF.ServiceReference1.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServiceReference1\DALOrganizerClientWPF.ServiceReference1.Diary_WCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -81,9 +78,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\Service13.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Service14.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

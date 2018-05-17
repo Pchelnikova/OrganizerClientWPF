@@ -33,7 +33,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="1" Margin="10,35,10,0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="9" TextAlignment="Center" FontSize="48" Foreground="#FFF9ECEC">O R G A N I Z E R</TextBlock>
+        <TextBlock Grid.Row="1" Margin="10,35,10,0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="9" TextAlignment="Center" FontSize="48" Foreground="Black">O R G A N I Z E R</TextBlock>
         <Label Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="10" Grid.RowSpan="2"  BorderBrush="Black" Background="#FF4C7787"  />
         <Label  Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" Grid.RowSpan="1"  BorderBrush="Black" Background="#FF86B0BF" Foreground="#FFC71B1B" />
         <Label  Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="9"   BorderBrush="Black" Background="#FF86B0BF"   />
