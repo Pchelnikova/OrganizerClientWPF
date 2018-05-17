@@ -9,11 +9,11 @@
       <xsd:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IService1_Show_All_Notes_InputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_Notes" />
+  <wsdl:message name="IService1_Get_All_Notes_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Notes" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_All_Notes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_NotesResponse" />
+  <wsdl:message name="IService1_Get_All_Notes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_NotesResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_Add_Note_InputMessage">
     <wsdl:part name="parameters" element="tns:Add_Note" />
@@ -27,17 +27,17 @@
   <wsdl:message name="IService1_Delete_Note_OutputMessage">
     <wsdl:part name="parameters" element="tns:Delete_NoteResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_All_Profits_InputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_Profits" />
+  <wsdl:message name="IService1_Get_All_Profits_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Profits" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_All_Profits_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_ProfitsResponse" />
+  <wsdl:message name="IService1_Get_All_Profits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_ProfitsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_All_Expance_InputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_Expance" />
+  <wsdl:message name="IService1_Get_All_Expance_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Expance" />
   </wsdl:message>
-  <wsdl:message name="IService1_Show_All_Expance_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Show_All_ExpanceResponse" />
+  <wsdl:message name="IService1_Get_All_Expance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_ExpanceResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetProfitsTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProfitsTypes" />
@@ -82,9 +82,9 @@
     <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
-    <wsdl:operation name="Show_All_Notes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Notes" message="tns:IService1_Show_All_Notes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_NotesResponse" message="tns:IService1_Show_All_Notes_OutputMessage" />
+    <wsdl:operation name="Get_All_Notes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_NotesResponse" message="tns:IService1_Get_All_Notes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Add_Note">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Add_Note" message="tns:IService1_Add_Note_InputMessage" />
@@ -94,13 +94,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Note" message="tns:IService1_Delete_Note_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_NoteResponse" message="tns:IService1_Delete_Note_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Show_All_Profits">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Profits" message="tns:IService1_Show_All_Profits_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_ProfitsResponse" message="tns:IService1_Show_All_Profits_OutputMessage" />
+    <wsdl:operation name="Get_All_Profits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Profits" message="tns:IService1_Get_All_Profits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_ProfitsResponse" message="tns:IService1_Get_All_Profits_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Show_All_Expance">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Show_All_Expance" message="tns:IService1_Show_All_Expance_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Show_All_ExpanceResponse" message="tns:IService1_Show_All_Expance_OutputMessage" />
+    <wsdl:operation name="Get_All_Expance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Expance" message="tns:IService1_Get_All_Expance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_ExpanceResponse" message="tns:IService1_Get_All_Expance_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetProfitsTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProfitsTypes" message="tns:IService1_GetProfitsTypes_InputMessage" />
@@ -133,8 +133,8 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Show_All_Notes">
-      <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Notes" style="document" />
+    <wsdl:operation name="Get_All_Notes">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Notes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -160,8 +160,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Show_All_Profits">
-      <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Profits" style="document" />
+    <wsdl:operation name="Get_All_Profits">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Profits" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -169,8 +169,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Show_All_Expance">
-      <soap:operation soapAction="http://tempuri.org/IService1/Show_All_Expance" style="document" />
+    <wsdl:operation name="Get_All_Expance">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Expance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

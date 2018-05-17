@@ -48,7 +48,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Converters\ConvertDiary.cs" />
+    <Compile Include="Converters\ConverterProfitExpence.cs" />
     <Compile Include="DataDAL.cs" />
     <Compile Include="DTO\DiaryDAL.cs" />
     <Compile Include="DTO\Profit_ExpanceDAL.cs" />

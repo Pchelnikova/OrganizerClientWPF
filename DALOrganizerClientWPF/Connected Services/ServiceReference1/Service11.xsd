@@ -3,17 +3,17 @@
   <xs:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" />
   <xs:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:55155/Service1.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WcfOrganizer" />
-  <xs:element name="Show_All_Notes">
+  <xs:element name="Get_All_Notes">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Show_All_NotesResponse">
+  <xs:element name="Get_All_NotesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Show_All_NotesResult" nillable="true" type="q1:ArrayOfDiary_WCF" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_NotesResult" nillable="true" type="q1:ArrayOfDiary_WCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,31 +42,31 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Show_All_Profits">
+  <xs:element name="Get_All_Profits">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Show_All_ProfitsResponse">
+  <xs:element name="Get_All_ProfitsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Show_All_ProfitsResult" nillable="true" type="q2:ArrayOfProfit_ExpanceWCF" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_ProfitsResult" nillable="true" type="q2:ArrayOfProfit_ExpanceWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Show_All_Expance">
+  <xs:element name="Get_All_Expance">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Show_All_ExpanceResponse">
+  <xs:element name="Get_All_ExpanceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Show_All_ExpanceResult" nillable="true" type="q3:ArrayOfProfit_ExpanceWCF" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_ExpanceResult" nillable="true" type="q3:ArrayOfProfit_ExpanceWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -98,6 +98,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_expance" nillable="true" type="q6:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -111,6 +112,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_profit" nillable="true" type="q7:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

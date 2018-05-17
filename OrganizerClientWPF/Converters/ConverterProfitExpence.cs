@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrganizerClientWPF.Converters
 {
-    public static class Converter
+    public static class Converter_Profit_Expence
     {
         public static Profit_ExpenceDAL WPF_to_DAL(Profit_ExpenceWPF_DTO profit_ExpanceWPF)
         {
@@ -39,11 +39,9 @@ namespace OrganizerClientWPF.Converters
             List<Profit_ExpenceWPF_DTO> profit_expance = new List<Profit_ExpenceWPF_DTO>();
             foreach (Profit_ExpenceDAL item in profit_ExpenceDAL)
             {
-                profit_expance.Add(new Profit_ExpenceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+                profit_expance.Add(new Profit_ExpenceWPF_DTO() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description, Profit_Expance_Type = item.Profit_Expance_Type });
             }
             return profit_expance;
         }
-
-
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DALOrganizerClientWPF.Converters
 {
-    public static class Converter
+    public static class ConverterProfitExpence
     {
         public static Profit_ExpanceWCF DAL_to_WCF (Profit_ExpenceDAL profit_ExpenceDAL)
         {
@@ -27,7 +27,7 @@ namespace DALOrganizerClientWPF.Converters
             List<Profit_ExpenceDAL> profit_expance = new List<Profit_ExpenceDAL>();
             foreach (Profit_ExpanceWCF item in profit_ExpenceDAL)
             {
-                profit_expance.Add(new Profit_ExpenceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description });
+                profit_expance.Add(new Profit_ExpenceDAL() { Date_ = item.Date_, Sum = item.Sum, Description = item.Description, Profit_Expance_Type = item.Profit_Expance_Type });
             }
             return profit_expance;
         }

@@ -8,6 +8,8 @@ using OrganizerClientWPF.DTO;
 using DALOrganizerClientWPF.DTO;
 using System;
 using System.Collections.Generic;
+using DALOrganizerClientWPF.Converters;
+
 
 namespace OrganizerClientWPF
 {
@@ -38,36 +40,21 @@ namespace OrganizerClientWPF
             //    dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);         
 
         }
-
         ///see all notes
         private void See_All_Notes_Click(object sender, RoutedEventArgs e)
         {
-
             add.Visibility = Visibility.Hidden;
             period.Visibility = Visibility.Visible;
             Calendar.Visibility = Visibility.Visible;
             Calendar2.Visibility = Visibility.Visible;
             add.Visibility = Visibility.Hidden;
-            delete.Visibility = Visibility.Visible;
-
-            //       
-            var dairy_list = _dalCl.Show_All_Notes(CurrentUser.Login);
-            var dairy_list_wpf = new List<DiaryWPF_DTO>();
+            delete.Visibility = Visibility.Visible;        
             Diary_Text.Visibility = Visibility.Hidden;
             dairy_Grid.Visibility = Visibility.Visible;
-            foreach (DiaryDAL item in dairy_list)
-            {
-                DiaryWPF_DTO diaryWPF_DTO = new DiaryWPF_DTO
-                {
-                    Date_ = item.Date_,
-                    Text = item.Text
-                };
-                dairy_list_wpf.Add(diaryWPF_DTO);
-            }
+          
             Binding binding = new Binding();
-            binding.Source = dairy_list_wpf;
-            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-           
+            binding.Source = Converters.ConverterDiary.DAL_to_WPF_List(_dalCl.Get_All_Notes(CurrentUser.Login).ToList());
+            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);         
 
         }
         ///open form to add new note
@@ -81,21 +68,17 @@ namespace OrganizerClientWPF
             delete.Visibility = Visibility.Collapsed;
             add.Visibility = Visibility.Visible;
         }
-
         ///add to base new note
         private void Add_Note_Click(object sender, RoutedEventArgs e)
         {
             _dalCl.Add_Note(Diary_Text.Text, CurrentUser.Login);           
              Diary_Text.Text = null;
         }
-
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
             if (dairy_Grid.SelectedIndex > -1)
-            {
-                string note_for_delete = (dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString();          
-
-                _dalCl.Delete_Note(note_for_delete);
+            {      
+                _dalCl.Delete_Note((dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString());
             }
         }
         //go to budjet

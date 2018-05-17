@@ -10,10 +10,5 @@ namespace OrganizerClientWPF.DTO
     {
         public DateTime Date_ { get; set; }
         public string Text { get; set; }
-        //public static DALOrganizerClientWPF.DTO.DiaryDAL Converter (DiaryWPF_DTO DiaryWPF)
-        //{
-
-        //}
-       
     }
 }
