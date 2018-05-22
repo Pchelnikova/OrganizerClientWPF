@@ -46,7 +46,7 @@ namespace OrganizerClientWPF
                 save_add.Click += Save_New_Profit_Click;                
                 show_all.Click += Show_All_Profits_Click;
                 delete.Click += Delete_Profit;
-                //expance.Background = new SolidColorBrush() {Color.F = "#FFA6D87C" };
+                
         }
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
@@ -114,8 +114,9 @@ namespace OrganizerClientWPF
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
+            add.Click.
             add.Click += Add_Click_Expance;
-            save_add.Click += Save_New_Expance_Click;
+            save_add.Click += Save_New_Expence_Click;
             show_all.Click += Show_All_Expance_Click;
             delete.Click += Delete_Expence;
         }
@@ -130,7 +131,7 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetExpanceTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-            save_add.Click += Save_New_Expance_Click;
+            save_add.Click += Save_New_Expence_Click;
             save_add.Content = "SAVE";
         }                  
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
@@ -154,20 +155,20 @@ namespace OrganizerClientWPF
                     _dalCl.Delete_Expence(Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO), CurrentUser.Login);
                 }          
         }
-        private void Save_New_Expance_Click(object sender, RoutedEventArgs e)
+        private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
         {
             if (type.Text != null && description.Text != null)
             {
                 if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number) == true)
                 {
-                    Profit_ExpenceWPF_DTO new_expance = new Profit_ExpenceWPF_DTO()
+                    Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
                     {
                         Date_ = date.SelectedDate.Value,
                         Sum = number,
                         Profit_Expance_Type = type.Text.ToString(),
                         Description = description.Text
                     };
-                    _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expance), type.Text.ToString(), CurrentUser.Login);
+                    _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expence), type.Text.ToString(), CurrentUser.Login);
                     sum.Text = "";
                     description.Text = "";
                 }
