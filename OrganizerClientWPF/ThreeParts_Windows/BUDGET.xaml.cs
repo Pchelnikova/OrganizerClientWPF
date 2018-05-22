@@ -92,6 +92,8 @@ namespace OrganizerClientWPF
                         Description = description.Text
                     };
                     _dalCl.Save_New_Profit(Converter_Profit_Expence.WPF_to_DAL(new_profit), type.Text.ToString(), CurrentUser.Login);
+                    sum.Text = "";
+                    description.Text = "";
                 }
             }
         }       
@@ -166,6 +168,8 @@ namespace OrganizerClientWPF
                         Description = description.Text
                     };
                     _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expance), type.Text.ToString(), CurrentUser.Login);
+                    sum.Text = "";
+                    description.Text = "";
                 }
             }
         }
