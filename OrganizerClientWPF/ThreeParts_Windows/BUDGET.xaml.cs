@@ -42,6 +42,8 @@ namespace OrganizerClientWPF
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
+            //RemoveHandler(add, Add_Click_Expance);
+            
                 add.Click += Add_Click_Profits;
                 save_add.Click += Save_New_Profit_Click;                
                 show_all.Click += Show_All_Profits_Click;
@@ -114,7 +116,7 @@ namespace OrganizerClientWPF
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
-            add.Click.
+            //add.Click.
             add.Click += Add_Click_Expance;
             save_add.Click += Save_New_Expence_Click;
             show_all.Click += Show_All_Expance_Click;
