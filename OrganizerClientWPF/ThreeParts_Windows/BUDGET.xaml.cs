@@ -17,6 +17,8 @@ using OrganizerClientWPF.DTO;
 using System.Globalization;
 using DALOrganizerClientWPF.DTO;
 using OrganizerClientWPF.Converters;
+using System.Reflection;
+using System.Windows.Controls.Primitives;
 
 namespace OrganizerClientWPF
 {
@@ -25,7 +27,42 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class BUDGET : MetroWindow
     {
-        private readonly DataDAL _dalCl = new DataDAL();   
+        private readonly DataDAL _dalCl = new DataDAL();
+
+
+
+      public List<RoutedEventHandler> delegates = new List<RoutedEventHandler>()
+        {
+            Add_Click_Profits,
+        };
+        public static RoutedEventHandlerInfo[] GetRoutedEventHandlers(UIElement element, RoutedEvent routedEvent)
+        {
+            // Get the EventHandlersStore instance which holds event handlers for the specified element.
+            // The EventHandlersStore class is declared as internal.
+            var eventHandlersStoreProperty = typeof(UIElement).GetProperty(
+                "EventHandlersStore", BindingFlags.Instance | BindingFlags.NonPublic);
+            object eventHandlersStore = eventHandlersStoreProperty.GetValue(element, null);
+
+            // Invoke the GetRoutedEventHandlers method on the EventHandlersStore instance 
+            // for getting an array of the subscribed event handlers.
+            var getRoutedEventHandlers = eventHandlersStore.GetType().GetMethod(
+                "GetRoutedEventHandlers", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var routedEventHandlers = (RoutedEventHandlerInfo[])getRoutedEventHandlers.Invoke(
+                eventHandlersStore, new object[] { routedEvent });
+
+            return routedEventHandlers;
+        }
+        private void RemoveClickEvent(Button b)
+        {
+            var routedEventHandlers = GetRoutedEventHandlers(b, ButtonBase.ClickEvent);
+            foreach (var routedEventHandler in routedEventHandlers)
+                b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
+        }
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    RemoveClickEvent(Tester);
+        //    delegates.ForEach((item) => { if (delegates.IndexOf(item) % 2 == 0) Tester.Click += item; });
+        //}
 
         public User CurrentUser { get; } = new User();
         public BUDGET(User currentUser)
@@ -45,17 +82,16 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
 
-            add.Click -= Add_Click_Expance;
-                add.Click += Add_Click_Profits;
-            save_add.Click -= Save_New_Expence_Click;
-                save_add.Click += Save_New_Profit_Click;
-            show_all.Click -= Show_All_Expance_Click;
-                show_all.Click += Show_All_Profits_Click;
-            delete.Click -= Delete_Expence;
-                delete.Click += Delete_Profit;
+            //add.Click -= Add_Click_Expance;
+            //    add.Click += Add_Click_Profits;
+            //save_add.Click -= Save_New_Expence_Click;
+            //    save_add.Click += Save_New_Profit_Click;
+            //show_all.Click -= Show_All_Expance_Click;
+            //    show_all.Click += Show_All_Profits_Click;
+            //delete.Click -= Delete_Expence;
+            //    delete.Click += Delete_Profit;
                 
-        }
-    
+        }    
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
@@ -68,7 +104,7 @@ namespace OrganizerClientWPF
                 budget_Grid.Visibility = Visibility.Visible;
             }
         }
-        private void Add_Click_Profits(object sender, RoutedEventArgs e)
+        public void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
@@ -122,14 +158,14 @@ namespace OrganizerClientWPF
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
-            add.Click -= Add_Click_Profits;
-                add.Click += Add_Click_Expance;
-            save_add.Click -= Save_New_Profit_Click;
-                save_add.Click += Save_New_Expence_Click;
-            show_all.Click -= Show_All_Profits_Click;         
-                show_all.Click += Show_All_Expance_Click;
-            delete.Click -= Delete_Profit;
-                delete.Click += Delete_Expence;
+            //add.Click -= Add_Click_Profits;
+            //    add.Click += Add_Click_Expance;
+            //save_add.Click -= Save_New_Profit_Click;
+            //    save_add.Click += Save_New_Expence_Click;
+            //show_all.Click -= Show_All_Profits_Click;         
+            //    show_all.Click += Show_All_Expance_Click;
+            //delete.Click -= Delete_Profit;
+            //    delete.Click += Delete_Expence;
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -263,5 +299,6 @@ namespace OrganizerClientWPF
         {
 
         }
+       
     }
 }
