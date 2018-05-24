@@ -30,11 +30,16 @@
             <Button x:Name="plans" Grid.Column="2" Grid.Row="1" Background="#FFA6D87C" Margin="10,10,10,10"  Content="PLANS" FontSize="18" Click="Plans_Click" />
             <Button x:Name="reports" Grid.Column="3" Grid.Row="1" Background="#FFA6D87C" Margin="10,10,10,10"  Content="REPORTS" FontSize="18" Click="Button_Click_3" />
             <!-- form ADD-->
-            <StackPanel Grid.Column="0" Grid.Row="2">
-                <Button x:Name="add" Background="#FF79B9A8" Visibility="Hidden" Margin="20,10,20,10" Content="ADD" FontSize="16"  />
-                <Button x:Name="show_all" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Hidden"  Content="SHOW ALL" FontSize="16"   />
-                <Button x:Name="edit" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Hidden"  Content="EDIT" FontSize="16"  />
+            <StackPanel x:Name="stack_panelProfitExp" Grid.Column="0" Grid.Row="2">
+                <Button x:Name="add" Background="#FF79B9A8" Visibility="Hidden" Margin="20,10,20,10"  FontSize="16"  />
+                <Button x:Name="show_all" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Hidden"   FontSize="16"   />
+             
                 <Button x:Name="delete" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Collapsed"  Content="DELETE" FontSize="16"  />
+            </StackPanel>
+            <StackPanel x:Name="stack_panelPlan" Grid.Column="0" Grid.Row="2" Visibility="Collapsed">
+                <Button x:Name="add_plan" Background="#FF79B9A8" Visibility="Visible" Margin="20,10,20,10" Content="ADD PLAN" FontSize="16"  />
+                <Button x:Name="show_all_plans" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Visible"  Content="SHOW ALL PLANS" FontSize="16"   />
+                <Button x:Name="delete_plan" Grid.Column="0" Grid.Row="2" Background="#FF79B9A8" Margin="20"  Visibility="Collapsed"  Content="DELETE PLAN" FontSize="16"  />
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <DatePicker x:Name="date" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0"  ></DatePicker>
@@ -47,6 +52,7 @@
                 <TextBlock Margin="10" DockPanel.Dock="Top" FontSize="16" FontWeight="Bold" >DESCRIPTION:</TextBlock>
                 <TextBox  x:Name="description" DockPanel.Dock="Top" MinLines="8"></TextBox>
                 <Button x:Name="save_add" DockPanel.Dock="Left" Margin="200,20,20,20" Background="#FFD86868" FontSize="18" >SAVE</Button>
+                <Button x:Name="save_plan" DockPanel.Dock="Left" Margin="200,20,20,20" Background="#FFD86868" FontSize="18" >SAVE</Button>
             </DockPanel>
             <!-- form ADD-->
             <!--close ADD-->

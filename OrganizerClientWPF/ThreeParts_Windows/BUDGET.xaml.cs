@@ -25,8 +25,7 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class BUDGET : MetroWindow
     {
-        private readonly DataDAL _dalCl = new DataDAL();
-   
+        private readonly DataDAL _dalCl = new DataDAL();   
 
         public User CurrentUser { get; } = new User();
         public BUDGET(User currentUser)
@@ -40,7 +39,8 @@ namespace OrganizerClientWPF
         //open Profits CRUD
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
-                Change_Window();
+            stack_panelPlan.Visibility = Visibility.Collapsed;
+            Change_Window();
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
@@ -59,7 +59,6 @@ namespace OrganizerClientWPF
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-            edit.Visibility = Visibility.Visible;
             var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
@@ -68,12 +67,10 @@ namespace OrganizerClientWPF
                 budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
                 budget_Grid.Visibility = Visibility.Visible;
             }
-
         }
         private void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
 
@@ -120,6 +117,7 @@ namespace OrganizerClientWPF
         ///open Expances CRUD
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
+            stack_panelPlan.Visibility = Visibility.Collapsed;
             Change_Window();
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
@@ -136,7 +134,6 @@ namespace OrganizerClientWPF
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
             Binding binding = new Binding
@@ -150,8 +147,7 @@ namespace OrganizerClientWPF
         }                  
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
-            delete.Visibility = Visibility.Visible;
-            edit.Visibility = Visibility.Visible;         
+            delete.Visibility = Visibility.Visible;        
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
             {
@@ -193,14 +189,36 @@ namespace OrganizerClientWPF
         //Open Plans
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
-            Change_Window();
+           
+           
+            stack_panelPlan.Visibility = Visibility.Visible;
+
             // add.Click += Plans_Click;
+            
+
+            
         }
+
+        private void Add_Plan (object sender, RoutedEventArgs e)
+        {
+            border_add.Visibility = Visibility.Hidden;            
+            delete.Visibility = Visibility.Hidden;
+            budget_Grid.Visibility = Visibility.Hidden;
+
+            Binding binding = new Binding
+            {
+                Source = _dalCl.GetProfitsTypes()
+            };
+            type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            save_add.Click -= Save_New_Expence_Click;
+            save_add.Click += Save_New_Profit_Click;
+            save_plan.Content = "SAVE";
+        }
+        
         //Open Reports
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             //change button "add" and "show_all"
             add.Content = "PROFITS";
