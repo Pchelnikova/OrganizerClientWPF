@@ -70,6 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\ConverterDiary.cs" />
     <Compile Include="Converters\ConverterProfitExpence.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="Dialog_Windows\Login_Is_Busy.xaml.cs">
       <DependentUpon>Login_Is_Busy.xaml</DependentUpon>
     </Compile>
