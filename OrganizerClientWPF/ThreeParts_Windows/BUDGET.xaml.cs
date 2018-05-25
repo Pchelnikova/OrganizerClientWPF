@@ -28,9 +28,6 @@ namespace OrganizerClientWPF
     public partial class BUDGET : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-       
-    
-
         public User CurrentUser { get; } = new User();
         public BUDGET(User currentUser)
         {
@@ -43,26 +40,21 @@ namespace OrganizerClientWPF
         //open Profits CRUD
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
-                Change_Window();
+            stack_panelPlan.Visibility = Visibility.Collapsed;
+            Change_Window();
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
-
-            add.Click -= Add_Click_Expance;
-            add.Click += Add_Click_Profits;
-            save_add.Click -= Save_New_Expence_Click;
-            save_add.Click += Save_New_Profit_Click;
-            show_all.Click -= Show_All_Expance_Click;
-            show_all.Click += Show_All_Profits_Click;
-            delete.Click -= Delete_Expence;
-            delete.Click += Delete_Profit;
-
+                add.Click += Add_Click_Profits;
+                save_add.Click += Save_New_Profit_Click;                
+                show_all.Click += Show_All_Profits_Click;
+                delete.Click += Delete_Profit;
+                
         }
-    
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-        
+            edit.Visibility = Visibility.Visible;
             var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
@@ -71,12 +63,11 @@ namespace OrganizerClientWPF
                 budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
                 budget_Grid.Visibility = Visibility.Visible;
             }
-
         }
-        private void Add_Click_Profits(object sender, RoutedEventArgs e)
+        public void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-         
+            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
 
@@ -123,22 +114,21 @@ namespace OrganizerClientWPF
         ///open Expances CRUD
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
+            stack_panelPlan.Visibility = Visibility.Collapsed;
             Change_Window();
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
-            add.Click -= Add_Click_Profits;
+            add.Click.
             add.Click += Add_Click_Expance;
-            save_add.Click -= Save_New_Profit_Click;
             save_add.Click += Save_New_Expence_Click;
-            show_all.Click -= Show_All_Profits_Click;
             show_all.Click += Show_All_Expance_Click;
-            delete.Click -= Delete_Profit;
             delete.Click += Delete_Expence;
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
-            border_add.Visibility = Visibility.Hidden;           
+            border_add.Visibility = Visibility.Hidden;
+            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
             Binding binding = new Binding
@@ -153,7 +143,7 @@ namespace OrganizerClientWPF
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-                   
+            edit.Visibility = Visibility.Visible;         
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
             {
@@ -196,13 +186,14 @@ namespace OrganizerClientWPF
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
             Change_Window();
-          
+            // add.Click += Plans_Click;
         }
+        
         //Open Reports
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-           
+            edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
             //change button "add" and "show_all"
             add.Content = "PROFITS";
