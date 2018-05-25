@@ -56,6 +56,20 @@ namespace DALOrganizerClientWPF
             _service.Delete_Expence(ConverterProfitExpence.DAL_to_WCF(expence), login);
         }
 
+        //Budget Plans CRUD
+        public List<Profit_ExpenceDAL> Get_All_Plans(string login)
+        {
+            return ConverterProfitExpence.WCF_to_DAL_List(_service.Get_All_Plans(login));
+        }
+        public void Save_New_Plan(Profit_ExpenceDAL new_plan, string Type, string login)
+        {
+            _service.Save_New_Plan(Converters.ConverterProfitExpence.DAL_to_WCF(new_plan), Type, login);
+        }
+        public void Delete_Plan(Profit_ExpenceDAL expence, string login)
+        {
+            _service.Delete_Plan(ConverterProfitExpence.DAL_to_WCF(expence), login);
+        }
+
         //Types of Budget
         public List<string> GetProfitsTypes ()
         {

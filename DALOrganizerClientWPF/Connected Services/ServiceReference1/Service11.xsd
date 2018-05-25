@@ -69,6 +69,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Get_All_Plans">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_All_PlansResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_PlansResult" nillable="true" type="q4:ArrayOfProfit_ExpanceWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetProfitsTypes">
     <xs:complexType>
       <xs:sequence />
@@ -77,7 +91,7 @@
   <xs:element name="GetProfitsTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProfitsTypesResult" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProfitsTypesResult" nillable="true" type="q5:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -89,14 +103,14 @@
   <xs:element name="GetExpanceTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetExpanceTypesResult" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetExpanceTypesResult" nillable="true" type="q6:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Save_New_Expance">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_expance" nillable="true" type="q6:Profit_ExpanceWCF" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_expance" nillable="true" type="q7:Profit_ExpanceWCF" />
         <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -110,7 +124,7 @@
   <xs:element name="Save_New_Profit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_profit" nillable="true" type="q7:Profit_ExpanceWCF" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_profit" nillable="true" type="q8:Profit_ExpanceWCF" />
         <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -121,10 +135,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Save_New_Plan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_expance" nillable="true" type="q9:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save_New_PlanResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Delete_Profit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q8:Profit_ExpanceWCF" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q10:Profit_ExpanceWCF" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -137,12 +165,25 @@
   <xs:element name="Delete_Expence">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q9:Profit_ExpanceWCF" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q11:Profit_ExpanceWCF" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Delete_ExpenceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_Plan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q12:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_PlanResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
