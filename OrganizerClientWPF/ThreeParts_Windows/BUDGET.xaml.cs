@@ -119,7 +119,7 @@ namespace OrganizerClientWPF
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
-            add.Click.
+         
             add.Click += Add_Click_Expance;
             save_add.Click += Save_New_Expence_Click;
             show_all.Click += Show_All_Expance_Click;
