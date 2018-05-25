@@ -39,6 +39,7 @@ namespace OrganizerClientWPF
             CurrentUser = currentUser;
             InitializeComponent();            
             title.Text = CurrentUser.Login.ToUpper() + "'s Budjet";
+            // Create delegats for change main buttons Profit/Expence/Plans
             List <RoutedEventHandler> delegates_Profits = new List <RoutedEventHandler>()
             {
                  Add_Click_Profits, Show_All_Profits_Click, Delete_Profit, Save_New_Profit_Click                
@@ -49,14 +50,15 @@ namespace OrganizerClientWPF
             };
             List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
             delegates__.Add(delegates_Profits);
-            delegates__.Add(delegates_Expence);
-           
+            delegates__.Add(delegates_Expence);           
             delegates = delegates__;
+            //buttons, which will change by delegats
             List<Button> buttons_ = new List<Button>
             {
                 add, show_all, delete, save_add
             };
             buttons = buttons_;
+            //first values of buttons (Profits)
             for (int i = 0; i < buttons.Count; i++)
             {
                
@@ -132,8 +134,7 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetProfitsTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-            save_add.Click -= Save_New_Expence_Click;
-            save_add.Click += Save_New_Profit_Click;
+           
             save_add.Content = "SAVE";
 
         }
@@ -190,8 +191,7 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetExpanceTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-            save_add.Click -= Save_New_Profit_Click;
-            save_add.Click += Save_New_Expence_Click;
+          
             save_add.Content = "SAVE";
         }                  
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
@@ -237,12 +237,81 @@ namespace OrganizerClientWPF
             }
         }
 
-        //Open Plans
+        //Plans CRUD
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
+            stack_panelPlan.Visibility = Visibility.Collapsed;
             Change_Window();
-            // add.Click += Plans_Click;
+            add.Content = "Add Expance";
+            show_all.Content = "Show all Expences";
+            delete.Content = "Delete Expence";
+            Choise_Buttons((int)ThreeButton.PLAN);
+
+
         }
+        //private void Add_Click_Plan(object sender, RoutedEventArgs e)
+        //{
+        //    border_add.Visibility = Visibility.Hidden;
+        //    edit.Visibility = Visibility.Hidden;
+        //    delete.Visibility = Visibility.Hidden;
+        //    budget_Grid.Visibility = Visibility.Hidden;
+        //    Binding binding = new Binding
+        //    {
+        //        Source = _dalCl.GetExpanceTypes()
+        //    };
+        //    type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+        //    save_add.Click -= Save_New_Profit_Click;
+        //    save_add.Click += Save_New_Expence_Click;
+        //    save_add.Content = "SAVE";
+        //}
+        //private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
+        //{
+        //    delete.Visibility = Visibility.Visible;
+        //    edit.Visibility = Visibility.Visible;
+        //    Binding binding = new Binding();
+        //    if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
+        //    {
+        //        binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList());
+        //        budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+        //        budget_Grid.Visibility = Visibility.Visible;
+        //        delete.Content = "DELETE";
+        //        delete.Visibility = Visibility.Visible;
+        //    }
+
+        //}
+        //private void Delete_Expence(object sender, RoutedEventArgs e)
+        //{
+        //    if (budget_Grid.SelectedIndex > -1)
+        //    {
+        //        _dalCl.Delete_Expence(Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO), CurrentUser.Login);
+        //    }
+        //    Show_All_Expance_Click(sender, e);
+        //}
+        //private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (type.Text != null && description.Text != null)
+        //    {
+        //        if (Decimal.TryParse(sum.Text, System.Globalization.NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number) == true)
+        //        {
+        //            Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
+        //            {
+        //                Date_ = date.SelectedDate.Value,
+        //                Sum = number,
+        //                Profit_Expance_Type = type.Text.ToString(),
+        //                Description = description.Text
+        //            };
+        //            _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expence), type.Text.ToString(), CurrentUser.Login);
+        //            sum.Text = "";
+        //            description.Text = "";
+        //        }
+        //    }
+        //}
+        ////Open Plans
+        //private void Plans_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Change_Window();
+        //    // add.Click += Plans_Click;
+        //}
         
         //Open Reports
         private void Button_Click_3(object sender, RoutedEventArgs e)
