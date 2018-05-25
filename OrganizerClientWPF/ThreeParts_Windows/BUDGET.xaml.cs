@@ -29,15 +29,40 @@ namespace OrganizerClientWPF
     {
         private readonly DataDAL _dalCl = new DataDAL();
 
+        public  enum ThreeButton { PROFIT, EXPENCE, PLAN };    
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var rnd = new Random();
-        //    for (int i = 0; i < rnd.Next(5); i++)
-        //    {
-        //        Tester.Click += delegates[rnd.Next(delegates.Count)];
-        //    }
-        //}
+        public User CurrentUser { get; } = new User();
+        List<List<RoutedEventHandler>> delegates = new List<List<RoutedEventHandler>>();
+        List<Button> buttons = new List<Button>();
+        public BUDGET(User currentUser)
+        {
+            CurrentUser = currentUser;
+            InitializeComponent();            
+            title.Text = CurrentUser.Login.ToUpper() + "'s Budjet";
+            List <RoutedEventHandler> delegates_Profits = new List <RoutedEventHandler>()
+            {
+                 Add_Click_Profits, Show_All_Profits_Click, Delete_Profit, Save_New_Profit_Click                
+            };
+            List<RoutedEventHandler> delegates_Expence = new List<RoutedEventHandler>()
+            {
+                 Add_Click_Expance, Show_All_Expance_Click, Delete_Expence, Save_New_Expence_Click
+            };
+            List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
+            delegates__.Add(delegates_Profits);
+            delegates__.Add(delegates_Expence);
+           
+            delegates = delegates__;
+            List<Button> buttons_ = new List<Button>
+            {
+                add, show_all, delete, save_add
+            };
+            buttons = buttons_;
+            for (int i = 0; i < buttons.Count; i++)
+            {
+               
+                buttons[i].Click += delegates[0].FirstOrDefault(item => (delegates[0].IndexOf(item) == i));
+            }
+        }
 
         public static RoutedEventHandlerInfo[] GetRoutedEventHandlers(UIElement element, RoutedEvent routedEvent)
         {
@@ -56,47 +81,12 @@ namespace OrganizerClientWPF
 
             return routedEventHandlers;
         }
-
         private void RemoveClickEvent(Button b)
         {
             var routedEventHandlers = GetRoutedEventHandlers(b, ButtonBase.ClickEvent);
             foreach (var routedEventHandler in routedEventHandlers)
                 b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
         }
-
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    RemoveClickEvent(Tester);
-        //    delegates.ForEach((item) => { if (delegates.IndexOf(item) % 2 == 0) Tester.Click += item; });
-        //}
-
-        //private void Button_Click_2(object sender, RoutedEventArgs e)
-        //{
-        //    RemoveClickEvent(Tester);
-        //    delegates.ForEach((item) => { if (delegates.IndexOf(item) % 2 != 0) Tester.Click += item; });
-        //}
-
-        public User CurrentUser { get; } = new User();
-        List<RoutedEventHandler> delegates = new List<RoutedEventHandler>();
-        List<Button> buttons = new List<Button>();
-        public BUDGET(User currentUser)
-        {
-            CurrentUser = currentUser;
-            InitializeComponent();            
-            title.Text = CurrentUser.Login.ToUpper() + "'s Budjet";
-            List <List<RoutedEventHandler>> delegates_ = new List <List<RoutedEventHandler>>()
-            {
-                { Add_Click_Profits, Show_All_Profits_Click, Delete_Profit, Save_New_Profit_Click },
-                { Add_Click_Expance, Show_All_Expance_Click, Delete_Expence, Save_New_Expence_Click }
-            };
-            delegates = delegates_;
-            List<Button> buttons_ = new List<Button>
-            {
-                add, show_all, delete, save_add
-            };
-            buttons = buttons_;
-        }
-       
         //open Profits CRUD
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
@@ -105,19 +95,18 @@ namespace OrganizerClientWPF
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
-            foreach (Button item in buttons)
+           
+            Choise_Buttons((int)ThreeButton.PROFIT);
+           
+            }
+        private void Choise_Buttons (int number_of_button)
+        {
+            for (int i = 0; i < buttons.Count; i++)
             {
-                RemoveClickEvent(item);
-                delegates.ForEach((itemd) => { if (delegates.IndexOf(itemd) % 2 == 0) item.Click += itemd; });
+                RemoveClickEvent(buttons[i]);
+                buttons[i].Click += delegates[number_of_button].FirstOrDefault(item => (delegates[number_of_button].IndexOf(item) == i));
             }
-
-
-                //add.Click += Add_Click_Profits;
-                //save_add.Click += Save_New_Profit_Click;                
-                //show_all.Click += Show_All_Profits_Click;
-                //delete.Click += Delete_Profit;
-
-            }
+        }
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
@@ -186,11 +175,9 @@ namespace OrganizerClientWPF
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
-         
-            add.Click += Add_Click_Expance;
-            save_add.Click += Save_New_Expence_Click;
-            show_all.Click += Show_All_Expance_Click;
-            delete.Click += Delete_Expence;
+            Choise_Buttons((int)ThreeButton.EXPENCE);
+
+            
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -220,14 +207,15 @@ namespace OrganizerClientWPF
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
-            Show_All_Expance_Click(sender, e);
+            
         }
         private void Delete_Expence (object sender, RoutedEventArgs e)
         {           
                 if (budget_Grid.SelectedIndex > -1)
                 {          
                     _dalCl.Delete_Expence(Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO), CurrentUser.Login);
-                }          
+                }
+            Show_All_Expance_Click(sender, e);
         }
         private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
         {
