@@ -68,10 +68,10 @@
                 <DataGrid x:Name="budget_Grid"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"  GridLinesVisibility="All" 
                       Visibility="Collapsed" AlternatingRowBackground="#FFC4D4D0" ScrollViewer.VerticalScrollBarVisibility ="Visible"  >
                 </DataGrid>
-                <Label x:Name="total_sum"  Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Margin="0,0,10,0"  >Total SUM:</Label>
-                <Label x:Name="balance"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Margin="0,0,10,0"  >BALANCE:</Label>
-                <TextBox x:Name="total_sum_text"  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" >00</TextBox>
-                <TextBox x:Name="balance_text"  Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" >00</TextBox>
+                <Label x:Name="total_sum"  Grid.Column="0" Grid.Row="3" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Margin="0,0,10,0"  >Total SUM:</Label>
+                <Label x:Name="balance"  Grid.Column="2" Grid.Row="3" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Margin="0,0,10,0"  >BALANCE:</Label>
+                <TextBox x:Name="total_sum_text"  Grid.Column="1" Grid.Row="3" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" >00</TextBox>
+                <TextBox x:Name="balance_text"  Grid.Column="3" Grid.Row="3" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="10,0,0,0" >00</TextBox>
             </Grid>
 
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Background="#FF4AA045" />

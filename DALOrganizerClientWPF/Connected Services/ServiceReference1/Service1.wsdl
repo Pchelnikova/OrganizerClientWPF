@@ -116,6 +116,18 @@
   <wsdl:message name="IService1_Get_Balance_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_BalanceResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Authorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authorization" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Authorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Create_New_User_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create_New_User" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Create_New_User_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Create_New_UserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -188,6 +200,14 @@
     <wsdl:operation name="Get_Balance">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Balance" message="tns:IService1_Get_Balance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_BalanceResponse" message="tns:IService1_Get_Balance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Authorization" message="tns:IService1_Authorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AuthorizationResponse" message="tns:IService1_Authorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create_New_User">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Create_New_User" message="tns:IService1_Create_New_User_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Create_New_UserResponse" message="tns:IService1_Create_New_User_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -347,6 +367,24 @@
     </wsdl:operation>
     <wsdl:operation name="Get_Balance">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_Balance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorization">
+      <soap:operation soapAction="http://tempuri.org/IService1/Authorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create_New_User">
+      <soap:operation soapAction="http://tempuri.org/IService1/Create_New_User" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

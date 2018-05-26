@@ -278,6 +278,18 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Balance", ReplyAction="http://tempuri.org/IService1/Get_BalanceResponse")]
         System.Threading.Tasks.Task<decimal> Get_BalanceAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Authorization", ReplyAction="http://tempuri.org/IService1/AuthorizationResponse")]
+        bool Authorization(string login, string parol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Authorization", ReplyAction="http://tempuri.org/IService1/AuthorizationResponse")]
+        System.Threading.Tasks.Task<bool> AuthorizationAsync(string login, string parol);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Create_New_User", ReplyAction="http://tempuri.org/IService1/Create_New_UserResponse")]
+        bool Create_New_User(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Create_New_User", ReplyAction="http://tempuri.org/IService1/Create_New_UserResponse")]
+        System.Threading.Tasks.Task<bool> Create_New_UserAsync(string login, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -449,6 +461,22 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<decimal> Get_BalanceAsync() {
             return base.Channel.Get_BalanceAsync();
+        }
+        
+        public bool Authorization(string login, string parol) {
+            return base.Channel.Authorization(login, parol);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AuthorizationAsync(string login, string parol) {
+            return base.Channel.AuthorizationAsync(login, parol);
+        }
+        
+        public bool Create_New_User(string login, string password) {
+            return base.Channel.Create_New_User(login, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> Create_New_UserAsync(string login, string password) {
+            return base.Channel.Create_New_UserAsync(login, password);
         }
     }
 }

@@ -23,8 +23,8 @@
         <TextBox Name="passwordBox" Grid.Row="3" MinWidth="250" FontSize="36"></TextBox>
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Center" Margin="0,15,0,0" Width="250">
-            <Button IsDefault="True" Click="Accept_Click" MinWidth="120" Background="#FF4EB0BB" Margin="0,0,10,0" FontSize="16">Cancel</Button>
-            <Button IsCancel="True"  Background="#FF4EB0BB" MinWidth="120" Click="Button_Click" FontSize="18" FontWeight="Bold">OK</Button>
+            <Button IsDefault="True" Click="Cancel_Click" MinWidth="120" Background="#FF4EB0BB" Margin="0,0,10,0" FontSize="16">Cancel</Button>
+            <Button IsCancel="True"  Background="#FF4EB0BB" MinWidth="120"  FontSize="18" FontWeight="Bold" Click="Accept_Click">OK</Button>
         </WrapPanel>
 
     </Grid>

@@ -89,7 +89,18 @@ namespace DALOrganizerClientWPF
             return _service.Get_Balance();
         }
         #endregion
-        //Types of Budget
+
+        //authorization
+        public bool Authorization (string login, string parol)
+        {
+            return _service.Authorization(login, parol);
+        }
+
+        public bool Create_New_User (string login, string password)
+        {
+            return _service.Create_New_User(login, password);
+        }
+        //Get Types of Budget
         public List<string> GetProfitsTypes ()
         {
             return _service.GetProfitsTypes().ToList();          

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using DALOrganizerClientWPF;
+using MahApps.Metro.Controls;
 using OrganizerClientWPF.DTO;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace OrganizerClientWPF
    
     public partial class Login_Window : MetroWindow
     {
-       
+       private readonly DataDAL _dalCl = new DataDAL();
         public Login_Window()
         {
             InitializeComponent();
@@ -30,19 +31,25 @@ namespace OrganizerClientWPF
 
         private void Go_Click(object sender, RoutedEventArgs e)
         {
-            if (loginBox.Text == "1" && passwordBox.Password == "1")
+            if(_dalCl.Authorization(loginBox.Text, passwordBox.Password))            
             {
                 FirstChoice_Window firstChoice_Window = new FirstChoice_Window(loginBox.Text);
                 firstChoice_Window.Show();
-                //DTO.User.Login = loginBox.Text;
                 this.Close();
-
+            }
+            else
+            {
+                Login_Not_Exist login_Not_Exist = new Login_Not_Exist();
+                login_Not_Exist.Show();
+                this.Close();
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            Create_Account create_Account = new Create_Account();
+            create_Account.Show();
+            this.Close();
         }
     }
 }
