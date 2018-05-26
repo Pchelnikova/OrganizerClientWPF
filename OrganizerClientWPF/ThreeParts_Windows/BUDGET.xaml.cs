@@ -110,8 +110,7 @@ namespace OrganizerClientWPF
             Change_Window();
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
-            delete.Content = "Delete Profit";
-           
+            delete.Content = "Delete Profit";           
             Choise_Buttons((int)ThreeButton.PROFIT);
            
             }
@@ -119,7 +118,12 @@ namespace OrganizerClientWPF
         private void Show_All_Profits_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-            edit.Visibility = Visibility.Visible;
+            save_add.Visibility = Visibility.Collapsed;
+            //result.Visibility = Visibility.Visible;
+            //result_text.Visibility = Visibility.Visible;
+            //balance.Visibility = Visibility.Visible;
+            //balance_text.Visibility = Visibility.Visible;
+            budget_grid2.Visibility = Visibility.Visible;
             var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
@@ -132,9 +136,10 @@ namespace OrganizerClientWPF
         public void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
+            save_add.Visibility = Visibility.Visible;
             delete.Visibility = Visibility.Hidden;
-            budget_Grid.Visibility = Visibility.Hidden;            
+            budget_Grid.Visibility = Visibility.Hidden;
+            budget_grid2.Visibility = Visibility.Collapsed;
 
             Binding binding = new Binding
             {
@@ -190,9 +195,10 @@ namespace OrganizerClientWPF
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
+            save_add.Visibility = Visibility.Visible;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
+            budget_grid2.Visibility = Visibility.Collapsed;
             Binding binding = new Binding
             {
                 Source = _dalCl.GetExpanceTypes()
@@ -204,7 +210,12 @@ namespace OrganizerClientWPF
         private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-            edit.Visibility = Visibility.Visible;         
+            save_add.Visibility = Visibility.Collapsed;
+            //result.Visibility = Visibility.Visible;
+            //result_text.Visibility = Visibility.Visible;
+            //balance.Visibility = Visibility.Visible;
+            //balance_text.Visibility = Visibility.Visible;
+            budget_grid2.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
             {
@@ -248,17 +259,18 @@ namespace OrganizerClientWPF
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
             Change_Window();
-            add.Content = "Add Plan Expence";
+            add.Content = "Add Plan ";
             show_all.Content = "Show all Plans";
-            delete.Content = "Delete Plan Expence";
+            delete.Content = "Delete Plan";
             Choise_Buttons((int)ThreeButton.PLAN);
         }
         private void Add_Click_Plan(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
-     
+            save_add.Visibility = Visibility.Visible;
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
+            budget_grid2.Visibility = Visibility.Collapsed;
             Binding binding = new Binding
             {
                 Source = _dalCl.GetExpanceTypes()
@@ -270,7 +282,12 @@ namespace OrganizerClientWPF
         private void Show_All_Plans_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
-           
+            save_add.Visibility = Visibility.Collapsed;
+            //result.Visibility = Visibility.Visible;
+            //result_text.Visibility = Visibility.Visible;
+            //balance.Visibility = Visibility.Visible;
+            //balance_text.Visibility = Visibility.Visible;
+            budget_grid2.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Plans(CurrentUser.Login).ToList()) != null)
             {
