@@ -71,39 +71,10 @@ namespace OrganizerClientWPF
             }
         }
 
-        public static RoutedEventHandlerInfo[] GetRoutedEventHandlers(UIElement element, RoutedEvent routedEvent)
-        {
-            // Get the EventHandlersStore instance which holds event handlers for the specified element.
-            // The EventHandlersStore class is declared as internal.
-            var eventHandlersStoreProperty = typeof(UIElement).GetProperty(
-                "EventHandlersStore", BindingFlags.Instance | BindingFlags.NonPublic);
-            object eventHandlersStore = eventHandlersStoreProperty.GetValue(element, null);
-
-            // Invoke the GetRoutedEventHandlers method on the EventHandlersStore instance 
-            // for getting an array of the subscribed event handlers.
-            var getRoutedEventHandlers = eventHandlersStore.GetType().GetMethod(
-                "GetRoutedEventHandlers", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            var routedEventHandlers = (RoutedEventHandlerInfo[])getRoutedEventHandlers.Invoke(
-                eventHandlersStore, new object[] { routedEvent });
-
-            return routedEventHandlers;
-        }
-        private void RemoveClickEvent(Button b)
-        {
-            var routedEventHandlers = GetRoutedEventHandlers(b, ButtonBase.ClickEvent);
-            foreach (var routedEventHandler in routedEventHandlers)
-                b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
-        }
-
-        private void Choise_Buttons(int number_of_button)
-        {
-            for (int i = 0; i < buttons.Count; i++)
-            {
-                RemoveClickEvent(buttons[i]);
-                buttons[i].Click += delegates[number_of_button].FirstOrDefault(item => (delegates[number_of_button].IndexOf(item) == i));
-            }
-        }
+       
+      
         //open Profits CRUD
+        #region
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
            
@@ -132,6 +103,8 @@ namespace OrganizerClientWPF
                 budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
                 budget_Grid.Visibility = Visibility.Visible;
             }
+            Show_Total_Sum_Profits();
+            Show_Balance();
         }
         public void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
@@ -179,8 +152,10 @@ namespace OrganizerClientWPF
             }
             Show_All_Profits_Click(sender, e);
         }
+        #endregion
 
         ///open Expances CRUD
+        #region
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
           
@@ -211,10 +186,6 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             save_add.Visibility = Visibility.Collapsed;
-            //result.Visibility = Visibility.Visible;
-            //result_text.Visibility = Visibility.Visible;
-            //balance.Visibility = Visibility.Visible;
-            //balance_text.Visibility = Visibility.Visible;
             budget_grid2.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
@@ -225,6 +196,8 @@ namespace OrganizerClientWPF
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
+            Show_Total_Sum_Expences();
+            Show_Balance();
             
         }
         private void Delete_Expence (object sender, RoutedEventArgs e)
@@ -254,8 +227,10 @@ namespace OrganizerClientWPF
                 }
             }
         }
+        #endregion
 
         //Plans CRUD
+        #region
         private void Plans_Click(object sender, RoutedEventArgs e)
         {
             Change_Window();
@@ -297,6 +272,8 @@ namespace OrganizerClientWPF
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
+            Show_Total_Sum_Plans();
+            Show_Balance();
 
         }
         private void Delete_Plan(object sender, RoutedEventArgs e)
@@ -326,6 +303,7 @@ namespace OrganizerClientWPF
                 }
             }
         }
+        #endregion
 
         //Open Reports
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -338,7 +316,6 @@ namespace OrganizerClientWPF
             show_all.Content = "EXPANCE";
         }
       
-
         // Open Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
@@ -355,7 +332,9 @@ namespace OrganizerClientWPF
             this.Close();
         }
 
-        //change window
+        //HELPERS
+        #region
+        //Change window
         private void Change_Window()
         {
             add.Visibility = Visibility.Visible;
@@ -365,6 +344,59 @@ namespace OrganizerClientWPF
             budget_Grid.Visibility = Visibility.Hidden;
             edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
+        }
+
+        //Helper for Choice_Buttons
+        public static RoutedEventHandlerInfo[] GetRoutedEventHandlers(UIElement element, RoutedEvent routedEvent)
+        {
+            // Get the EventHandlersStore instance which holds event handlers for the specified element.
+            // The EventHandlersStore class is declared as internal.
+            var eventHandlersStoreProperty = typeof(UIElement).GetProperty(
+                "EventHandlersStore", BindingFlags.Instance | BindingFlags.NonPublic);
+            object eventHandlersStore = eventHandlersStoreProperty.GetValue(element, null);
+
+            // Invoke the GetRoutedEventHandlers method on the EventHandlersStore instance 
+            // for getting an array of the subscribed event handlers.
+            var getRoutedEventHandlers = eventHandlersStore.GetType().GetMethod(
+                "GetRoutedEventHandlers", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var routedEventHandlers = (RoutedEventHandlerInfo[])getRoutedEventHandlers.Invoke(
+                eventHandlersStore, new object[] { routedEvent });
+
+            return routedEventHandlers;
+        }
+        //Helper for Choice_Buttons
+        private void RemoveClickEvent(Button b)
+        {
+            var routedEventHandlers = GetRoutedEventHandlers(b, ButtonBase.ClickEvent);
+            foreach (var routedEventHandler in routedEventHandlers)
+                b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
+        }       
+        //Change methods for buttons by main buttons Profit/Expence/Plan
+        private void Choise_Buttons(int number_of_button)
+        {
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                RemoveClickEvent(buttons[i]);
+                buttons[i].Click += delegates[number_of_button].FirstOrDefault(item => (delegates[number_of_button].IndexOf(item) == i));
+            }
+        }
+        
+        //Get Total Sum
+        private void Show_Total_Sum_Profits ()
+        {
+            total_sum_text.Text = _dalCl.Get_Total_Profits().ToString();          
+        }
+        private void Show_Total_Sum_Expences()
+        {            
+             total_sum_text.Text = _dalCl.Get_Total_Expences().ToString();
+        }
+        private void Show_Total_Sum_Plans()
+        {
+            total_sum_text.Text = _dalCl.Get_Total_Plans().ToString();
+        }
+        private void Show_Balance()
+        {
+            balance_text.Text = _dalCl.Get_Balance().ToString();
         }
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
@@ -378,8 +410,8 @@ namespace OrganizerClientWPF
         {
 
         }
-     
-        
+
+        #endregion
 
     }
 }

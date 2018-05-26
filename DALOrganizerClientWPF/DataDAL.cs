@@ -70,6 +70,25 @@ namespace DALOrganizerClientWPF
             _service.Delete_Plan(ConverterProfitExpence.DAL_to_WCF(expence), login);
         }
 
+        #region
+        //Get Total Sum and Budget
+        public decimal Get_Total_Profits()
+        {
+            return _service.Get_Total_Profits();
+        }
+        public decimal Get_Total_Expences()
+        {
+            return _service.Get_Total_Expences();
+        }
+        public decimal Get_Total_Plans()
+        {
+            return _service.Get_Total_Plans();
+        }
+        public decimal Get_Balance()
+        {
+            return _service.Get_Balance();
+        }
+        #endregion
         //Types of Budget
         public List<string> GetProfitsTypes ()
         {

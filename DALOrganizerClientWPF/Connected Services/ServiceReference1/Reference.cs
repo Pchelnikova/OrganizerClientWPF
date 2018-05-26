@@ -254,6 +254,30 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Plan", ReplyAction="http://tempuri.org/IService1/Delete_PlanResponse")]
         System.Threading.Tasks.Task Delete_PlanAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Profits", ReplyAction="http://tempuri.org/IService1/Get_Total_ProfitsResponse")]
+        decimal Get_Total_Profits();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Profits", ReplyAction="http://tempuri.org/IService1/Get_Total_ProfitsResponse")]
+        System.Threading.Tasks.Task<decimal> Get_Total_ProfitsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Expences", ReplyAction="http://tempuri.org/IService1/Get_Total_ExpencesResponse")]
+        decimal Get_Total_Expences();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Expences", ReplyAction="http://tempuri.org/IService1/Get_Total_ExpencesResponse")]
+        System.Threading.Tasks.Task<decimal> Get_Total_ExpencesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Plans", ReplyAction="http://tempuri.org/IService1/Get_Total_PlansResponse")]
+        decimal Get_Total_Plans();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Total_Plans", ReplyAction="http://tempuri.org/IService1/Get_Total_PlansResponse")]
+        System.Threading.Tasks.Task<decimal> Get_Total_PlansAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Balance", ReplyAction="http://tempuri.org/IService1/Get_BalanceResponse")]
+        decimal Get_Balance();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Balance", ReplyAction="http://tempuri.org/IService1/Get_BalanceResponse")]
+        System.Threading.Tasks.Task<decimal> Get_BalanceAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -393,6 +417,38 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task Delete_PlanAsync(DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF profit_ExpanceWCF, string login) {
             return base.Channel.Delete_PlanAsync(profit_ExpanceWCF, login);
+        }
+        
+        public decimal Get_Total_Profits() {
+            return base.Channel.Get_Total_Profits();
+        }
+        
+        public System.Threading.Tasks.Task<decimal> Get_Total_ProfitsAsync() {
+            return base.Channel.Get_Total_ProfitsAsync();
+        }
+        
+        public decimal Get_Total_Expences() {
+            return base.Channel.Get_Total_Expences();
+        }
+        
+        public System.Threading.Tasks.Task<decimal> Get_Total_ExpencesAsync() {
+            return base.Channel.Get_Total_ExpencesAsync();
+        }
+        
+        public decimal Get_Total_Plans() {
+            return base.Channel.Get_Total_Plans();
+        }
+        
+        public System.Threading.Tasks.Task<decimal> Get_Total_PlansAsync() {
+            return base.Channel.Get_Total_PlansAsync();
+        }
+        
+        public decimal Get_Balance() {
+            return base.Channel.Get_Balance();
+        }
+        
+        public System.Threading.Tasks.Task<decimal> Get_BalanceAsync() {
+            return base.Channel.Get_BalanceAsync();
         }
     }
 }
