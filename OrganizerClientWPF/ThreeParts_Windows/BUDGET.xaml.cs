@@ -303,6 +303,29 @@ namespace OrganizerClientWPF
                 }
             }
         }
+        /// <summary>
+        ///   Validation for date of plan-expence. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Selected_Date_Plan (object sender, RoutedEventArgs e)
+        {
+            if (date.SelectedDate.Value.Month == DateTime.Now.Month)
+            {
+                description.Foreground = Brushes.Red;
+                description.Text = "Date must be later than the current month!!!";
+                type.Visibility = Visibility.Collapsed;
+                sum.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                description.Foreground = Brushes.Black;
+                description.Text = "";
+                type.Visibility = Visibility.Visible;
+                sum.Visibility = Visibility.Visible;
+            }              
+           
+        }
         #endregion
 
         //Open Reports
@@ -398,6 +421,7 @@ namespace OrganizerClientWPF
         {
             balance_text.Text = _dalCl.Get_Balance().ToString();
         }
+
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {

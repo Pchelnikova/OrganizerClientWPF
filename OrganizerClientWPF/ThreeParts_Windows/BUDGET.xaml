@@ -39,7 +39,7 @@
 
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="1">
-                <DatePicker x:Name="date" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0"  ></DatePicker>
+                <DatePicker x:Name="date" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0" SelectedDateChanged="Selected_Date_Plan" >  </DatePicker>
                 <TextBlock   Margin="10,20,20,0" FontSize="16" FontWeight="Bold" >Choise TYPE</TextBlock>
                 <ComboBox x:Name="type" Margin="10"></ComboBox>
                 <TextBlock  Margin="10,10,20,0" FontSize="16" FontWeight="Bold" >SUMM:</TextBlock>
