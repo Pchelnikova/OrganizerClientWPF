@@ -81,7 +81,7 @@ namespace OrganizerClientWPF
             Change_Window();
             add.Content = "Add Profit";
             show_all.Content = "Show all Profits";
-            delete.Content = "Delete Profit";           
+            delete.Content = "Delete Profit";
             Choise_Buttons((int)ThreeButton.PROFIT);
            
             }
@@ -90,10 +90,7 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             save_add.Visibility = Visibility.Collapsed;
-            //result.Visibility = Visibility.Visible;
-            //result_text.Visibility = Visibility.Visible;
-            //balance.Visibility = Visibility.Visible;
-            //balance_text.Visibility = Visibility.Visible;
+            
             budget_grid2.Visibility = Visibility.Visible;
             var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
@@ -105,6 +102,8 @@ namespace OrganizerClientWPF
             }
             Show_Total_Sum_Profits();
             Show_Balance();
+            total_sum.Visibility = Visibility.Visible;
+
         }
         public void Add_Click_Profits(object sender, RoutedEventArgs e)
         {
@@ -246,6 +245,8 @@ namespace OrganizerClientWPF
             delete.Visibility = Visibility.Hidden;
             budget_Grid.Visibility = Visibility.Hidden;
             budget_grid2.Visibility = Visibility.Collapsed;
+            date.Visibility = Visibility.Collapsed;
+            date_plan.Visibility = Visibility.Visible;
             Binding binding = new Binding
             {
                 Source = _dalCl.GetExpanceTypes()
@@ -258,10 +259,7 @@ namespace OrganizerClientWPF
         {
             delete.Visibility = Visibility.Visible;
             save_add.Visibility = Visibility.Collapsed;
-            //result.Visibility = Visibility.Visible;
-            //result_text.Visibility = Visibility.Visible;
-            //balance.Visibility = Visibility.Visible;
-            //balance_text.Visibility = Visibility.Visible;
+           
             budget_grid2.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Plans(CurrentUser.Login).ToList()) != null)
@@ -292,7 +290,7 @@ namespace OrganizerClientWPF
                 {
                     Profit_ExpenceWPF_DTO new_plan = new Profit_ExpenceWPF_DTO()
                     {
-                        Date_ = date.SelectedDate.Value,
+                        Date_ = date_plan.SelectedDate.Value,
                         Sum = number,
                         Profit_Expance_Type = type.Text.ToString(),
                         Description = description.Text
@@ -310,7 +308,7 @@ namespace OrganizerClientWPF
         /// <param name="e"></param>
         private void Selected_Date_Plan (object sender, RoutedEventArgs e)
         {
-            if (date.SelectedDate.Value.Month == DateTime.Now.Month)
+            if (date_plan.SelectedDate.Value.Month == DateTime.Now.Month)
             {
                 description.Foreground = Brushes.Red;
                 description.Text = "Date must be later than the current month!!!";
@@ -427,7 +425,7 @@ namespace OrganizerClientWPF
         {
             User_Account_Info user_Account = new User_Account_Info(CurrentUser);
             user_Account.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

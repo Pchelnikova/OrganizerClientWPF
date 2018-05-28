@@ -44,7 +44,7 @@
         <Button Content="change" Grid.Column="2" Grid.Row="5"  Margin="30,10,180,10" FontWeight="Bold" Background="#FFE08C84"/>
 
         <Button Grid.Row="7" Grid.Column="0" Content="DELETE ACCOUNT" IsCancel="True" Margin="20,10" FontSize="16" FontWeight="Bold" Background="#FF7971C9"></Button>
-        <Button Grid.Row="7" Grid.Column="1" Content="CANCEL" Margin="20,10" FontSize="16" FontWeight="Bold" Background="#FF4EB0BB" Click="Button_Click_2"/>
+        <Button Grid.Row="7" Grid.Column="1" Content="LOG OUT" Margin="20,10" FontSize="16" FontWeight="Bold" Background="#FF4EB0BB" Click="Button_Click_2"/>
         <Button Grid.Row="7" Grid.Column="2" Content="SAVE CHANGES" Margin="20,10" Background="#FFD65A4E" FontSize="16"></Button>
 
     </Grid>
