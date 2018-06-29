@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using DALOrganizerClientWPF;
 namespace OrganizerClientWPF
 {
     /// <summary>
@@ -21,6 +21,7 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class User_Account_Info : MetroWindow
     {
+        private readonly DataDAL _dal = new DataDAL();
         public User CurrentUser { get; } = new User();
         public User_Account_Info(User currentUser)
         {
@@ -43,10 +44,15 @@ namespace OrganizerClientWPF
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
             Login_Window login_Window = new Login_Window();
             login_Window.Show();
             this.Close();
+        }
+
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            _dal.DeleteUser(CurrentUser.Login);
         }
     }
 }

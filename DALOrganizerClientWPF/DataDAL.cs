@@ -109,5 +109,10 @@ namespace DALOrganizerClientWPF
         {
             return _service.GetExpanceTypes().ToList();
         }
+        public void DeleteUser(string login)
+        {
+            _service.DeleteUser(login);
+        }
+       
     }
 }
