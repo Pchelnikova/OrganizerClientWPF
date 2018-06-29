@@ -45,7 +45,6 @@ namespace OrganizerClientWPF
         //Button Logout
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(CurrentUser.Login);
             Login_Window login_Window = new Login_Window();
             login_Window.Show();
             this.Close();

@@ -4,10 +4,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-        Title="BUDJET" WindowStartupLocation="CenterScreen" Height="450" Width="800">
-    <Grid x:Name="first_grid">
+        Title="BUDJET"
+        WindowStartupLocation="CenterScreen" 
+        Height="450" 
+        Width="800">
+    <Grid x:Name="first_grid"
+          Background="#FFF0EDF7">
         <Grid.RowDefinitions>
             <RowDefinition ></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -20,25 +23,119 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="6" Background="#FFF0EDF7">
-        </Label>
-        <Label Content="LOGIN" Grid.Column="0" Grid.Row="1" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,10,23,15" Foreground="#FF4D3708"/>
-        <Label Content="PAROL" Grid.Column="0" Grid.Row="2" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Foreground="#FF4D3708"/>
-        <Label Content="STATUS" Grid.Column="0" Grid.Row="3" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0" Foreground="#FF704B09"/>
+        <Label Content="LOGIN" 
+               Grid.Column="0"
+               Grid.Row="1"
+               FontSize="24" 
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Center" 
+               Margin="0,10,23,15" 
+               Foreground="#FF4D3708"/>
+        <Label Content="PAROL" 
+               Grid.Column="0" 
+               Grid.Row="2"
+               FontSize="24" 
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Center" 
+               Margin="0,0,20,0" 
+               Foreground="#FF4D3708"/>
+        <Label Content="STATUS" 
+               Grid.Column="0" 
+               Grid.Row="3" 
+               FontSize="24" 
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Center" 
+               Margin="0,0,20,0" 
+               Foreground="#FF704B09"/>
 
-        <TextBlock x:Name="title" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"  Margin="0,30,0,100"  
-                        FontSize="36" FontWeight="Bold"  Background="#FFBEADE0" Grid.RowSpan="2"/>
-        <TextBox x:Name ="Login_TextBox" Grid.Column="1"  Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" Text="Login" FontSize="24" FontWeight="Bold" Margin="30,10,20,10"/>
-        <TextBox x:Name ="Password_TextBox" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Center" Text="Parol" FontSize="24" FontWeight="Bold" Margin="30,10,20,10"/>
-        <Button Content="change" Grid.Column="2" Grid.Row="1"  Margin="30,10,180,10" FontWeight="Bold" Background="#FFE08C84" Click="Button_Click"/>
-        <Button Content="change" Grid.Column="2" Grid.Row="2"  Margin="30,10,180,10" FontWeight="Bold" Background="#FFE08C84" Click="Button_Click_1"/>
-        <ComboBox x:Name="Status_ComboBox" Grid.Column="1" Grid.Row="3" Margin="30,10,20,10" HorizontalContentAlignment="Center"  VerticalAlignment="Center">
-            <TextBlock Text="Junior" FontSize="24" FontWeight="Bold"/>
-            <TextBlock Text="Senior" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="title" 
+                   TextAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="3" 
+                   Grid.Row="0"  
+                   Margin="0,30,0,100"  
+                   FontSize="36" 
+                   FontWeight="Bold"  
+                   Background="#FFBEADE0" 
+                   Grid.RowSpan="2"/>
+        <TextBox x:Name ="Login_TextBox" 
+                 Grid.Column="1"  
+                 Grid.Row="1" 
+                 TextWrapping="Wrap" 
+                 TextAlignment="Center" 
+                 VerticalAlignment="Center" 
+                 Text="Login" 
+                 FontSize="24" 
+                 FontWeight="Bold" 
+                 Margin="30,10,20,10"/>
+        <TextBox x:Name ="Password_TextBox" 
+                 Grid.Column="1" 
+                 Grid.Row="2" 
+                 TextWrapping="Wrap" 
+                 TextAlignment="Center"  
+                 VerticalAlignment="Center" 
+                 Text="Parol" 
+                 FontSize="24" 
+                 FontWeight="Bold"
+                 Margin="30,10,20,10"/>
+        <Button Content="change" 
+                Grid.Column="2" 
+                Grid.Row="1" 
+                Margin="30,10,180,10"
+                FontWeight="Bold" 
+                Background="#FFE08C84"
+                Click="Button_Click"/>
+        <Button Content="change" 
+                Grid.Column="2"
+                Grid.Row="2"  
+                Margin="30,10,180,10" 
+                FontWeight="Bold" 
+                Background="#FFE08C84" 
+                Click="Button_Click_1"/>
+        <ComboBox x:Name="Status_ComboBox" 
+                  Grid.Column="1"
+                  Grid.Row="3"
+                  Margin="30,10,20,10"
+                  HorizontalContentAlignment="Center" 
+                  VerticalAlignment="Center">
+            <TextBlock Text="Junior"
+                       FontSize="24" 
+                       FontWeight="Bold"/>
+            <TextBlock Text="Senior" 
+                       FontSize="24" 
+                       FontWeight="Bold"/>
         </ComboBox>
-        <Button Content="change" Grid.Column="2" Grid.Row="3"  Margin="30,10,180,10" FontWeight="Bold" Background="#FFE08C84" Click="Button_Click_5"/>
-        <Button Grid.Row="4" Grid.Column="0" Content="DELETE ACCOUNT" IsCancel="True" Margin="20,10" FontSize="16" FontWeight="Bold" Background="#FF7971C9" Click="Button_Click_4"></Button>
-        <Button Grid.Row="4" Grid.Column="1" Content="LOG OUT" Margin="20,10" FontSize="16" FontWeight="Bold" Background="#FF4EB0BB" Click="Button_Click_2"/>
-        <Button Grid.Row="4" Grid.Column="2" Content="SAVE CHANGES" Margin="20,10" Background="#FFD65A4E" FontSize="16" Click="Button_Click_3"></Button>
+        <Button Content="change"
+                Grid.Column="2" 
+                Grid.Row="3" 
+                Margin="30,10,180,10" 
+                FontWeight="Bold" 
+                Background="#FFE08C84"
+                Click="Button_Click_5"/>
+        <Button Grid.Row="4" 
+                Grid.Column="0"
+                Content="DELETE ACCOUNT" 
+                IsCancel="True" 
+                Margin="20,10" 
+                FontSize="16" 
+                FontWeight="Bold"
+                Background="#FF7971C9"
+                Click="Button_Click_4"/>
+        <Button Grid.Row="4" 
+                Grid.Column="1"
+                Content="LOG OUT" 
+                Margin="20,10"
+                FontSize="16" 
+                FontWeight="Bold" 
+                Background="#FF4EB0BB" 
+                Click="Button_Click_2"/>
+        <Button Grid.Row="4"
+                Grid.Column="2"
+                Content="SAVE CHANGES" 
+                Margin="20,10"
+                Background="#FFD65A4E" 
+                FontSize="16"
+                Click="Button_Click_3"/>
     </Grid>
 </Controls:MetroWindow>
