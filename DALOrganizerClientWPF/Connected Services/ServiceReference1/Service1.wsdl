@@ -134,6 +134,24 @@
   <wsdl:message name="IService1_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_Login" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Password_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_Password" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Password_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Status_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_Status" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ChangeUser_Status_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUser_StatusResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -218,6 +236,18 @@
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteUser" message="tns:IService1_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteUserResponse" message="tns:IService1_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangeUser_Login" message="tns:IService1_ChangeUser_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangeUser_LoginResponse" message="tns:IService1_ChangeUser_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Password">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangeUser_Password" message="tns:IService1_ChangeUser_Password_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangeUser_PasswordResponse" message="tns:IService1_ChangeUser_Password_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Status">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangeUser_Status" message="tns:IService1_ChangeUser_Status_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangeUser_StatusResponse" message="tns:IService1_ChangeUser_Status_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -404,6 +434,33 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Login">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangeUser_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Password">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangeUser_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUser_Status">
+      <soap:operation soapAction="http://tempuri.org/IService1/ChangeUser_Status" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

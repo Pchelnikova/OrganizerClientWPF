@@ -296,6 +296,24 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUser", ReplyAction="http://tempuri.org/IService1/DeleteUserResponse")]
         System.Threading.Tasks.Task DeleteUserAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Login", ReplyAction="http://tempuri.org/IService1/ChangeUser_LoginResponse")]
+        void ChangeUser_Login(string login, string newLogin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Login", ReplyAction="http://tempuri.org/IService1/ChangeUser_LoginResponse")]
+        System.Threading.Tasks.Task ChangeUser_LoginAsync(string login, string newLogin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Password", ReplyAction="http://tempuri.org/IService1/ChangeUser_PasswordResponse")]
+        void ChangeUser_Password(string login, string newPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Password", ReplyAction="http://tempuri.org/IService1/ChangeUser_PasswordResponse")]
+        System.Threading.Tasks.Task ChangeUser_PasswordAsync(string login, string newPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Status", ReplyAction="http://tempuri.org/IService1/ChangeUser_StatusResponse")]
+        void ChangeUser_Status(string login, string newStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Status", ReplyAction="http://tempuri.org/IService1/ChangeUser_StatusResponse")]
+        System.Threading.Tasks.Task ChangeUser_StatusAsync(string login, string newStatus);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -491,6 +509,30 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task DeleteUserAsync(string login) {
             return base.Channel.DeleteUserAsync(login);
+        }
+        
+        public void ChangeUser_Login(string login, string newLogin) {
+            base.Channel.ChangeUser_Login(login, newLogin);
+        }
+        
+        public System.Threading.Tasks.Task ChangeUser_LoginAsync(string login, string newLogin) {
+            return base.Channel.ChangeUser_LoginAsync(login, newLogin);
+        }
+        
+        public void ChangeUser_Password(string login, string newPassword) {
+            base.Channel.ChangeUser_Password(login, newPassword);
+        }
+        
+        public System.Threading.Tasks.Task ChangeUser_PasswordAsync(string login, string newPassword) {
+            return base.Channel.ChangeUser_PasswordAsync(login, newPassword);
+        }
+        
+        public void ChangeUser_Status(string login, string newStatus) {
+            base.Channel.ChangeUser_Status(login, newStatus);
+        }
+        
+        public System.Threading.Tasks.Task ChangeUser_StatusAsync(string login, string newStatus) {
+            return base.Channel.ChangeUser_StatusAsync(login, newStatus);
         }
     }
 }

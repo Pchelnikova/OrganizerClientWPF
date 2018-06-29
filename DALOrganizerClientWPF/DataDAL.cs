@@ -113,6 +113,17 @@ namespace DALOrganizerClientWPF
         {
             _service.DeleteUser(login);
         }
-       
+        public void ChangeUser_Login(string login, string newLogin)
+        {
+            _service.ChangeUser_Login(login, newLogin);
+        }
+        public void ChangeUser_Password(string login, string newPassword)
+        {
+            _service.ChangeUser_Password(login, newPassword);
+        }
+        public void ChangeUser_Status(string login, string newStatus)
+        {
+            _service.ChangeUser_Status(login, newStatus);
+        }
     }
 }
