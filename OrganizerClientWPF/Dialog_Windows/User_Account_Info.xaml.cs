@@ -75,5 +75,12 @@ namespace OrganizerClientWPF
         {
             _change_status = true;
         }
+        //back to menu
+        private void Button_Click_BackToMenu(object sender, RoutedEventArgs e)
+        {
+            FirstChoice_Window firstChoice_Window = new FirstChoice_Window(CurrentUser.Login);
+            firstChoice_Window.Show();
+            this.Close();
+        }
     }
 }

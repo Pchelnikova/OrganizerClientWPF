@@ -19,12 +19,13 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="LOGIN" 
-               Grid.Column="0"
+        <Label Content="LOGIN"
+               Grid.ColumnSpan="2"
                Grid.Row="1"
                FontSize="24" 
                HorizontalAlignment="Right" 
@@ -32,7 +33,7 @@
                Margin="0,10,23,15" 
                Foreground="#FF4D3708"/>
         <Label Content="PAROL" 
-               Grid.Column="0" 
+               Grid.ColumnSpan="2" 
                Grid.Row="2"
                FontSize="24" 
                HorizontalAlignment="Right" 
@@ -40,19 +41,18 @@
                Margin="0,0,20,0" 
                Foreground="#FF4D3708"/>
         <Label Content="STATUS" 
-               Grid.Column="0" 
+               Grid.ColumnSpan="2"
                Grid.Row="3" 
                FontSize="24" 
                HorizontalAlignment="Right" 
                VerticalAlignment="Center" 
                Margin="0,0,20,0" 
                Foreground="#FF704B09"/>
-
         <TextBlock x:Name="title" 
                    TextAlignment="Center" 
                    VerticalAlignment="Center"
                    Grid.Column="0" 
-                   Grid.ColumnSpan="3" 
+                   Grid.ColumnSpan="4" 
                    Grid.Row="0"  
                    Margin="0,30,0,100"  
                    FontSize="36" 
@@ -60,7 +60,7 @@
                    Background="#FFBEADE0" 
                    Grid.RowSpan="2"/>
         <TextBox x:Name ="Login_TextBox" 
-                 Grid.Column="1"  
+                 Grid.Column="2"  
                  Grid.Row="1" 
                  TextWrapping="Wrap" 
                  TextAlignment="Center" 
@@ -70,7 +70,7 @@
                  FontWeight="Bold" 
                  Margin="30,10,20,10"/>
         <TextBox x:Name ="Password_TextBox" 
-                 Grid.Column="1" 
+                 Grid.Column="2" 
                  Grid.Row="2" 
                  TextWrapping="Wrap" 
                  TextAlignment="Center"  
@@ -80,21 +80,21 @@
                  FontWeight="Bold"
                  Margin="30,10,20,10"/>
         <Button Content="change" 
-                Grid.Column="2" 
+                Grid.Column="3" 
                 Grid.Row="1" 
                 Margin="30,10,180,10"
                 FontWeight="Bold" 
                 Background="#FFE08C84"
                 Click="Button_Click"/>
         <Button Content="change" 
-                Grid.Column="2"
+                Grid.Column="3"
                 Grid.Row="2"  
                 Margin="30,10,180,10" 
                 FontWeight="Bold" 
                 Background="#FFE08C84" 
                 Click="Button_Click_1"/>
         <ComboBox x:Name="Status_ComboBox" 
-                  Grid.Column="1"
+                  Grid.Column="2"
                   Grid.Row="3"
                   Margin="30,10,20,10"
                   HorizontalContentAlignment="Center" 
@@ -107,14 +107,14 @@
                        FontWeight="Bold"/>
         </ComboBox>
         <Button Content="change"
-                Grid.Column="2" 
+                Grid.Column="3" 
                 Grid.Row="3" 
                 Margin="30,10,180,10" 
                 FontWeight="Bold" 
                 Background="#FFE08C84"
                 Click="Button_Click_5"/>
         <Button Grid.Row="4" 
-                Grid.Column="0"
+                Grid.Column="2"
                 Content="DELETE ACCOUNT" 
                 IsCancel="True" 
                 Margin="20,10" 
@@ -123,19 +123,25 @@
                 Background="#FF7971C9"
                 Click="Button_Click_4"/>
         <Button Grid.Row="4" 
-                Grid.Column="1"
                 Content="LOG OUT" 
-                Margin="20,10"
+                Margin="10,10,20,10"
                 FontSize="16" 
+                Grid.Column="1"
                 FontWeight="Bold" 
                 Background="#FF4EB0BB" 
                 Click="Button_Click_2"/>
         <Button Grid.Row="4"
-                Grid.Column="2"
+                Grid.Column="3"
                 Content="SAVE CHANGES" 
                 Margin="20,10"
                 Background="#FFD65A4E" 
                 FontSize="16"
                 Click="Button_Click_3"/>
+        <Button Grid.Row="4"
+                Content="MENU"
+                FontSize="16"
+                Background="#FF4EB0BB"
+                Margin="20,10,10,10"
+                Click="Button_Click_BackToMenu"/>
     </Grid>
 </Controls:MetroWindow>
