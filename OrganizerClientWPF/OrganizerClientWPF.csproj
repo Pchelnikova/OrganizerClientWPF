@@ -88,6 +88,9 @@
     <Compile Include="ThreeParts_Windows\DIARY.xaml.cs">
       <DependentUpon>DIARY.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ThreeParts_Windows\WISH.xaml.cs">
+      <DependentUpon>WISH.xaml</DependentUpon>
+    </Compile>
     <Page Include="Dialog_Windows\Create_Account.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ThreeParts_Windows\DIARY.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThreeParts_Windows\WISH.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
