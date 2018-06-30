@@ -9,7 +9,7 @@
       
         Title="DIARY" WindowStartupLocation="CenterScreen" Height="500" Width="800">
     <Grid>
-        <Grid x:Name="first_grid">
+        <Grid x:Name="first_grid" Background="#FFC4D4D0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -32,7 +32,7 @@
                     Content="SAVE NOTE"
                     FontSize="16"
                     Click="Add_Note_Click"
-                    Visibility="Visible" VerticalAlignment="Bottom" Margin="0,0,0,20" Panel.ZIndex="8" >
+                    Visibility="Visible" VerticalAlignment="Bottom" Margin="20,0,20,20" Panel.ZIndex="8" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black" Offset="0"/>
@@ -47,7 +47,7 @@
                       Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="30"  >
             </DataGrid>
             <TextBox x:Name ="Diary_Text"  Visibility="Visible" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" 
-                     BorderBrush="AliceBlue"  BorderThickness="3" Background="White" />
+                     BorderBrush="AliceBlue"  BorderThickness="3" Background="#FFF0E8BC" />
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Background="#FFEAD96E" />
             <Button Grid.Column="1" Grid.Row="3"  Background="#FF70B4BF" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_3" />
             <Button Grid.Column="0" Grid.Row="3" Background="#FF1A9F12" Margin="10"  Content="BUDJET" FontSize="18" Click="Button_Click_4" />
