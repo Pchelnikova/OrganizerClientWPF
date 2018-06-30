@@ -348,8 +348,8 @@ namespace OrganizerClientWPF
         //Wish-List
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            Login_Window window2 = new Login_Window();
-            window2.Show();
+            WISH wish_Window = new WISH(CurrentUser);
+            wish_Window.Show();
             this.Close();
         }
 

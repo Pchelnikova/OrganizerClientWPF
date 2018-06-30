@@ -50,7 +50,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Button x:Name="WishList" Content="WISH-LIST"
-                Grid.Column="2" Grid.Row="7" Grid.RowSpan="13"  Margin="30"  Click="Button_Click" Background="#FF8C59B0" FontSize="24"/>
+                Grid.Column="2" Grid.Row="7" Grid.RowSpan="13"  Margin="30"  Click="Button_Click" Background="#FF7077BF" FontSize="24"/>
         <Button x:Name="Dairy" Content="DAIRY" 
                  Grid.Column="0" Grid.Row="7" Grid.RowSpan="13"  Margin="30" Click="Button_Click_1" Background="#FFDCC00D" FontSize="24"/>
         <Button x:Name="Budjet" Content="BUDGET" 

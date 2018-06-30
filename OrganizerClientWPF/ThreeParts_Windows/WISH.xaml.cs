@@ -20,8 +20,48 @@ namespace OrganizerClientWPF
         {
             InitializeComponent();
             CurrentUser = currentUser;
-            //title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Wish-List";
+            title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Wish-List";
 
         }
+
+        private void See_All_Wishes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_New_Wish_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Save_Note_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Note_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void dairy_Grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+
+        //}
     }
 }

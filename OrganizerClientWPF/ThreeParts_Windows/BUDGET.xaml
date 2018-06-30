@@ -41,7 +41,7 @@
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <DatePicker x:Name="date_plan" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0" SelectedDateChanged="Selected_Date_Plan" Visibility="Collapsed" >  </DatePicker>
                 <DatePicker x:Name="date" Grid.Row="0" Grid.Column="0" Margin="10,10,10,0"  ></DatePicker>
-                <TextBlock   Margin="10,20,20,0" FontSize="16" FontWeight="Bold" >Choise TYPE</TextBlock>
+                <TextBlock   Margin="10,20,20,0" FontSize="16" FontWeight="Bold" >Choose a TYPE</TextBlock>
                 <ComboBox x:Name="type" Margin="10"></ComboBox>
                 <TextBlock  Margin="10,10,20,0" FontSize="16" FontWeight="Bold" >SUMM:</TextBlock>
                 <TextBox x:Name="sum" Margin="10" MinLines="2"></TextBox>
@@ -76,8 +76,8 @@
             </Grid>
 
             <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Background="#FF4AA045" />
-            <Button Grid.Column="1" Grid.Row="3"  Background="#FF9370AC" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_7"  />
-            <Button Grid.Column="0" Grid.Row="3" Background="#FFAE9E36" Margin="10"  Content="DIARY" FontSize="18" Click="Button_Click_6" />
+            <Button Grid.Column="1" Grid.Row="3"  Background="#FF70B4BF" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_7"  />
+            <Button Grid.Column="0" Grid.Row="3" Background="#FFCDBC53" Margin="10"  Content="DIARY" FontSize="18" Click="Button_Click_6" />
             <Button Grid.Column="3" Grid.Row="3"  Background="#FFBEADE0" Margin="10" Content="ACCOUNT'S INFO" FontSize="18" Click="Button_Click_8"  />
 
         </Grid>
