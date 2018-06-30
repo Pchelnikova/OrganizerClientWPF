@@ -18,7 +18,7 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class DIARY : MetroWindow
     {
-        private readonly DataDAL _dalCl = new DataDAL();
+        private readonly DataDAL _dal = new DataDAL();
         public User CurrentUser { get; } = new User ();
         public DIARY(User currentUser)
         {
@@ -53,9 +53,8 @@ namespace OrganizerClientWPF
             dairy_Grid.Visibility = Visibility.Visible;
           
             Binding binding = new Binding();
-            binding.Source = Converters.ConverterDiary.DAL_to_WPF_List(_dalCl.Get_All_Notes(CurrentUser.Login).ToList());
-            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);         
-
+            binding.Source = Converters.ConverterDiary.DAL_to_WPF_List(_dal.Get_All_Notes(CurrentUser.Login));
+            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);       
         }
         ///open form to add new note
         private void Write_New_Note_Click(object sender, RoutedEventArgs e)
@@ -71,14 +70,14 @@ namespace OrganizerClientWPF
         ///add to base new note
         private void Add_Note_Click(object sender, RoutedEventArgs e)
         {
-            _dalCl.Add_Note(Diary_Text.Text, CurrentUser.Login);           
+             _dal.Add_Note(Diary_Text.Text, CurrentUser.Login);           
              Diary_Text.Text = null;
         }
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
             if (dairy_Grid.SelectedIndex > -1)
             {      
-                _dalCl.Delete_Note((dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString());
+                _dal.Delete_Note((dairy_Grid.Items[dairy_Grid.SelectedIndex] as DiaryWPF_DTO).Text.ToString());
             }
         }
         //go to budjet
@@ -102,6 +101,13 @@ namespace OrganizerClientWPF
             user_Account.Show();
             this.Close();
         }
-      
+        //sort notes by date
+        private void period_Click(object sender, RoutedEventArgs e)
+        {
+            Binding binding = new Binding();
+            binding.Source = Converters.ConverterDiary.DAL_to_WPF_List
+                (_dal.Diary_ByDate(CurrentUser.Login, Calendar.SelectedDate.Value, Calendar2.SelectedDate.Value));
+            dairy_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+        }
     }
 }

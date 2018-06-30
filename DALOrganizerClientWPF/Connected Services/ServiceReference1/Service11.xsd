@@ -317,4 +317,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Diary_ByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date1" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="date2" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Diary_ByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Diary_ByDateResult" nillable="true" type="q13:ArrayOfDiary_WCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

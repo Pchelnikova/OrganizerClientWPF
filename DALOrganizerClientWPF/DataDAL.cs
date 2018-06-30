@@ -125,5 +125,9 @@ namespace DALOrganizerClientWPF
         {
             _service.ChangeUser_Status(login, newStatus);
         }
+        public List<DiaryDAL> Diary_ByDate(string login, DateTime date1, DateTime date2)
+        {
+            return ConvertDiary.WCF_to_DAL(_service.Diary_ByDate(login, date1, date2));
+        }
     }
 }

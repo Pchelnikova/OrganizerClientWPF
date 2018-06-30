@@ -314,6 +314,12 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChangeUser_Status", ReplyAction="http://tempuri.org/IService1/ChangeUser_StatusResponse")]
         System.Threading.Tasks.Task ChangeUser_StatusAsync(string login, string newStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Diary_ByDate", ReplyAction="http://tempuri.org/IService1/Diary_ByDateResponse")]
+        DALOrganizerClientWPF.ServiceReference1.Diary_WCF[] Diary_ByDate(string login, System.DateTime date1, System.DateTime date2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Diary_ByDate", ReplyAction="http://tempuri.org/IService1/Diary_ByDateResponse")]
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Diary_ByDateAsync(string login, System.DateTime date1, System.DateTime date2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -533,6 +539,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task ChangeUser_StatusAsync(string login, string newStatus) {
             return base.Channel.ChangeUser_StatusAsync(login, newStatus);
+        }
+        
+        public DALOrganizerClientWPF.ServiceReference1.Diary_WCF[] Diary_ByDate(string login, System.DateTime date1, System.DateTime date2) {
+            return base.Channel.Diary_ByDate(login, date1, date2);
+        }
+        
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Diary_ByDateAsync(string login, System.DateTime date1, System.DateTime date2) {
+            return base.Channel.Diary_ByDateAsync(login, date1, date2);
         }
     }
 }

@@ -152,6 +152,12 @@
   <wsdl:message name="IService1_ChangeUser_Status_OutputMessage">
     <wsdl:part name="parameters" element="tns:ChangeUser_StatusResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Diary_ByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Diary_ByDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Diary_ByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Diary_ByDateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -248,6 +254,10 @@
     <wsdl:operation name="ChangeUser_Status">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ChangeUser_Status" message="tns:IService1_ChangeUser_Status_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ChangeUser_StatusResponse" message="tns:IService1_ChangeUser_Status_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Diary_ByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Diary_ByDate" message="tns:IService1_Diary_ByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Diary_ByDateResponse" message="tns:IService1_Diary_ByDate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -461,6 +471,15 @@
     </wsdl:operation>
     <wsdl:operation name="ChangeUser_Status">
       <soap:operation soapAction="http://tempuri.org/IService1/ChangeUser_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Diary_ByDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/Diary_ByDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

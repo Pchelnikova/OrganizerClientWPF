@@ -38,8 +38,8 @@
                     Click="Add_Note_Click"
                     Visibility="Visible" VerticalAlignment="Bottom" Margin="20,0,20,20" Panel.ZIndex="8" Background="#FFEAD96E" />
             <Button x:Name="delete" Grid.Column="3" Grid.Row="2" Background="#FFCF514B" Margin="30,190,50,30"  Content="DELETE NOTE" FontSize="16" Click="Delete_Note_Click" Visibility="Collapsed" />
-            <DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="START DATE" />
-            <DatePicker x:Name="Calendar2" SelectedDateChanged="select_date"  IsDropDownOpen="False" Grid.Column="3" Grid.Row="2" Margin="0,80,0,160" Visibility="Hidden" Text="END DATE" />
+            <DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,0,0,240" Visibility="Hidden" Text="START DATE" />
+            <DatePicker x:Name="Calendar2" SelectedDateChanged="select_date"  IsDropDownOpen="False" Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="END DATE" />
             <DataGrid x:Name="dairy_Grid"  IsReadOnly="True"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
                       Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="30"  >
             </DataGrid>
@@ -49,7 +49,7 @@
             <Button Grid.Column="1" Grid.Row="3"  Background="#FF70B4BF" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_3" />
             <Button Grid.Column="0" Grid.Row="3" Background="#FF1A9F12" Margin="10"  Content="BUDJET" FontSize="18" Click="Button_Click_4" />
             <Button Grid.Column="3" Grid.Row="3"  Background="#FFBEADE0" Margin="10" Content="ACCOUNT'S INFO" FontSize="18" Click="Button_Click_8"  />
-            <Label x:Name="period" Grid.Column="3" Grid.Row="2" Margin="50, 0, 50,240" Content="... for period" Background="#FFE2891D" Visibility="Hidden" />
+            <Button x:Name="period" Grid.Column="3" Grid.Row="2" Margin="0, 80, 0,160" Content="... for period" Background="#FFE2891D" Visibility="Hidden" Click="period_Click" />
 
         </Grid>
 
