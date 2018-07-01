@@ -41,12 +41,16 @@ namespace OrganizerClientWPF
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            DIARY diary = new DIARY(CurrentUser);
+            diary.Show();
+            this.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-
+            BUDGET budget = new BUDGET(CurrentUser);
+            budget.Show();
+            this.Close();
         }
 
         private void Button_Click_8(object sender, RoutedEventArgs e)

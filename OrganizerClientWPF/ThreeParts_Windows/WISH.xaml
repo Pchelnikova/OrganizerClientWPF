@@ -126,7 +126,7 @@
                     Grid.Row="3" 
                     Background="#FFCDBC53"
                     Margin="10,10,0,10" 
-                    Content="WISH-LIST"
+                    Content="DIARY"
                     FontSize="18"
                     Click="Button_Click_3" />
             <Button Grid.Column="0"
