@@ -6,60 +6,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-        Title="ORGANIZER" WindowStartupLocation="CenterScreen" Height="500" Width="800">
+        Title="ORGANIZER"
+        WindowStartupLocation="CenterScreen"
+        Height="500" 
+        Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="WishList" Content="WISH-LIST"
-                Grid.Column="2" Grid.Row="7" Grid.RowSpan="13"  Margin="30"  Click="Button_Click" Background="#FF7077BF" FontSize="24"/>
-        <Button x:Name="Dairy" Content="DAIRY" 
-                 Grid.Column="0" Grid.Row="7" Grid.RowSpan="13"  Margin="30" Click="Button_Click_1" Background="#FFDCC00D" FontSize="24"/>
-        <Button x:Name="Budjet" Content="BUDGET" 
-                 Grid.Column="1" Grid.Row="5" Grid.RowSpan="13"  Margin="30" Background="#FF1A9F12" FontSize="24" Click="Budjet_Click"  />
-        <Label Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="27" Grid.RowSpan="30"  BorderBrush="Black" Background="#FF4C7787"  />
-        <Label  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="5"  BorderBrush="Black" Background="#FF86B0BF" Foreground="#FFC71B1B"  
-              
-            />
-
-
+        <Button x:Name="WishList" 
+                Content="WISH-LIST"
+                Grid.Column="2"
+                Grid.Row="1" 
+                Margin="30,80,30,50" 
+                Click="Button_Click" 
+                Background="#FF7077BF" 
+                FontSize="24"/>
+        <Button x:Name="Dairy" 
+                Content="DAIRY" 
+                Grid.Row="1"   
+                Margin="30,80,30,50" 
+                Click="Button_Click_1" 
+                Background="#FFDCC00D" 
+                FontSize="24"/>
+        <Button x:Name="Budjet" 
+                Content="BUDGET" 
+                Grid.Column="1" 
+                Grid.Row="1" 
+                Margin="30,40,30,70" 
+                Background="#FF1A9F12"
+                FontSize="24" 
+                Click="Budjet_Click"/>
+        <Label Grid.ColumnSpan="3" 
+               Grid.Row="2" 
+               BorderBrush="Black"
+               Background="#FF4C7787"/>
+        <Label Grid.ColumnSpan="3"
+               BorderBrush="Black"
+               Background="#FF86B0BF"
+               Foreground="#FFC71B1B"/>
     </Grid>
 </Controls:MetroWindow>

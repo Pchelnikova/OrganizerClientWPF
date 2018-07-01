@@ -4,23 +4,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-         Title="NEW ACCOUNT"  Width="350" Height="200" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="NEW ACCOUNT" 
+        Width="350"
+        Height="200"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition  />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Content="WRONG Login or Parol!" Foreground="#FFD86868"  Grid.Row="0" Margin="32,0,32,5" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Height="51" VerticalAlignment="Center"></Label>
-        <Label Content="TRY AGAIN?" Foreground="#FF4C7787" Grid.Row="1" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="16" Margin="0,0,0,10" >
-        </Label>
+        <Label Content="WRONG Login or Parol!"
+               Foreground="#FFD86868"
+               Margin="32,0,32,5"
+               HorizontalAlignment="Center"
+               FontSize="24"
+               FontWeight="Bold"
+               Height="51"
+               VerticalAlignment="Center"/>
+        <Label Content="TRY AGAIN?"
+               Foreground="#FF4C7787"
+               Grid.Row="1"
+               HorizontalContentAlignment="Center"
+               FontWeight="Bold"
+               FontSize="16"
+               Margin="0,0,0,10"/>
         <StackPanel Grid.Row="2">
-            <Button Content="OK"  MinWidth="30" Background="#FF4C7787" Click="Button_Click" ></Button>
-            <Button Content="Cancel"  MinWidth="60" Background="#FF4C7787" Click="Button_Click_1" ></Button>
+            <Button Content="OK" 
+                    MinWidth="30" 
+                    Background="#FF4C7787"
+                    Click="Button_Click"/>
+            <Button Content="Cancel"
+                    MinWidth="60" 
+                    Background="#FF4C7787" 
+                    Click="Button_Click_1"/>
         </StackPanel>
-
-
     </Grid>
 </Controls:MetroWindow>

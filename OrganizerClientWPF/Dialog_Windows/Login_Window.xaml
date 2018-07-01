@@ -4,27 +4,51 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-         Title="AUTORIZATION" Width="400" Height="300" WindowStartupLocation="CenterScreen">
+        Title="AUTORIZATION"
+        Width="400"
+        Height="300"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
-            <RowDefinition  />
-            <RowDefinition  />
             <RowDefinition />
             <RowDefinition />
-
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0" Margin="5" Foreground="#FF4C7787" Text="   LOGIN:" FontSize="24" FontWeight="Bold"/>
-        <TextBox Name="loginBox" Grid.Row="1" Margin ="5" FontSize="20"/>
-        <TextBlock Grid.Row="2" Margin="5" Foreground="#FF4C7787" Text="   PASSWORD:" FontSize="24" FontWeight="Bold"/>
-        <PasswordBox Name="passwordBox" Grid.Row="3" Margin="5" FontSize="20"></PasswordBox>
-        <Button  Content="Create new account" Grid.Column="0" Grid.Row="4"  
-                 Background="#FFD65A4E" Margin="5,5,200,5" Click ="Button_Click_2" FontSize="14"/>
-        <Button IsDefault="True" Grid.Row="4" Click="Go_Click"  Background="#FF4EB0BB"  Margin="200,5,5,5" FontSize="24" FontWeight="Bold">GO!</Button>
-
-
+        <TextBlock Margin="5"
+                   Foreground="#FF4C7787"
+                   Text="   LOGIN:"
+                   FontSize="24" 
+                   FontWeight="Bold"/>
+        <TextBox Name="loginBox"
+                 Grid.Row="1"
+                 Margin ="5" 
+                 FontSize="20"/>
+        <TextBlock Grid.Row="2"
+                   Margin="5"
+                   Foreground="#FF4C7787"
+                   Text="   PASSWORD:" 
+                   FontSize="24" 
+                   FontWeight="Bold"/>
+        <PasswordBox Name="passwordBox"
+                     Grid.Row="3" 
+                     Margin="5"
+                     FontSize="20"/>
+        <Button  Content="Create new account"
+                 Grid.Row="4"  
+                 Background="#FFD65A4E" 
+                 Margin="5,5,200,5"
+                 Click ="Button_Click_2"
+                 FontSize="14"/>
+        <Button IsDefault="True"
+                Grid.Row="4" 
+                Click="Go_Click"
+                Background="#FF4EB0BB"
+                Margin="200,5,5,5"
+                FontSize="24"
+                FontWeight="Bold"
+                Content="GO!"/>
     </Grid>
 </Controls:MetroWindow>
