@@ -13,7 +13,7 @@ namespace OrganizerClientWPF
     /// </summary>
     public partial class WISH : MetroWindow
     {
-        private readonly DataDAL _dalCl = new DataDAL();
+        private readonly DataDAL _dal = new DataDAL();
         public User CurrentUser { get; } = new User();
 
         public WISH (User currentUser)
@@ -21,50 +21,48 @@ namespace OrganizerClientWPF
             InitializeComponent();
             CurrentUser = currentUser;
             title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Wish-List";
-
         }
-
         private void See_All_Wishes_Click(object sender, RoutedEventArgs e)
         {
+            Wish_Grid.Visibility = Visibility.Visible;
+            Diary_Text.Visibility = Visibility.Hidden;
 
+            //Binding binding = new Binding();
+            //binding.Source = ...;
+            //Wish_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
         }
-
         private void Add_New_Wish_Click(object sender, RoutedEventArgs e)
         {
-
+            Wish_Grid.Visibility = Visibility.Hidden;
+            Diary_Text.Visibility = Visibility.Visible;
         }
-
         private void Save_Note_Click(object sender, RoutedEventArgs e)
         {
-
+            // _dal.Add_Note(Diary_Text.Text, CurrentUser.Login); ??
+            Diary_Text.Text = string.Empty;
         }
-
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             DIARY diary = new DIARY(CurrentUser);
             diary.Show();
             this.Close();
         }
-
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             BUDGET budget = new BUDGET(CurrentUser);
             budget.Show();
             this.Close();
         }
-
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
             User_Account_Info user_Account = new User_Account_Info(CurrentUser);
             user_Account.Show();
             this.Close();
         }
-
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
         //private void dairy_Grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
 
