@@ -55,7 +55,9 @@ namespace OrganizerClientWPF
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
-
+            User_Account_Info user_Account = new User_Account_Info(CurrentUser);
+            user_Account.Show();
+            this.Close();
         }
 
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
