@@ -132,17 +132,22 @@ namespace OrganizerClientWPF
                     Date_ = date.SelectedDate ?? DateTime.Now,
                     Sum = number,
                     Profit_Expance_Type = type.Text.ToString(),
-                    Description = description.Text
+                    Description = description.Text ?? ""
                 };
                 _dalCl.Save_New_Profit(Converter_Profit_Expence.WPF_to_DAL(new_profit), type.Text.ToString(), CurrentUser.Login);
                 sum.Text = "";
                 description.Text = "";
             }
-            else
+            else if (result != true)
             {
                 sum.Text = "Input DIGITALS, please!";
                 sum.FontSize = 16;
             }
+            else if (type.Text == String.Empty)
+            {
+                
+            }
+            
         }
     
 
