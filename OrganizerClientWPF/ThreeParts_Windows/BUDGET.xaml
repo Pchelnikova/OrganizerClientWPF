@@ -6,8 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title="BUDJET" WindowStartupLocation="CenterScreen" Height="500" Width="800">
-    <Grid>
+
         <Grid x:Name="first_grid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -92,8 +93,8 @@
             <Button Grid.Column="1" Grid.Row="3"  Background="#FF70B4BF" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_7"  />
             <Button Grid.Column="0" Grid.Row="3" Background="#FFCDBC53" Margin="10"  Content="DIARY" FontSize="18" Click="Button_Click_6" />
             <Button Grid.Column="3" Grid.Row="3"  Background="#FFBEADE0" Margin="10" Content="ACCOUNT'S INFO" FontSize="18" Click="Button_Click_8"  />
-
-        </Grid>
-
+            <lvc:PieChart Name = "chart" LegendLocation = "Right"  Hoverable = "True" Grid.Row = "2" Grid.Column = "1" Grid.ColumnSpan = "3" />
     </Grid>
+        
+
 </Controls:MetroWindow>

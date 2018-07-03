@@ -19,7 +19,8 @@ using OrganizerClientWPF.DTO;
 using System.Globalization;
 using DALOrganizerClientWPF.DTO;
 using OrganizerClientWPF.Converters;
-
+using LiveCharts;
+using LiveCharts.Wpf;
 namespace OrganizerClientWPF
 {
     /// <summary>
@@ -68,6 +69,7 @@ namespace OrganizerClientWPF
             {
                 buttons[i].Click += delegates[0].FirstOrDefault(item => (delegates[0].IndexOf(item) == i));
             }
+
         }
 
 
@@ -124,7 +126,7 @@ namespace OrganizerClientWPF
         private void Save_New_Profit_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (type.Text != String.Empty  && result == true)
+            if (type.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_profit = new Profit_ExpenceWPF_DTO()
                 {
@@ -144,19 +146,19 @@ namespace OrganizerClientWPF
             }
             else if (type.Text == String.Empty)
             {
-                
+
             }
-            
+
         }
-    
+
 
         private void Delete_Profit(object sender, RoutedEventArgs e)
         {
             if (budget_Grid.SelectedIndex > -1)
-            {                  
+            {
                 var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
 
-                _dalCl.Delete_Profit(profit, CurrentUser.Login);                
+                _dalCl.Delete_Profit(profit, CurrentUser.Login);
             }
             Show_All_Profits_Click(sender, e);
         }
@@ -166,14 +168,11 @@ namespace OrganizerClientWPF
         #region
         private void Expances_Click(object sender, RoutedEventArgs e)
         {
-          
             Change_Window();
             add.Content = "Add Expance";
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
             Choise_Buttons((int)ThreeButton.EXPENCE);
-
-            
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -187,10 +186,9 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetExpanceTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-          
             save_add.Content = "SAVE";
-        }                  
-        private void Show_All_Expance_Click(object sender, RoutedEventArgs e)
+        }
+        private void Show_All_Expance_Click(object sender, RoutedEventArgs e) //////////////////////////////// !!!
         {
             delete.Visibility = Visibility.Visible;
             save_add.Visibility = Visibility.Collapsed;
@@ -198,39 +196,40 @@ namespace OrganizerClientWPF
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
             {
-                binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList());
-                budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-                budget_Grid.Visibility = Visibility.Visible;
+                // binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList());
+                // budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+                // budget_Grid.Visibility = Visibility.Visible;
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
             Show_Total_Sum_Expences();
             Show_Balance();
-            
+
         }
-        private void Delete_Expence (object sender, RoutedEventArgs e)
-        {           
-                if (budget_Grid.SelectedIndex > -1)
-                {          
-                    _dalCl.Delete_Expence(Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO), CurrentUser.Login);
-                }
+
+        private void Delete_Expence(object sender, RoutedEventArgs e)
+        {
+            if (budget_Grid.SelectedIndex > -1)
+            {
+                _dalCl.Delete_Expence(Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO), CurrentUser.Login);
+            }
             Show_All_Expance_Click(sender, e);
         }
         private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
         {
-           var result =  Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
+            var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
             if (type.Text != String.Empty && description.Text != String.Empty && result == true)
-            {                
-                    Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
-                    {
-                        Date_ = date.SelectedDate ?? DateTime.Now,
-                        Sum = number,
-                        Profit_Expance_Type = type.Text.ToString(),
-                        Description = description.Text
-                    };
-                    _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expence), type.Text.ToString(), CurrentUser.Login);
-                    sum.Text = "";
-                    description.Text = "";               
+            {
+                Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
+                {
+                    Date_ = date.SelectedDate ?? DateTime.Now,
+                    Sum = number,
+                    Profit_Expance_Type = type.Text.ToString(),
+                    Description = description.Text
+                };
+                _dalCl.Save_New_Expence(Converter_Profit_Expence.WPF_to_DAL(new_expence), type.Text.ToString(), CurrentUser.Login);
+                sum.Text = "";
+                description.Text = "";
             }
             else
             {
@@ -264,14 +263,14 @@ namespace OrganizerClientWPF
                 Source = _dalCl.GetExpanceTypes()
             };
             type.SetBinding(ComboBox.ItemsSourceProperty, binding);
-            
+
             save_add.Content = "SAVE";
         }
         private void Show_All_Plans_Click(object sender, RoutedEventArgs e)
         {
             delete.Visibility = Visibility.Visible;
             save_add.Visibility = Visibility.Collapsed;
-           
+
             budget_grid2.Visibility = Visibility.Visible;
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Plans(CurrentUser.Login).ToList()) != null)
@@ -282,8 +281,7 @@ namespace OrganizerClientWPF
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
-            Show_Total_Sum_Plans();           
-
+            Show_Total_Sum_Plans();
         }
         private void Delete_Plan(object sender, RoutedEventArgs e)
         {
@@ -299,29 +297,29 @@ namespace OrganizerClientWPF
             if (type.Text != String.Empty && description.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_plan = new Profit_ExpenceWPF_DTO()
-                    {
-                        Date_ = date_plan.SelectedDate ?? DateTime.Now,
-                        Sum = number,
-                        Profit_Expance_Type = type.Text.ToString(),
-                        Description = description.Text
-                    };
-                    _dalCl.Save_New_Plan(Converter_Profit_Expence.WPF_to_DAL(new_plan), type.Text.ToString(), CurrentUser.Login);
-                    sum.Text = "";
-                    description.Text = "";
+                {
+                    Date_ = date_plan.SelectedDate ?? DateTime.Now,
+                    Sum = number,
+                    Profit_Expance_Type = type.Text.ToString(),
+                    Description = description.Text
+                };
+                _dalCl.Save_New_Plan(Converter_Profit_Expence.WPF_to_DAL(new_plan), type.Text.ToString(), CurrentUser.Login);
+                sum.Text = "";
+                description.Text = "";
             }
             else
             {
                 sum.Text = "Input DIGITALS, please!";
-                sum.FontSize = 16;                
+                sum.FontSize = 16;
             }
         }
-       
+
         /// <summary>
         ///   Validation for date of plan-expence. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Selected_Date_Plan (object sender, RoutedEventArgs e)
+        private void Selected_Date_Plan(object sender, RoutedEventArgs e)
         {
             if (date_plan.SelectedDate.Value.Month == DateTime.Now.Month)
             {
@@ -336,8 +334,8 @@ namespace OrganizerClientWPF
                 description.Text = "";
                 type.Visibility = Visibility.Visible;
                 sum.Visibility = Visibility.Visible;
-            }              
-           
+            }
+
         }
         #endregion
 
@@ -350,12 +348,38 @@ namespace OrganizerClientWPF
             //change button "add" and "show_all"
             add.Content = "PROFITS";
             show_all.Content = "EXPANCE";
+
+            add.Visibility = Visibility.Visible;
+            show_all.Visibility = Visibility.Visible;
+
+            //for chart
+            PointLabel = chartPoint => string.Format("({1:P})", chartPoint.Y, chartPoint.Participation);
+            DataContext = this;
+            ViewChart();
         }
-      
+        //for chart
+        public Func<ChartPoint, string> PointLabel { get; set; }
+        private void ViewChart()
+        {
+            
+            var exp = _dalCl.Get_All_Expance(CurrentUser.Login);
+            foreach (var item in exp)
+            {
+                PieSeries p = new PieSeries()
+                {
+                    Values = new ChartValues<Decimal> { item.Sum },
+                    Title = item.Profit_Expance_Type,
+                    DataLabels = true,
+                    LabelPoint = PointLabel
+                };
+                chart.Series.Add(p);
+            }
+
+        }
         // Open Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-             DIARY diary = new DIARY(CurrentUser);
+            DIARY diary = new DIARY(CurrentUser);
             diary.Show();
             this.Close();
 
@@ -412,7 +436,7 @@ namespace OrganizerClientWPF
             var routedEventHandlers = GetRoutedEventHandlers(b, ButtonBase.ClickEvent);
             foreach (var routedEventHandler in routedEventHandlers)
                 b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
-        }       
+        }
         //Change methods for buttons by main buttons Profit/Expence/Plan
         private void Choise_Buttons(int number_of_button)
         {
@@ -422,13 +446,13 @@ namespace OrganizerClientWPF
                 buttons[i].Click += delegates[number_of_button].FirstOrDefault(item => (delegates[number_of_button].IndexOf(item) == i));
             }
         }
-        
+
         //Get Total Sum
-        private void Show_Total_Sum_Profits ()
+        private void Show_Total_Sum_Profits()
         {
-            total_sum_text.Visibility = Visibility.Visible;           
+            total_sum_text.Visibility = Visibility.Visible;
             total_sum.Visibility = Visibility.Visible;
-            total_sum_text.Text = _dalCl.Get_Total_Profits().ToString();          
+            total_sum_text.Text = _dalCl.Get_Total_Profits().ToString();
         }
         private void Show_Total_Sum_Expences()
         {
