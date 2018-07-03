@@ -66,7 +66,6 @@ namespace OrganizerClientWPF
             //first values of buttons (Profits)
             for (int i = 0; i < buttons.Count; i++)
             {
-
                 buttons[i].Click += delegates[0].FirstOrDefault(item => (delegates[0].IndexOf(item) == i));
             }
         }
@@ -283,8 +282,7 @@ namespace OrganizerClientWPF
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
-            Show_Total_Sum_Plans();
-            Show_Balance();
+            Show_Total_Sum_Plans();           
 
         }
         private void Delete_Plan(object sender, RoutedEventArgs e)
@@ -382,6 +380,12 @@ namespace OrganizerClientWPF
             budget_Grid.Visibility = Visibility.Hidden;
             edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
+            total_sum_text.Text = String.Empty;
+            total_sum_text.Visibility = Visibility.Collapsed;
+            balance_text.Text = String.Empty;
+            balance_text.Visibility = Visibility.Collapsed;
+            total_sum.Visibility = Visibility.Collapsed;
+            balance.Visibility = Visibility.Collapsed;
         }
 
         //Helper for Choice_Buttons
@@ -422,22 +426,28 @@ namespace OrganizerClientWPF
         //Get Total Sum
         private void Show_Total_Sum_Profits ()
         {
+            total_sum_text.Visibility = Visibility.Visible;           
+            total_sum.Visibility = Visibility.Visible;
             total_sum_text.Text = _dalCl.Get_Total_Profits().ToString();          
         }
         private void Show_Total_Sum_Expences()
-        {            
-             total_sum_text.Text = _dalCl.Get_Total_Expences().ToString();
+        {
+            total_sum_text.Visibility = Visibility.Visible;
+            total_sum.Visibility = Visibility.Visible;
+            total_sum_text.Text = _dalCl.Get_Total_Expences().ToString();
         }
         private void Show_Total_Sum_Plans()
         {
+            total_sum_text.Visibility = Visibility.Visible;
+            total_sum.Visibility = Visibility.Visible;
             total_sum_text.Text = _dalCl.Get_Total_Plans().ToString();
         }
         private void Show_Balance()
         {
+            balance_text.Visibility = Visibility.Visible;
+            balance.Visibility = Visibility.Visible;
             balance_text.Text = _dalCl.Get_Balance().ToString();
         }
-
-
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
             User_Account_Info user_Account = new User_Account_Info(CurrentUser);
