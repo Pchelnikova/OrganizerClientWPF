@@ -125,7 +125,7 @@ namespace OrganizerClientWPF
         private void Save_New_Profit_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (type.Text != String.Empty && description.Text != String.Empty && result == true)
+            if (type.Text != String.Empty  && result == true)
             {
                 Profit_ExpenceWPF_DTO new_profit = new Profit_ExpenceWPF_DTO()
                 {
