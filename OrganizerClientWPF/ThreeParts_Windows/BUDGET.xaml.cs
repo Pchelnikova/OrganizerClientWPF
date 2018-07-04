@@ -32,7 +32,7 @@ namespace OrganizerClientWPF
         private Dictionary<string, decimal> _dictionaryExpense = new Dictionary<string, decimal>();
         private Dictionary<string, decimal> _dictionaryProfits = new Dictionary<string, decimal>();
         public enum ThreeButton { PROFIT, EXPENCE, PLAN, REPORTS };
-
+   
         public User CurrentUser { get; } = new User();
         List<List<RoutedEventHandler>> delegates = new List<List<RoutedEventHandler>>();
         List<Button> buttons = new List<Button>();
@@ -56,7 +56,7 @@ namespace OrganizerClientWPF
             };
             List<RoutedEventHandler> delegates_Reports = new List<RoutedEventHandler>()
             {
-                 Chart_Profits_click, Chart_Expense_Click, Delete_Report, Delete_Report2
+                 Chart_Profits_click, Chart_Expense_Click, Add_Click_Expance, Save_New_Plan_Click
             };
             List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
             delegates__.Add(delegates_Profits);
@@ -76,9 +76,6 @@ namespace OrganizerClientWPF
                 buttons[i].Click += delegates[0].FirstOrDefault(item => (delegates[0].IndexOf(item) == i));
             }
         }
-
-
-
         //!!!!!!
         private void Chart_Profits_click(object sender, RoutedEventArgs e)
         {
@@ -386,14 +383,6 @@ namespace OrganizerClientWPF
             show_all.Visibility = Visibility.Visible;
             Chart.Visibility = Visibility.Visible;
             Choise_Buttons((int)ThreeButton.REPORTS);
-        }
-        private void Delete_Report(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void Delete_Report2(object sender, RoutedEventArgs e)
-        {
-
         }
         #region Charts 
         //методи 355 і 375 злити в один метод 
