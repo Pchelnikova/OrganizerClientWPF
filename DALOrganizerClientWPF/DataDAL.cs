@@ -129,5 +129,9 @@ namespace DALOrganizerClientWPF
         {
             return ConvertDiary.WCF_to_DAL(_service.Diary_ByDate(login, date1, date2));
         }
+        public Dictionary<string, decimal> Get_Sum_byType_forChart_Profits()
+        {
+            return _service.Get_Sum_byType_forChart_Profits();
+        }
     }
 }

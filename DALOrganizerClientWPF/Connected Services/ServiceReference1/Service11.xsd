@@ -333,4 +333,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Get_Sum_byType_forChart_Profits">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Sum_byType_forChart_ProfitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Get_Sum_byType_forChart_ProfitsResult" nillable="true" type="q14:ArrayOfKeyValueOfstringdecimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

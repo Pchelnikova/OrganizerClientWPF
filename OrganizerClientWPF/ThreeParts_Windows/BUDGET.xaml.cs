@@ -487,6 +487,10 @@ namespace OrganizerClientWPF
         {
 
         }
+        public Dictionary<string, decimal> Get_Sum_byType_forChart_Profits()
+        {
+            return _dalCl.Get_Sum_byType_forChart_Profits();
+        }
 
         #endregion
 
