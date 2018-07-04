@@ -35,7 +35,7 @@ namespace OrganizerClientWPF
         {
             Wish_Grid.Visibility = Visibility.Visible;
             Diary_Text.Visibility = Visibility.Hidden;
-
+            left_grid.Visibility = Visibility.Hidden;
             Binding binding = new Binding();
 
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dal.Get_All_Wishes(CurrentUser.Login)) != null)
@@ -47,6 +47,7 @@ namespace OrganizerClientWPF
         private void Add_New_Wish_Click(object sender, RoutedEventArgs e)
         {
             Wish_Grid.Visibility = Visibility.Hidden;
+            left_grid.Visibility = Visibility.Visible;
             Diary_Text.Visibility = Visibility.Visible;
         }
         private void Save_Note_Click(object sender, RoutedEventArgs e)
@@ -93,6 +94,10 @@ namespace OrganizerClientWPF
         {
 
         }
-        
+
+        private void Sum_GotFocus(object sender, RoutedEventArgs e)
+        {
+            sum.Text = string.Empty;
+        }
     }
 }
