@@ -174,5 +174,13 @@ namespace DALOrganizerClientWPF
         {
             return _service.Get_Sum_byType_forChart_Profits(login,type).ToList();
         }
+        public List<string> Get_Name_byType_forChart_Expense(string login)
+        {
+            return _service.Get_Name_byType_forChart_Expense(login).ToList();
+        }
+        public List<decimal> Get_Sum_byType_forChart_Expense(string login, string type)
+        {
+            return _service.Get_Sum_byType_forChart_Expense(login, type).ToList();
+        }
     }
 }
