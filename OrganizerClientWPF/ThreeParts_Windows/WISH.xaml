@@ -6,8 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganizerClientWPF"
         mc:Ignorable="d"
-      
-        Title="WISH-LIST" WindowStartupLocation="CenterScreen" Height="500" Width="800">
+        Title="WISH-LIST" 
+        WindowStartupLocation="CenterScreen" 
+        Height="500"
+        Width="800">
     <Grid>
         <Grid x:Name="first_grid" Background="#FFC4D4D0">
             <Grid.RowDefinitions>
@@ -26,23 +28,38 @@
                        Text="WISH-LIST"
                        TextAlignment="Center"
                        VerticalAlignment="Center"
-                       Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="4" 
+                       Grid.Row="0"
                        Margin="0, 10, 0, 0"  
-                       FontSize="36" FontWeight="Bold" 
+                       FontSize="36"
+                       FontWeight="Bold" 
                        Background="#FF7090BF"/>
-            <Button Grid.Column="3" 
+            <Button Grid.Column="1" 
                     Grid.Row="1"
                     Background="#FF8ECFD3"
-                    Margin="10,10,10,10" 
+                    Margin="37,10,111,10" 
                     Content="SHOW ALL WISHES" 
                     FontSize="18"
-                     BorderBrush="Black"
+                    BorderBrush="Black"
                     BorderThickness="2"
-                    Click="See_All_Wishes_Click" />
+                    Click="See_All_Wishes_Click"
+                    Grid.ColumnSpan="2" />
+            <Button x:Name="delete"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Background="#FF8ECFD3"
+                    Margin="125,10,23,10" 
+                    BorderBrush="Black"
+                    Content="DELETE"
+                    FontSize="18"
+                    BorderThickness="2"
+                    Click="Delete_Note_Click"
+                    Visibility="Visible" Grid.ColumnSpan="2" />
             <Button Grid.Column="0"
                     Grid.Row="1" 
                     Background="#FF8ECFD3"
-                    Margin="10,10,50,10" 
+                    Margin="30,10,30,10" 
                     Content="ADD NEW WISH" 
                     FontSize="18"
                     BorderBrush="Black"
@@ -63,49 +80,41 @@
                 <DatePicker x:Name="date" 
                             Grid.Row="2"
                             Grid.Column="0"
-                            Margin="10,10,10,0"  ></DatePicker>
+                            Margin="10,10,10,0"
+                            FontSize="16" />
                 <TextBlock   Grid.Column="0"
                              Grid.Row="0"
                              Margin="10,0,0,0"
                              FontSize="16"
-                             FontWeight="Bold" >
-                             Choose a TYPE
-                </TextBlock>
+                             FontWeight="Bold" 
+                             Text="Choose a TYPE"/>
                 <ComboBox x:Name="type"
                           Grid.Row="1"
-                          Margin="10"></ComboBox>
+                          Margin="10"
+                          FontSize="16"/>
                 <TextBlock  Grid.Row="3"
                             Margin="10,0,0,0"
                             FontSize="16" 
-                            FontWeight="Bold" >
-                    SUMM:
-                </TextBlock>
+                            FontWeight="Bold" 
+                            Text="SUMM:"/>
                 <TextBox x:Name="sum" 
                          Grid.Row="4"
                          Margin="10"
-                         MinLines="2"></TextBox>
+                         MinLines="2"
+                         FontSize="16"
+                         GotFocus="Sum_GotFocus"/>
                 <Button x:Name="save"
                     Grid.Column="0"
                     Grid.Row="5" 
-                    Margin="10, 10,10,10" 
+                    Margin="10" 
                     Content="SAVE NEW WISH"
                     FontSize="16" 
                     Click="Save_Note_Click" 
-                   Background="#FF8ECFD3"
+                    Background="#FF8ECFD3"
                     BorderBrush="Black"
-                       BorderThickness="2"
+                    BorderThickness="2"
                     Visibility="Visible" />
-                <Button x:Name="delete"
-                    Grid.Column="0"
-                    Grid.Row="1"
-                    Background="#FFCF514B" 
-                    Margin="0" 
-                    Content="DELETE NOTE"
-                    FontSize="16"
-                    Click="Delete_Note_Click"
-                    Visibility="Collapsed" />
-                <!--<DatePicker x:Name="Calendar" IsDropDownOpen="False"  Grid.Column="3" Grid.Row="2" Margin="0,40,0,200" Visibility="Hidden" Text="START DATE" />
-            <DatePicker x:Name="Calendar2" SelectedDateChanged="select_date"  IsDropDownOpen="False" Grid.Column="3" Grid.Row="2" Margin="0,80,0,160" Visibility="Hidden" Text="END DATE" />-->
+
             </Grid>
             <!--<DataGrid x:Name="dairy_Grid"  IsReadOnly="True"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
                       Visibility="Visible"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="30" SelectionChanged="dairy_Grid_SelectionChanged"  >-->
@@ -117,11 +126,12 @@
                      Grid.Row="2"
                      Background="#FFE0E6E4"
                      BorderBrush="AliceBlue" 
-                     BorderThickness="3" />
-            <Label Grid.Row="3" 
-                   Grid.Column="0" 
-                   Grid.ColumnSpan="4"
-                   Background="#FF8ECFD3" />
+                     BorderThickness="3" 
+                     FontSize="20"/>
+            <Border Grid.Row="3" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="4"
+                    Background="#FF8ECFD3" />
             <Button Grid.Column="1"
                     Grid.Row="3" 
                     Background="#FFCDBC53"
@@ -144,9 +154,17 @@
                     FontSize="16" 
                     Click="Button_Click_8"  />
             <Label x:Name="period" Grid.Column="4" Grid.Row="2" Margin="50, 0, 50,240" Content="... for period" Background="#FFE2891D" Visibility="Hidden" />
-            <DataGrid x:Name="Wish_Grid"  IsReadOnly="True"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  GridLinesVisibility="All" 
-                      Visibility="Hidden"  AlternatingRowBackground="#FFEAE0A1" ScrollViewer.VerticalScrollBarVisibility ="Visible" RowHeight="30"  >
-            </DataGrid>
+            <DataGrid x:Name="Wish_Grid" 
+                      IsReadOnly="True"  
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      Grid.Column="0" 
+                      Grid.Row="2"
+                      Grid.ColumnSpan="4"  
+                      GridLinesVisibility="All" 
+                      Visibility="Hidden" 
+                      AlternatingRowBackground="#FFEAE0A1" 
+                      ScrollViewer.VerticalScrollBarVisibility ="Visible"
+                      RowHeight="30"/>
         </Grid>
 
     </Grid>
