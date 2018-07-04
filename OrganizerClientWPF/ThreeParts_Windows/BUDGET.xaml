@@ -93,7 +93,7 @@
             <Button Grid.Column="1" Grid.Row="3"  Background="#FF70B4BF" Margin="10" Content="WISH-LIST" FontSize="18" Click="Button_Click_7"  />
             <Button Grid.Column="0" Grid.Row="3" Background="#FFCDBC53" Margin="10"  Content="DIARY" FontSize="18" Click="Button_Click_6" />
             <Button Grid.Column="3" Grid.Row="3"  Background="#FFBEADE0" Margin="10" Content="ACCOUNT'S INFO" FontSize="18" Click="Button_Click_8"  />
-            <lvc:PieChart Name = "chart" LegendLocation = "Right"  Hoverable = "True" Grid.Row = "2" Grid.Column = "1" Grid.ColumnSpan = "3" />
+            <lvc:PieChart Name = "chart" LegendLocation = "Right"  Hoverable = "True" Grid.Row = "2" Grid.Column = "1" Grid.ColumnSpan = "3" Visibility="Collapsed" />
     </Grid>
         
 

@@ -84,6 +84,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
             Choise_Buttons((int)ThreeButton.PROFIT);
+            chart.Visibility = Visibility.Collapsed;
 
         }
 
@@ -173,6 +174,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
             Choise_Buttons((int)ThreeButton.EXPENCE);
+            chart.Visibility = Visibility.Collapsed;
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -248,6 +250,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Plans";
             delete.Content = "Delete Plan";
             Choise_Buttons((int)ThreeButton.PLAN);
+            chart.Visibility = Visibility.Collapsed;
         }
         private void Add_Click_Plan(object sender, RoutedEventArgs e)
         {
@@ -351,6 +354,7 @@ namespace OrganizerClientWPF
 
             add.Visibility = Visibility.Visible;
             show_all.Visibility = Visibility.Visible;
+            chart.Visibility = Visibility.Visible;
 
             //for chart
             PointLabel = chartPoint => string.Format("({1:P})", chartPoint.Y, chartPoint.Participation);
