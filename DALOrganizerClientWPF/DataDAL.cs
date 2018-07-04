@@ -153,7 +153,11 @@ namespace DALOrganizerClientWPF
         }
         public List<string> GetAllJuniors()
         {
-            return _service.GetAllJuniors();
+            return _service.GetAllJuniors().ToList();
+        }
+        public List<string> GetAllRangs()
+        {
+            return _service.GetAllRangs().ToList();
         }
 
         #endregion

@@ -368,6 +368,12 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllJuniors", ReplyAction="http://tempuri.org/IService1/GetAllJuniorsResponse")]
         System.Threading.Tasks.Task<string[]> GetAllJuniorsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllRangs", ReplyAction="http://tempuri.org/IService1/GetAllRangsResponse")]
+        string[] GetAllRangs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllRangs", ReplyAction="http://tempuri.org/IService1/GetAllRangsResponse")]
+        System.Threading.Tasks.Task<string[]> GetAllRangsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -659,6 +665,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> GetAllJuniorsAsync() {
             return base.Channel.GetAllJuniorsAsync();
+        }
+        
+        public string[] GetAllRangs() {
+            return base.Channel.GetAllRangs();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetAllRangsAsync() {
+            return base.Channel.GetAllRangsAsync();
         }
     }
 }

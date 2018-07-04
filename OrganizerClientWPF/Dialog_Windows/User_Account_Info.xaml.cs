@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DALOrganizerClientWPF;
+using OrganizerClientWPF.Converters;
+
 namespace OrganizerClientWPF
 {
     /// <summary>
@@ -35,9 +37,14 @@ namespace OrganizerClientWPF
             {
                 Status_ComboBox.Visibility = Visibility.Visible;
                 Binding binding = new Binding();
-                //binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dal.GetJuniors().ToList());
-                //budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-                //budget_Grid.Visibility = Visibility.Visible;
+                binding.Source = (_dal.GetAllJuniors().ToList());
+                Choose_user_for_change_status.SetBinding(DataGrid.ItemsSourceProperty, binding);
+                Choose_user_for_change_status.Visibility = Visibility.Visible;
+                Binding binding2 = new Binding();
+                binding2.Source = (_dal.GetAllRangs().ToList());
+                Choose_user_for_change_status.SetBinding(DataGrid.ItemsSourceProperty, binding);
+                Choose_user_for_change_status.Visibility = Visibility.Visible;
+
             }
         }
         //change login

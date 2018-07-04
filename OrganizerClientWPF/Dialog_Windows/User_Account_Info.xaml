@@ -113,6 +113,7 @@
                 FontWeight="Bold" 
                 Background="#FFE08C84"
                 SelectionChanged="Choose_user_for_change_status_SelectionChanged"
+                  Visibility="Collapsed"
                 
                 />
         <Button Grid.Row="4" 
