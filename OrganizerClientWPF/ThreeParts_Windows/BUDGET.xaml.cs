@@ -55,13 +55,13 @@ namespace OrganizerClientWPF
             };
             List<RoutedEventHandler> delegates_Reports = new List<RoutedEventHandler>()
             {
-                 
+                 Chart_Profits_click, Chart_Expense_Click
             };
             List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
             delegates__.Add(delegates_Profits);
             delegates__.Add(delegates_Expence);
             delegates__.Add(delegates_Plans);
-            delegates__.Add(delegate_Reports);
+            delegates__.Add(delegates_Reports);
             delegates = delegates__;
             //buttons, which will change by delegats
             List<Button> buttons_ = new List<Button>
@@ -76,7 +76,21 @@ namespace OrganizerClientWPF
             }
         }
 
-        
+
+
+        //!!!!!!
+        private void Chart_Profits_click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Chart_Expense_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //!!!!!!!!!!
+
+
+
         #region  Profits CRUD 
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
