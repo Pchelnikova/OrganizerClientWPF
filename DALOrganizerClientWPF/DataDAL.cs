@@ -23,11 +23,23 @@ namespace DALOrganizerClientWPF
         {
             _service.Add_Note(note, login);
         }
-       public void Delete_Note(string note)
+        //Wish CRUD
+        public void Delete_Note(string note)
         {
             _service.Delete_Note(note);
         }
-
+        public List<Profit_ExpenceDAL> Get_All_Wishes(string login)
+        {
+            return ConverterProfitExpence.WCF_to_DAL_List(_service.Get_All_Wishes(login));
+        }
+        public void Save_New_Wish(Profit_ExpenceDAL new_wish, string Type, string login)
+        {
+            _service.Save_New_Wish(ConverterProfitExpence.DAL_to_WCF(new_wish), Type, login);
+        }
+        public List<string> GetWishTypes()
+        {
+            return _service.GetWishTypes().ToList();
+        }
         //Budget Profits CRUD 
         public List<Profit_ExpenceDAL> Get_All_Profits (string login)
         {
