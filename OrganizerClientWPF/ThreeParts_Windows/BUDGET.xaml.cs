@@ -377,14 +377,11 @@ namespace OrganizerClientWPF
         //Open Reports
         private void Reports_Click(object sender, RoutedEventArgs e)
         {
-            border_add.Visibility = Visibility.Hidden;
-            edit.Visibility = Visibility.Hidden;
-            delete.Visibility = Visibility.Hidden;
-            
+            Change_Window();
             //change button "add" and "show_all"
             add.Content = "PROFITS CHART";
             show_all.Content = "EXPANCE CHART";
-
+           
             add.Visibility = Visibility.Visible;
             show_all.Visibility = Visibility.Visible;
             Chart.Visibility = Visibility.Visible;
