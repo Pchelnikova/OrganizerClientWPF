@@ -31,6 +31,14 @@ namespace OrganizerClientWPF
             CurrentUser = currentUser;
             InitializeComponent();
             title.Text = CurrentUser.Login.ToString().ToUpper() + "'s INFO";
+            if (_dal.GetTypeUser(CurrentUser.Login) == true)
+            {
+                Status_ComboBox.Visibility = Visibility.Visible;
+                Binding binding = new Binding();
+                //binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dal.GetJuniors().ToList());
+                //budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+                //budget_Grid.Visibility = Visibility.Visible;
+            }
         }
         //change login
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -81,6 +89,11 @@ namespace OrganizerClientWPF
             FirstChoice_Window firstChoice_Window = new FirstChoice_Window(CurrentUser.Login);
             firstChoice_Window.Show();
             this.Close();
+        }
+
+        private void Choose_user_for_change_status_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -30,7 +30,7 @@ namespace OrganizerClientWPF
     {
         private readonly DataDAL _dalCl = new DataDAL();
         private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
-        public enum ThreeButton { PROFIT, EXPENCE, PLAN };
+        public enum ThreeButton { PROFIT, EXPENCE, PLAN, REPORTS };
 
         public User CurrentUser { get; } = new User();
         List<List<RoutedEventHandler>> delegates = new List<List<RoutedEventHandler>>();
@@ -53,10 +53,15 @@ namespace OrganizerClientWPF
             {
                  Add_Click_Plan, Show_All_Plans_Click, Delete_Plan, Save_New_Plan_Click
             };
+            List<RoutedEventHandler> delegates_Reports = new List<RoutedEventHandler>()
+            {
+                 
+            };
             List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
             delegates__.Add(delegates_Profits);
             delegates__.Add(delegates_Expence);
             delegates__.Add(delegates_Plans);
+            delegates__.Add(delegate_Reports);
             delegates = delegates__;
             //buttons, which will change by delegats
             List<Button> buttons_ = new List<Button>
@@ -91,11 +96,15 @@ namespace OrganizerClientWPF
             save_add.Visibility = Visibility.Collapsed;
 
             budget_grid2.Visibility = Visibility.Visible;
-            var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
+            List <Profit_ExpenceDAL> profits_list;
             Binding binding = new Binding();
             if (_dalCl.GetTypeUser(CurrentUser.Login))
             {
-
+               profits_list = _dalCl.Get_All_Profits();
+            }
+            else
+            {
+                profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             }
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
             {

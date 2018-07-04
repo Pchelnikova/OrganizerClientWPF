@@ -97,21 +97,24 @@
                   Grid.Row="3"
                   Margin="30,10,20,10"
                   HorizontalContentAlignment="Center" 
-                  VerticalAlignment="Center">
-            <TextBlock Text="Junior"
+                  VerticalAlignment="Center"
+                  Visibility="Collapsed"/>
+        <TextBlock Text="Junior"
                        FontSize="24" 
                        FontWeight="Bold"/>
-            <TextBlock Text="Senior" 
+        <TextBlock Text="Senior" 
                        FontSize="24" 
                        FontWeight="Bold"/>
-        </ComboBox>
-        <Button Content="change"
+
+        <ComboBox x:Name="Choose_user_for_change_status"
                 Grid.Column="3" 
                 Grid.Row="3" 
-                Margin="30,10,180,10" 
+                Margin="30,20,30,30" 
                 FontWeight="Bold" 
                 Background="#FFE08C84"
-                Click="Button_Click_5"/>
+                SelectionChanged="Choose_user_for_change_status_SelectionChanged"
+                
+                />
         <Button Grid.Row="4" 
                 Grid.Column="2"
                 Content="DELETE ACCOUNT" 

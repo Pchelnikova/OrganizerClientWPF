@@ -151,6 +151,10 @@ namespace DALOrganizerClientWPF
         {
             return _service.GetTypeUser( login);
         }
+        public List<string> GetAllJuniors()
+        {
+            return _service.GetJuniors();
+        }
 
         #endregion
 
