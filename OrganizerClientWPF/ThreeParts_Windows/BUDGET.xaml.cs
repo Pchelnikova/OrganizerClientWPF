@@ -120,7 +120,7 @@ namespace OrganizerClientWPF
             budget_grid2.Visibility = Visibility.Visible;
             List <Profit_ExpenceDAL> profits_list;
             Binding binding = new Binding();
-            if (_dalCl.GetTypeUser(CurrentUser.Login))
+            if (_dalCl.GetTypeUser(CurrentUser.Login)==true)
             {
                profits_list = _dalCl.Get_All_Profits();
             }
@@ -550,10 +550,7 @@ namespace OrganizerClientWPF
         {
 
         }
-        // public List<string, decimal> Get_Sum_byType_forChart_Profits()
-        // {
-        //     return _dalCl.Get_Sum_byType_forChart_Profits();
-        // }
+        
 
         #endregion
 
