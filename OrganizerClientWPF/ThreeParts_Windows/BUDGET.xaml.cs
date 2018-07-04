@@ -149,16 +149,14 @@ namespace OrganizerClientWPF
             {
 
             }
-
         }
-
 
         private void Delete_Profit(object sender, RoutedEventArgs e)
         {
+           
             if (budget_Grid.SelectedIndex > -1)
             {
-                var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
-
+                 var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
                 _dalCl.Delete_Profit(profit, CurrentUser.Login);
             }
             Show_All_Profits_Click(sender, e);
@@ -198,9 +196,9 @@ namespace OrganizerClientWPF
             Binding binding = new Binding();
             if (Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList()) != null)
             {
-                // binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList());
-                // budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
-                // budget_Grid.Visibility = Visibility.Visible;
+                binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(_dalCl.Get_All_Expance(CurrentUser.Login).ToList());
+                budget_Grid.SetBinding(DataGrid.ItemsSourceProperty, binding);
+                budget_Grid.Visibility = Visibility.Visible;
                 delete.Content = "DELETE";
                 delete.Visibility = Visibility.Visible;
             }
@@ -220,7 +218,7 @@ namespace OrganizerClientWPF
         private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (type.Text != String.Empty && description.Text != String.Empty && result == true)
+            if (type.Text != String.Empty  && result == true)
             {
                 Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
                 {
@@ -233,7 +231,7 @@ namespace OrganizerClientWPF
                 sum.Text = "";
                 description.Text = "";
             }
-            else
+            else if (result == false)
             {
                 sum.Text = "Input DIGITALS, please!";
                 sum.FontSize = 16;
@@ -297,7 +295,7 @@ namespace OrganizerClientWPF
         private void Save_New_Plan_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (type.Text != String.Empty && description.Text != String.Empty && result == true)
+            if (type.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_plan = new Profit_ExpenceWPF_DTO()
                 {
@@ -310,7 +308,7 @@ namespace OrganizerClientWPF
                 sum.Text = "";
                 description.Text = "";
             }
-            else
+            else if (result == false)
             {
                 sum.Text = "Input DIGITALS, please!";
                 sum.FontSize = 16;
