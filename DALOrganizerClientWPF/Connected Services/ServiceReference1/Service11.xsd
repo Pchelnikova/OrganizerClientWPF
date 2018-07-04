@@ -333,18 +333,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Get_Sum_byType_forChart_Profits">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Get_Sum_byType_forChart_ProfitsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Get_Sum_byType_forChart_ProfitsResult" nillable="true" type="q14:ArrayOfKeyValueOfstringdecimal" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Get_All_Wishes">
     <xs:complexType>
       <xs:sequence>
@@ -355,14 +343,14 @@
   <xs:element name="Get_All_WishesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_WishesResult" nillable="true" type="q15:ArrayOfProfit_ExpanceWCF" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="Get_All_WishesResult" nillable="true" type="q14:ArrayOfProfit_ExpanceWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Save_New_Wish">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_wish" nillable="true" type="q16:Profit_ExpanceWCF" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="new_wish" nillable="true" type="q15:Profit_ExpanceWCF" />
         <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -381,7 +369,36 @@
   <xs:element name="GetWishTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetWishTypesResult" nillable="true" type="q17:ArrayOfstring" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetWishTypesResult" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Name_byType_forChart_Profits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Name_byType_forChart_ProfitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Get_Name_byType_forChart_ProfitsResult" nillable="true" type="q17:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Sum_byType_forChart_Profits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="profit" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Sum_byType_forChart_ProfitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Get_Sum_byType_forChart_ProfitsResult" nillable="true" type="q18:ArrayOfdecimal" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

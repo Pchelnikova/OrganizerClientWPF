@@ -158,12 +158,6 @@
   <wsdl:message name="IService1_Diary_ByDate_OutputMessage">
     <wsdl:part name="parameters" element="tns:Diary_ByDateResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_Get_Sum_byType_forChart_Profits_InputMessage">
-    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_Profits" />
-  </wsdl:message>
-  <wsdl:message name="IService1_Get_Sum_byType_forChart_Profits_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_ProfitsResponse" />
-  </wsdl:message>
   <wsdl:message name="IService1_Get_All_Wishes_InputMessage">
     <wsdl:part name="parameters" element="tns:Get_All_Wishes" />
   </wsdl:message>
@@ -181,6 +175,18 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetWishTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetWishTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Name_byType_forChart_Profits_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Name_byType_forChart_Profits" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Name_byType_forChart_Profits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Name_byType_forChart_ProfitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Sum_byType_forChart_Profits_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_Profits" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Sum_byType_forChart_Profits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_ProfitsResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
@@ -283,10 +289,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Diary_ByDate" message="tns:IService1_Diary_ByDate_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Diary_ByDateResponse" message="tns:IService1_Diary_ByDate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_Sum_byType_forChart_Profits">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" message="tns:IService1_Get_Sum_byType_forChart_Profits_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse" message="tns:IService1_Get_Sum_byType_forChart_Profits_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="Get_All_Wishes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Wishes" message="tns:IService1_Get_All_Wishes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_WishesResponse" message="tns:IService1_Get_All_Wishes_OutputMessage" />
@@ -298,6 +300,14 @@
     <wsdl:operation name="GetWishTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetWishTypes" message="tns:IService1_GetWishTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetWishTypesResponse" message="tns:IService1_GetWishTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_byType_forChart_Profits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Name_byType_forChart_Profits" message="tns:IService1_Get_Name_byType_forChart_Profits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Name_byType_forChart_ProfitsResponse" message="tns:IService1_Get_Name_byType_forChart_Profits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Sum_byType_forChart_Profits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" message="tns:IService1_Get_Sum_byType_forChart_Profits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse" message="tns:IService1_Get_Sum_byType_forChart_Profits_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -527,15 +537,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_Sum_byType_forChart_Profits">
-      <soap:operation soapAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Get_All_Wishes">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Wishes" style="document" />
       <wsdl:input>
@@ -556,6 +557,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetWishTypes">
       <soap:operation soapAction="http://tempuri.org/IService1/GetWishTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_byType_forChart_Profits">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_Name_byType_forChart_Profits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Sum_byType_forChart_Profits">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -321,12 +321,6 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Diary_ByDate", ReplyAction="http://tempuri.org/IService1/Diary_ByDateResponse")]
         System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Diary_WCF[]> Diary_ByDateAsync(string login, System.DateTime date1, System.DateTime date2);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse")]
-        System.Collections.Generic.Dictionary<string, decimal> Get_Sum_byType_forChart_Profits();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, decimal>> Get_Sum_byType_forChart_ProfitsAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_All_Wishes", ReplyAction="http://tempuri.org/IService1/Get_All_WishesResponse")]
         DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Wishes(string login);
         
@@ -344,6 +338,18 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetWishTypes", ReplyAction="http://tempuri.org/IService1/GetWishTypesResponse")]
         System.Threading.Tasks.Task<string[]> GetWishTypesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Name_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Name_byType_forChart_ProfitsResponse")]
+        string[] Get_Name_byType_forChart_Profits(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Name_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Name_byType_forChart_ProfitsResponse")]
+        System.Threading.Tasks.Task<string[]> Get_Name_byType_forChart_ProfitsAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse")]
+        decimal[] Get_Sum_byType_forChart_Profits(string login, string profit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits", ReplyAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse")]
+        System.Threading.Tasks.Task<decimal[]> Get_Sum_byType_forChart_ProfitsAsync(string login, string profit);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -573,14 +579,6 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
             return base.Channel.Diary_ByDateAsync(login, date1, date2);
         }
         
-        public System.Collections.Generic.Dictionary<string, decimal> Get_Sum_byType_forChart_Profits() {
-            return base.Channel.Get_Sum_byType_forChart_Profits();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, decimal>> Get_Sum_byType_forChart_ProfitsAsync() {
-            return base.Channel.Get_Sum_byType_forChart_ProfitsAsync();
-        }
-        
         public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Wishes(string login) {
             return base.Channel.Get_All_Wishes(login);
         }
@@ -603,6 +601,22 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string[]> GetWishTypesAsync() {
             return base.Channel.GetWishTypesAsync();
+        }
+        
+        public string[] Get_Name_byType_forChart_Profits(string login) {
+            return base.Channel.Get_Name_byType_forChart_Profits(login);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> Get_Name_byType_forChart_ProfitsAsync(string login) {
+            return base.Channel.Get_Name_byType_forChart_ProfitsAsync(login);
+        }
+        
+        public decimal[] Get_Sum_byType_forChart_Profits(string login, string profit) {
+            return base.Channel.Get_Sum_byType_forChart_Profits(login, profit);
+        }
+        
+        public System.Threading.Tasks.Task<decimal[]> Get_Sum_byType_forChart_ProfitsAsync(string login, string profit) {
+            return base.Channel.Get_Sum_byType_forChart_ProfitsAsync(login, profit);
         }
     }
 }

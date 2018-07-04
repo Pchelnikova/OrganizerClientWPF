@@ -29,7 +29,7 @@ namespace OrganizerClientWPF
     public partial class BUDGET : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-
+        private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
         public enum ThreeButton { PROFIT, EXPENCE, PLAN };
 
         public User CurrentUser { get; } = new User();
@@ -69,10 +69,7 @@ namespace OrganizerClientWPF
             {
                 buttons[i].Click += delegates[0].FirstOrDefault(item => (delegates[0].IndexOf(item) == i));
             }
-
         }
-
-
 
         //open Profits CRUD
         #region
@@ -153,10 +150,10 @@ namespace OrganizerClientWPF
 
         private void Delete_Profit(object sender, RoutedEventArgs e)
         {
-           
+
             if (budget_Grid.SelectedIndex > -1)
             {
-                 var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
+                var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
                 _dalCl.Delete_Profit(profit, CurrentUser.Login);
             }
             Show_All_Profits_Click(sender, e);
@@ -218,7 +215,7 @@ namespace OrganizerClientWPF
         private void Save_New_Expence_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (type.Text != String.Empty  && result == true)
+            if (type.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_expence = new Profit_ExpenceWPF_DTO()
                 {
@@ -355,29 +352,47 @@ namespace OrganizerClientWPF
             chart.Visibility = Visibility.Visible;
 
             //for chart
-            PointLabel = chartPoint => string.Format("({1:P})", chartPoint.Y, chartPoint.Participation);
-            DataContext = this;
+            FillChart();
             ViewChart();
         }
+
         //for chart
+        public void FillChart()
+        {
+            decimal sum = 0;
+            List<string> name = new List<string>();
+            foreach (var item in _dalCl.Get_Name_byType_forChart_Profits(CurrentUser.Login))
+            {
+                name.Add(item);
+            }
+            for (int i = 0; i < name.Count; i++)
+            {
+                foreach (var s in _dalCl.Get_Sum_byType_forChart_Profits(CurrentUser.Login, name[i]))
+                {
+                    sum += s;
+                }
+                _dictionary.Add(name[i], sum);
+                sum = 0;
+            }
+            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            DataContext = this;
+        }
         public Func<ChartPoint, string> PointLabel { get; set; }
         private void ViewChart()
         {
-            
-            var exp = _dalCl.Get_All_Expance(CurrentUser.Login);
-            foreach (var item in exp)
+            foreach (var item in _dictionary)
             {
                 PieSeries p = new PieSeries()
                 {
-                    Values = new ChartValues<Decimal> { item.Sum },
-                    Title = item.Profit_Expance_Type,
+                    Values = new ChartValues<Decimal> { item.Value },
+                    Title = item.Key,
                     DataLabels = true,
                     LabelPoint = PointLabel
                 };
                 chart.Series.Add(p);
             }
-
         }
+
         // Open Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
@@ -439,6 +454,7 @@ namespace OrganizerClientWPF
             foreach (var routedEventHandler in routedEventHandlers)
                 b.Click -= (RoutedEventHandler)routedEventHandler.Handler;
         }
+
         //Change methods for buttons by main buttons Profit/Expence/Plan
         private void Choise_Buttons(int number_of_button)
         {
@@ -480,15 +496,14 @@ namespace OrganizerClientWPF
             user_Account.Show();
             this.Close();
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
-        public Dictionary<string, decimal> Get_Sum_byType_forChart_Profits()
-        {
-            return _dalCl.Get_Sum_byType_forChart_Profits();
-        }
+        // public List<string, decimal> Get_Sum_byType_forChart_Profits()
+        // {
+        //     return _dalCl.Get_Sum_byType_forChart_Profits();
+        // }
 
         #endregion
 
