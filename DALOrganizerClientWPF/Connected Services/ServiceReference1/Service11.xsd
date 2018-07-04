@@ -481,4 +481,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Delete_Wish">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WcfService.DataContracts" minOccurs="0" name="profit_ExpanceWCF" nillable="true" type="q24:Profit_ExpanceWCF" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete_WishResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

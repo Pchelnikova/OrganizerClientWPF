@@ -224,6 +224,12 @@
   <wsdl:message name="IService1_Get_Sum_byType_forChart_Expense_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_ExpenseResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Delete_Wish_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_Wish" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_Wish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_WishResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -368,6 +374,10 @@
     <wsdl:operation name="Get_Sum_byType_forChart_Expense">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Expense" message="tns:IService1_Get_Sum_byType_forChart_Expense_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_ExpenseResponse" message="tns:IService1_Get_Sum_byType_forChart_Expense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Wish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_Wish" message="tns:IService1_Delete_Wish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_WishResponse" message="tns:IService1_Delete_Wish_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -689,6 +699,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_Sum_byType_forChart_Expense">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_Expense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Wish">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_Wish" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

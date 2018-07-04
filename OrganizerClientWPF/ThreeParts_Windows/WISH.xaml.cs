@@ -23,13 +23,13 @@ namespace OrganizerClientWPF
         {
             InitializeComponent();
             CurrentUser = currentUser;
-            title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Wish-List";
+            Title.Text = CurrentUser.Login.ToString().ToUpper() + "'s Wish-List";
 
             Binding binding = new Binding
             {
                 Source = _dal.GetWishTypes()
             };
-            type.SetBinding(ComboBox.ItemsSourceProperty, binding);
+            Type.SetBinding(ComboBox.ItemsSourceProperty, binding);
         }
         private void See_All_Wishes_Click(object sender, RoutedEventArgs e)
         {
@@ -52,24 +52,24 @@ namespace OrganizerClientWPF
         }
         private void Save_Note_Click(object sender, RoutedEventArgs e)
         {
-            var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (Diary_Text.Text != String.Empty && type.Text != String.Empty && result == true)
+            var result = Decimal.TryParse(Sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
+            if (Diary_Text.Text != String.Empty && Type.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_wish = new Profit_ExpenceWPF_DTO()
                 {
-                    Date_ = date.SelectedDate ?? DateTime.Now,
+                    Date_ = Date.SelectedDate ?? DateTime.Now,
                     Sum = number,
-                    Profit_Expance_Type = type.Text.ToString(),
+                    Profit_Expance_Type = Type.Text.ToString(),
                     Description = Diary_Text.Text
                 };
-                _dal.Save_New_Wish(Converter_Profit_Expence.WPF_to_DAL(new_wish), type.Text, CurrentUser.Login);
-                sum.Text = "";
+                _dal.Save_New_Wish(Converter_Profit_Expence.WPF_to_DAL(new_wish), Type.Text, CurrentUser.Login);
+                Sum.Text = "";
                 Diary_Text.Text = "";
             }
             else
             {
-                sum.Text = "Input DIGITALS, please!";
-                sum.FontSize = 16;
+                Sum.Text = "Input DIGITALS, please!";
+                Sum.FontSize = 16;
             }
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -92,12 +92,17 @@ namespace OrganizerClientWPF
         }
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Wish_Grid.SelectedIndex > -1)
+            {
+                MessageBox.Show("A");
+                var wish = Converter_Profit_Expence.WPF_to_DAL(Wish_Grid.Items[Wish_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
+                _dal.Delete_Profit(wish, CurrentUser.Login);
+            }
+            See_All_Wishes_Click(sender, e);
         }
-
         private void Sum_GotFocus(object sender, RoutedEventArgs e)
         {
-            sum.Text = string.Empty;
+            Sum.Text = string.Empty;
         }
     }
 }
