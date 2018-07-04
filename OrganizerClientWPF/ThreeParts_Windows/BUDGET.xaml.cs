@@ -29,7 +29,8 @@ namespace OrganizerClientWPF
     public partial class BUDGET : MetroWindow
     {
         private readonly DataDAL _dalCl = new DataDAL();
-        private Dictionary<string, decimal> _dictionary = new Dictionary<string, decimal>();
+        private Dictionary<string, decimal> _dictionaryExpense = new Dictionary<string, decimal>();
+        private Dictionary<string, decimal> _dictionaryProfits = new Dictionary<string, decimal>();
         public enum ThreeButton { PROFIT, EXPENCE, PLAN, REPORTS };
 
         public User CurrentUser { get; } = new User();
@@ -81,11 +82,21 @@ namespace OrganizerClientWPF
         //!!!!!!
         private void Chart_Profits_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("A");
+            Chart.Series.Clear();
+            _dictionaryProfits.Clear();
+            Chart.Series.Clear();
+            Chart.Visibility = Visibility.Visible;
+            FillChart_Profits(_dictionaryProfits);
+            ViewChart(_dictionaryProfits);
         }
         private void Chart_Expense_Click(object sender, RoutedEventArgs e)
         {
-
+            Chart.Series.Clear();
+            _dictionaryExpense.Clear();
+            Chart.Series.Clear();
+            Chart.Visibility = Visibility.Visible;
+            FillChart_Expenses(_dictionaryExpense);
+            ViewChart(_dictionaryExpense);
         }
         //!!!!!!!!!!
 
@@ -100,7 +111,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Profits";
             delete.Content = "Delete Profit";
             Choise_Buttons((int)ThreeButton.PROFIT);
-            chart.Visibility = Visibility.Collapsed;
+            Chart.Visibility = Visibility.Collapsed;
 
         }
 
@@ -174,10 +185,8 @@ namespace OrganizerClientWPF
 
             }
         }
-
         private void Delete_Profit(object sender, RoutedEventArgs e)
         {
-
             if (budget_Grid.SelectedIndex > -1)
             {
                 var profit = Converter_Profit_Expence.WPF_to_DAL(budget_Grid.Items[budget_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
@@ -196,7 +205,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Expences";
             delete.Content = "Delete Expence";
             Choise_Buttons((int)ThreeButton.EXPENCE);
-            chart.Visibility = Visibility.Collapsed;
+            Chart.Visibility = Visibility.Collapsed;
         }
         private void Add_Click_Expance(object sender, RoutedEventArgs e)
         {
@@ -272,7 +281,7 @@ namespace OrganizerClientWPF
             show_all.Content = "Show all Plans";
             delete.Content = "Delete Plan";
             Choise_Buttons((int)ThreeButton.PLAN);
-            chart.Visibility = Visibility.Collapsed;
+            Chart.Visibility = Visibility.Collapsed;
         }
         private void Add_Click_Plan(object sender, RoutedEventArgs e)
         {
@@ -366,27 +375,32 @@ namespace OrganizerClientWPF
         #endregion
 
         //Open Reports
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Reports_Click(object sender, RoutedEventArgs e)
         {
             border_add.Visibility = Visibility.Hidden;
             edit.Visibility = Visibility.Hidden;
             delete.Visibility = Visibility.Hidden;
+            
             //change button "add" and "show_all"
-            add.Content = "PROFITS";
-            show_all.Content = "EXPANCE";
+            add.Content = "PROFITS CHART";
+            show_all.Content = "EXPANCE CHART";
 
             add.Visibility = Visibility.Visible;
             show_all.Visibility = Visibility.Visible;
-            chart.Visibility = Visibility.Visible;
+            Chart.Visibility = Visibility.Visible;
             Choise_Buttons((int)ThreeButton.REPORTS);
-
-            //for chart
-            FillChart();
-            ViewChart();
         }
+        private void Delete_Report(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void Delete_Report2(object sender, RoutedEventArgs e)
+        {
 
-        //for chart
-        public void FillChart()
+        }
+        #region Charts 
+        //методи 355 і 375 злити в один метод 
+        public void FillChart_Profits(Dictionary<string, decimal> dic)
         {
             decimal sum = 0;
             List<string> name = new List<string>();
@@ -400,36 +414,49 @@ namespace OrganizerClientWPF
                 {
                     sum += s;
                 }
-                _dictionary.Add(name[i], sum);
+                dic.Add(name[i], sum);
                 sum = 0;
             }
-            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-            DataContext = this;
+        }
+        public void FillChart_Expenses(Dictionary<string, decimal> dic)
+        {
+            decimal sum = 0;
+            List<string> name = new List<string>();
+            foreach (var item in _dalCl.Get_Name_byType_forChart_Expense(CurrentUser.Login))
+            {
+                name.Add(item);
+            }
+            for (int i = 0; i < name.Count; i++)
+            {
+                foreach (var s in _dalCl.Get_Sum_byType_forChart_Expense(CurrentUser.Login, name[i]))
+                {
+                    sum += s;
+                }
+                dic.Add(name[i], sum);
+                sum = 0;
+            }
         }
         public Func<ChartPoint, string> PointLabel { get; set; }
-        private void ViewChart()
+        private void ViewChart(Dictionary<string, decimal> dic)
         {
-            foreach (var item in _dictionary)
+            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            DataContext = this;
+            foreach (var item in dic)
             {
                 PieSeries p = new PieSeries()
                 {
                     Values = new ChartValues<Decimal> { item.Value },
                     Title = item.Key,
                     DataLabels = true,
-                    LabelPoint = PointLabel
+                    LabelPoint = PointLabel,
+                    FontSize = 12
                 };
-                chart.Series.Add(p);
+                Chart.Series.Add(p);
             }
-        }
-        private void Delete_Report(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void Delete_Report2(object sender, RoutedEventArgs e)
-        {
 
         }
-
+        
+        #endregion
         // Open Dairy
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
@@ -544,5 +571,6 @@ namespace OrganizerClientWPF
 
         #endregion
 
+       
     }
 }
