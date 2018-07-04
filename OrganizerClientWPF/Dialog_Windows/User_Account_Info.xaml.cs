@@ -42,8 +42,8 @@ namespace OrganizerClientWPF
                 Choose_user_for_change_status.Visibility = Visibility.Visible;
                 Binding binding2 = new Binding();
                 binding2.Source = (_dal.GetAllRangs().ToList());
-                Choose_user_for_change_status.SetBinding(DataGrid.ItemsSourceProperty, binding);
-                Choose_user_for_change_status.Visibility = Visibility.Visible;
+                Status_ComboBox.SetBinding(DataGrid.ItemsSourceProperty, binding2);
+                Status_ComboBox.Visibility = Visibility.Visible;
 
             }
         }
@@ -77,7 +77,7 @@ namespace OrganizerClientWPF
             }
             if (_change_status == true)
             {
-                _dal.ChangeUser_Status(CurrentUser.Login, Status_ComboBox.Text);
+                _dal.ChangeUser_Status(Choose_user_for_change_status.SelectedValue.ToString(), Status_ComboBox.Text);
             }
         }
         //button Delete Account

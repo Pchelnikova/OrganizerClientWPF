@@ -118,16 +118,8 @@ namespace OrganizerClientWPF
             save_add.Visibility = Visibility.Collapsed;
 
             budget_grid2.Visibility = Visibility.Visible;
-            List <Profit_ExpenceDAL> profits_list;
+            List <Profit_ExpenceDAL> profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
-            if (_dalCl.GetTypeUser(CurrentUser.Login)==true)
-            {
-               profits_list = _dalCl.Get_All_Profits();
-            }
-            else
-            {
-                profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
-            }
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
             {
                 binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList());
