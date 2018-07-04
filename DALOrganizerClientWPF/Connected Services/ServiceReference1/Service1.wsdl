@@ -212,6 +212,18 @@
   <wsdl:message name="IService1_GetAllRangs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllRangsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Get_Name_byType_forChart_Expense_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Name_byType_forChart_Expense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Name_byType_forChart_Expense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Name_byType_forChart_ExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Sum_byType_forChart_Expense_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_Expense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_Sum_byType_forChart_Expense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_ExpenseResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -348,6 +360,14 @@
     <wsdl:operation name="GetAllRangs">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllRangs" message="tns:IService1_GetAllRangs_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllRangsResponse" message="tns:IService1_GetAllRangs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_byType_forChart_Expense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Name_byType_forChart_Expense" message="tns:IService1_Get_Name_byType_forChart_Expense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Name_byType_forChart_ExpenseResponse" message="tns:IService1_Get_Name_byType_forChart_Expense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Sum_byType_forChart_Expense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Expense" message="tns:IService1_Get_Sum_byType_forChart_Expense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_ExpenseResponse" message="tns:IService1_Get_Sum_byType_forChart_Expense_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -651,6 +671,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllRangs">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAllRangs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Name_byType_forChart_Expense">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_Name_byType_forChart_Expense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Sum_byType_forChart_Expense">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_Expense" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

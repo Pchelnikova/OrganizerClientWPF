@@ -55,7 +55,7 @@ namespace OrganizerClientWPF
             };
             List<RoutedEventHandler> delegates_Reports = new List<RoutedEventHandler>()
             {
-                 Chart_Profits_click, Chart_Expense_Click
+                 Chart_Profits_click, Chart_Expense_Click, Delete_Report, Delete_Report2
             };
             List<List<RoutedEventHandler>> delegates__ = new List<List<RoutedEventHandler>>();
             delegates__.Add(delegates_Profits);
@@ -81,7 +81,7 @@ namespace OrganizerClientWPF
         //!!!!!!
         private void Chart_Profits_click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("A");
         }
         private void Chart_Expense_Click(object sender, RoutedEventArgs e)
         {
@@ -316,6 +316,7 @@ namespace OrganizerClientWPF
             }
             Show_All_Plans_Click(sender, e);
         }
+
         private void Save_New_Plan_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
@@ -377,6 +378,7 @@ namespace OrganizerClientWPF
             add.Visibility = Visibility.Visible;
             show_all.Visibility = Visibility.Visible;
             chart.Visibility = Visibility.Visible;
+            Choise_Buttons((int)ThreeButton.REPORTS);
 
             //for chart
             FillChart();
@@ -418,6 +420,14 @@ namespace OrganizerClientWPF
                 };
                 chart.Series.Add(p);
             }
+        }
+        private void Delete_Report(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void Delete_Report2(object sender, RoutedEventArgs e)
+        {
+
         }
 
         // Open Dairy
