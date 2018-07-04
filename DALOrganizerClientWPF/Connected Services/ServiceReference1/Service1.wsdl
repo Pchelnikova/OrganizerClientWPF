@@ -32,6 +32,12 @@
   <wsdl:message name="IService1_Get_All_Profits_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_All_ProfitsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_Get_All_Profits_forOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Profits_forOwner" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_All_Profits_forOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_All_Profits_forOwnerResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_Get_All_Expance_InputMessage">
     <wsdl:part name="parameters" element="tns:Get_All_Expance" />
   </wsdl:message>
@@ -211,6 +217,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Profits" message="tns:IService1_Get_All_Profits_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_ProfitsResponse" message="tns:IService1_Get_All_Profits_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Get_All_Profits_forOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Profits_forOwner" message="tns:IService1_Get_All_Profits_forOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_Profits_forOwnerResponse" message="tns:IService1_Get_All_Profits_forOwner_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Get_All_Expance">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Expance" message="tns:IService1_Get_All_Expance_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_All_ExpanceResponse" message="tns:IService1_Get_All_Expance_OutputMessage" />
@@ -351,6 +361,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_All_Profits">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Profits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_All_Profits_forOwner">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_All_Profits_forOwner" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

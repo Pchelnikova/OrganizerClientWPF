@@ -40,11 +40,15 @@ namespace DALOrganizerClientWPF
         {
             return _service.GetWishTypes().ToList();
         }
-        //Budget Profits CRUD 
+        #region  Budget Profits CRUD 
         public List<Profit_ExpenceDAL> Get_All_Profits (string login)
         {
             return Converters.ConverterProfitExpence.WCF_to_DAL_List(_service.Get_All_Profits(login));           
-        }        
+        }
+        public List<Profit_ExpenceDAL> Get_All_Profits()
+        {
+            return Converters.ConverterProfitExpence.WCF_to_DAL_List(_service.Get_All_Profits_forOwner());
+        }
         public void Save_New_Profit(Profit_ExpenceDAL new_profit, string Type, string login)
         {
             _service.Save_New_Profit(ConverterProfitExpence.DAL_to_WCF(new_profit), Type, login);
@@ -53,7 +57,7 @@ namespace DALOrganizerClientWPF
         {
             _service.Delete_Profit(ConverterProfitExpence.DAL_to_WCF(profit), login);
         }
-       
+        #endregion
         //Budget Expence CRUD
         public List<Profit_ExpenceDAL> Get_All_Expance(string login)
         {
@@ -138,11 +142,15 @@ namespace DALOrganizerClientWPF
         {
             return _service.GetExpanceTypes().ToList();
         }
-        public string GetTypeUser(string login)
+        /// <summary>
+        /// Check of rang of User
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns>Return "true", if rang of user is high ("Senior")</returns>
+        public bool GetTypeUser(string login)
         {
             return _service.GetTypeUser( login);
         }
-
 
         #endregion
 

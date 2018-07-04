@@ -71,8 +71,8 @@ namespace OrganizerClientWPF
             }
         }
 
-        //open Profits CRUD
-        #region
+        
+        #region  Profits CRUD 
         private void Profits_Click(object sender, RoutedEventArgs e)
         {
 
@@ -93,6 +93,10 @@ namespace OrganizerClientWPF
             budget_grid2.Visibility = Visibility.Visible;
             var profits_list = _dalCl.Get_All_Profits(CurrentUser.Login);
             Binding binding = new Binding();
+            if (_dalCl.GetTypeUser(CurrentUser.Login))
+            {
+
+            }
             if (Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList()) != null)
             {
                 binding.Source = Converter_Profit_Expence.DAL_to_WPF_List(profits_list.ToList());

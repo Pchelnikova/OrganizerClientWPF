@@ -195,6 +195,12 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_All_Profits", ReplyAction="http://tempuri.org/IService1/Get_All_ProfitsResponse")]
         System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Get_All_ProfitsAsync(string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_All_Profits_forOwner", ReplyAction="http://tempuri.org/IService1/Get_All_Profits_forOwnerResponse")]
+        DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Profits_forOwner();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_All_Profits_forOwner", ReplyAction="http://tempuri.org/IService1/Get_All_Profits_forOwnerResponse")]
+        System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Get_All_Profits_forOwnerAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Get_All_Expance", ReplyAction="http://tempuri.org/IService1/Get_All_ExpanceResponse")]
         DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Expance(string login);
         
@@ -352,10 +358,10 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         System.Threading.Tasks.Task<decimal[]> Get_Sum_byType_forChart_ProfitsAsync(string login, string profit);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTypeUser", ReplyAction="http://tempuri.org/IService1/GetTypeUserResponse")]
-        string GetTypeUser(string login);
+        bool GetTypeUser(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTypeUser", ReplyAction="http://tempuri.org/IService1/GetTypeUserResponse")]
-        System.Threading.Tasks.Task<string> GetTypeUserAsync(string login);
+        System.Threading.Tasks.Task<bool> GetTypeUserAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -415,6 +421,14 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Get_All_ProfitsAsync(string login) {
             return base.Channel.Get_All_ProfitsAsync(login);
+        }
+        
+        public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Profits_forOwner() {
+            return base.Channel.Get_All_Profits_forOwner();
+        }
+        
+        public System.Threading.Tasks.Task<DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[]> Get_All_Profits_forOwnerAsync() {
+            return base.Channel.Get_All_Profits_forOwnerAsync();
         }
         
         public DALOrganizerClientWPF.ServiceReference1.Profit_ExpanceWCF[] Get_All_Expance(string login) {
@@ -625,11 +639,11 @@ namespace DALOrganizerClientWPF.ServiceReference1 {
             return base.Channel.Get_Sum_byType_forChart_ProfitsAsync(login, profit);
         }
         
-        public string GetTypeUser(string login) {
+        public bool GetTypeUser(string login) {
             return base.Channel.GetTypeUser(login);
         }
         
-        public System.Threading.Tasks.Task<string> GetTypeUserAsync(string login) {
+        public System.Threading.Tasks.Task<bool> GetTypeUserAsync(string login) {
             return base.Channel.GetTypeUserAsync(login);
         }
     }
