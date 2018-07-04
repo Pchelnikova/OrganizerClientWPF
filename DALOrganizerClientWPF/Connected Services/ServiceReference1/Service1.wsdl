@@ -188,6 +188,12 @@
   <wsdl:message name="IService1_Get_Sum_byType_forChart_Profits_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_Sum_byType_forChart_ProfitsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTypeUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTypeUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="Get_All_Notes">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_All_Notes" message="tns:IService1_Get_All_Notes_InputMessage" />
@@ -308,6 +314,10 @@
     <wsdl:operation name="Get_Sum_byType_forChart_Profits">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" message="tns:IService1_Get_Sum_byType_forChart_Profits_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_Sum_byType_forChart_ProfitsResponse" message="tns:IService1_Get_Sum_byType_forChart_Profits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTypeUser" message="tns:IService1_GetTypeUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTypeUserResponse" message="tns:IService1_GetTypeUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -575,6 +585,15 @@
     </wsdl:operation>
     <wsdl:operation name="Get_Sum_byType_forChart_Profits">
       <soap:operation soapAction="http://tempuri.org/IService1/Get_Sum_byType_forChart_Profits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTypeUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

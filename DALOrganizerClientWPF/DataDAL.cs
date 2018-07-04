@@ -102,7 +102,7 @@ namespace DALOrganizerClientWPF
         }
         #endregion
 
-        //authorization
+        #region authorization
         public bool Authorization (string login, string parol)
         {
             return _service.Authorization(login, parol);
@@ -111,15 +111,6 @@ namespace DALOrganizerClientWPF
         public bool Create_New_User (string login, string password)
         {
             return _service.Create_New_User(login, password);
-        }
-        //Get Types of Budget
-        public List<string> GetProfitsTypes ()
-        {
-            return _service.GetProfitsTypes().ToList();          
-        }
-        public List<string> GetExpanceTypes()
-        {
-            return _service.GetExpanceTypes().ToList();
         }
         public void DeleteUser(string login)
         {
@@ -137,6 +128,24 @@ namespace DALOrganizerClientWPF
         {
             _service.ChangeUser_Status(login, newStatus);
         }
+        #endregion
+        #region Get Types of Budget and User
+        public List<string> GetProfitsTypes ()
+        {
+            return _service.GetProfitsTypes().ToList();          
+        }
+        public List<string> GetExpanceTypes()
+        {
+            return _service.GetExpanceTypes().ToList();
+        }
+        public string GetTypeUser(string login)
+        {
+            return _service.GetTypeUser( login);
+        }
+
+
+        #endregion
+
         public List<DiaryDAL> Diary_ByDate(string login, DateTime date1, DateTime date2)
         {
             return ConvertDiary.WCF_to_DAL(_service.Diary_ByDate(login, date1, date2));

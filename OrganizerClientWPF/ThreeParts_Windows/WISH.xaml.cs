@@ -93,9 +93,6 @@ namespace OrganizerClientWPF
         {
 
         }
-        //private void dairy_Grid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-
-        //}
+        
     }
 }
