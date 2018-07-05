@@ -18,7 +18,6 @@ namespace OrganizerClientWPF
     {
         private readonly DataDAL _dal = new DataDAL();
         public User CurrentUser { get; } = new User();
-
         public WISH (User currentUser)
         {
             InitializeComponent();
@@ -31,6 +30,7 @@ namespace OrganizerClientWPF
             };
             Type.SetBinding(ComboBox.ItemsSourceProperty, binding);
         }
+        //all wishes
         private void See_All_Wishes_Click(object sender, RoutedEventArgs e)
         {
             Wish_Grid.Visibility = Visibility.Visible;
@@ -50,6 +50,7 @@ namespace OrganizerClientWPF
             left_grid.Visibility = Visibility.Visible;
             Diary_Text.Visibility = Visibility.Visible;
         }
+        //save new wish
         private void Save_Note_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(Sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
@@ -72,24 +73,6 @@ namespace OrganizerClientWPF
                 Sum.FontSize = 16;
             }
         }
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            DIARY diary = new DIARY(CurrentUser);
-            diary.Show();
-            this.Close();
-        }
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            BUDGET budget = new BUDGET(CurrentUser);
-            budget.Show();
-            this.Close();
-        }
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            User_Account_Info user_Account = new User_Account_Info(CurrentUser);
-            user_Account.Show();
-            this.Close();
-        }
         private void Delete_Note_Click(object sender, RoutedEventArgs e)
         {
             if (Wish_Grid.SelectedIndex > -1)
@@ -103,6 +86,24 @@ namespace OrganizerClientWPF
         private void Sum_GotFocus(object sender, RoutedEventArgs e)
         {
             Sum.Text = string.Empty;
+        }
+        private void Back_To_Budjet_Click(object sender, RoutedEventArgs e)
+        {
+            BUDGET budget = new BUDGET(CurrentUser);
+            budget.Show();
+            this.Close();
+        }
+        private void Back_To_Diary_Click(object sender, RoutedEventArgs e)
+        {
+            DIARY diary = new DIARY(CurrentUser);
+            diary.Show();
+            this.Close();
+        }
+        private void User_Acc_Click(object sender, RoutedEventArgs e)
+        {
+            User_Account_Info user_Account = new User_Account_Info(CurrentUser);
+            user_Account.Show();
+            this.Close();
         }
     }
 }
