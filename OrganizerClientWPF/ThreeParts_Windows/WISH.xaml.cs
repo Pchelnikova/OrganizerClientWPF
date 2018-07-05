@@ -94,9 +94,9 @@ namespace OrganizerClientWPF
         {
             if (Wish_Grid.SelectedIndex > -1)
             {
-                MessageBox.Show("A");
+               
                 var wish = Converter_Profit_Expence.WPF_to_DAL(Wish_Grid.Items[Wish_Grid.SelectedIndex] as Profit_ExpenceWPF_DTO);
-                _dal.Delete_Profit(wish, CurrentUser.Login);
+                _dal.Delete_Wish(wish, CurrentUser.Login);
             }
             See_All_Wishes_Click(sender, e);
         }

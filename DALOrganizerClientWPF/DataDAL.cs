@@ -40,9 +40,9 @@ namespace DALOrganizerClientWPF
         {
             return _service.GetWishTypes().ToList();
         }
-        public void Delete_Wish(Profit_ExpenceDAL expence, string login)
+        public void Delete_Wish(Profit_ExpenceDAL wish, string login)
         {
-            _service.Delete_Wish(ConverterProfitExpence.DAL_to_WCF(expence), login);
+            _service.Delete_Wish(ConverterProfitExpence.DAL_to_WCF(wish), login);
         }
         #region  Budget Profits CRUD 
         public List<Profit_ExpenceDAL> Get_All_Profits (string login)
