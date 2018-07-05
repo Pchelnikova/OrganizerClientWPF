@@ -53,7 +53,7 @@ namespace OrganizerClientWPF
         private void Save_Note_Click(object sender, RoutedEventArgs e)
         {
             var result = Decimal.TryParse(Sum.Text, NumberStyles.AllowCurrencySymbol, CultureInfo.CreateSpecificCulture("uk-UA"), out decimal number);
-            if (Diary_Text.Text != String.Empty && Type.Text != String.Empty && result == true)
+            if ( Type.Text != String.Empty && result == true)
             {
                 Profit_ExpenceWPF_DTO new_wish = new Profit_ExpenceWPF_DTO()
                 {

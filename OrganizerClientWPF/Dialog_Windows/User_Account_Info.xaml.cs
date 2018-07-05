@@ -44,6 +44,7 @@ namespace OrganizerClientWPF
                 binding2.Source = (_dal.GetAllRangs().ToList());
                 Status_ComboBox.SetBinding(DataGrid.ItemsSourceProperty, binding2);
                 Status_ComboBox.Visibility = Visibility.Visible;
+                Status_Label.Visibility = Visibility.Visible;
 
             }
         }
@@ -102,5 +103,7 @@ namespace OrganizerClientWPF
         {
 
         }
+
+       
     }
 }
